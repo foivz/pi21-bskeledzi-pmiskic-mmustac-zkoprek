@@ -23,15 +23,25 @@ Mateo Mustać | mmustac@foi.hr | 0016138017 | mmustac332
 Zvonimir Koprek | zkoprek@foi.hr | 0016135996 | zkoprek
 
 ## Opis domene
-Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.
+Domena aplikacije je tvrtka koja iznajmljuje automobile. Ova aplikacija omogućava iznajmljivanje automobila kupcu, odabir automobila te njegovih karakteristika, odabir lokacije na kojoj će se pokupiti automobil, naručivanje same rezervacije gdje kupac specificira lokaciju, datum, tip automobila koji želi i sl. Isto tako, kupac može uzeti osiguranje, ali i ne mora ako već ima osiguranje na svoju tvrtku ili kreditnu karticu. Središte aplikacijske domene je iznajmljivanje automobila na koji se vežu entiteti poput kupac, automobil i lokacija.
 
 ## Specifikacija projekta
-Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda. Pobrojite osnovne funkcionalnosti i za svaku naznačite ime odgovornog člana tima. Opišite buduću arhitekturu programskog proizvoda. Obratite pozornost da bi arhitektura trebala biti višeslojna s odvojenom (dislociranom) bazom podatka. Također uzmite u obzir da bi svaki član tima treba biti odgovorana za otprilike 3 funkcionalnosti, te da bi opterećenje članova tima trebalo biti ujednačeno. Priložite odgovarajuće dijagrame i skice gdje je to prikladno. Funkcionalnosti sustava bobrojite u tablici ispod koristeći predložak koji slijedi:
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
+F01 | Prijava zaposlenika, admina ili kupca |Prije korištenja aplikacije se korisnik treba prijaviti kao zaposlenik, admin ili pristupiti kao kupac.| Boris Skeledžija
+F02 | Pregled automobila |Potencijalni kupac pregledava sve automobile dostupne za rezervaciju u željenom terminu. | Zvonimir Koprek
+F03 | Pregled tipa opreme automobila | Kupac pregledava dostupne tipove opreme te samu opremu za svaki tip. | Petar Miškić
+F04 | Iznajmljivanje osiguranja | Kupac može iznajmiti osiguranje u slučaju ako ga nema. | Mateo Mustać
+F05 | Pregled troškova i dodatnih troškova | Kupac vidi koliki su troškovi za rezervaciju, iznajmljivanje te ostalo. | Petar Miškić
+F06 | Odabir grada te lokacije | Od ponuđenih gradova i lokacija u njima kupac odabire. | Boris Skeledžija
+F07 | Dodavanje i brisanje zaposlenika | Admin ima mogućnost dodavanja ili brisanja zaposlenika. | Mateo Mustać
+F08 | Obavijesti | Zaposlenik dobiva obavijesti o prijavi kvara, rezervaciji, upitima i sl. Kada zaposlenik potvrdi rezervaciju, kupac prima obavijest o uspješnoj rezervaciji.  | Petar Miškić
+F09 | Upiti | Kupac može slati upite o lokacijama, rezervaciji, bilo čemu što ga zanima. Na upite odgovara zaposlenik. | Boris Skeledžija
+F10 | Način plaćanja | Kupac odabire način plaćanja. | Zvonimir Koprek
+F11 | Upis podataka o dolasku | Kupac upisuje podatke i termin svog dolaska. | Mateo Mustać
+F12 | Evidencija | Admin/Zaposlenik imaju mogućnost pregleda automobila, opreme, tj. cijelog sustava. | Zvonimir Koprek
+
 
 ## Tehnologije i oprema
-Umjesto ovih uputa jasno popišite sve tehnologije, alate i opremu koju ćete koristiti pri implementaciji vašeg rješenja. Ne zaboravite planirati korištenje tehnologija u aktivnostima kao što su projektni menadžment ili priprema dokumentacije. Tehnologije koje ćete koristiti bi trebale biti javno dostupne, a ako ih ne budemo obrađivali na vježbama u vašoj dokumentaciji ćete morati navesti način preuzimanja, instaliranja i korištenja onih tehnologija koje su neopbodne kako bi se vaš programski proizvod preveo i pokrenuo. Pazite da svi alati koje ćete koristiti moraju imati odgovarajuću licencu.
+.NET Framework/Core, GitHub, GitHub Classroom, Word, MySQL, Draw.io, Visual Paradigm, C#
