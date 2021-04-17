@@ -29,4 +29,4 @@ F09 | Pregled statistike | Zaposlenici mogu vidjeti statistiku sa grafovima i ta
 
 
 ## Tehnologije i oprema
-.NET Framework/Core, GitHub, GitHub Classroom, Word, MSSQL, Draw.io, Visual Paradigm, C#
+.NET Framework/Core, GitHub, GitHub Classroom, Word, MSSQL, Draw.io, Visual Paradigm, C#, Windows Servisi.
