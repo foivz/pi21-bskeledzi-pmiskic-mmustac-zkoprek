@@ -141,6 +141,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "NapraviRezervacijuForm";
             this.Text = "NAPRAVI REZERVACIJU";
+            this.Load += new System.EventHandler(this.NapraviRezervacijuForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

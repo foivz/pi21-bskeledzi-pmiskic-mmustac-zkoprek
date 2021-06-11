@@ -14,9 +14,11 @@ namespace projekt
     public partial class DodajOsiguranjeForm : Form
     {
         private Osiguranje osiguranje = null;
+        private readonly CarRentalEntities _db;
         public DodajOsiguranjeForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
         public DodajOsiguranjeForm(Osiguranje osiguranje)
         {
@@ -36,6 +38,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajOsiguranjeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -269,6 +269,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "DodajZaposlenikaForm";
             this.Text = "DODAJ ZAPOSLENIKA";
+            this.Load += new System.EventHandler(this.DodajZaposlenikaForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

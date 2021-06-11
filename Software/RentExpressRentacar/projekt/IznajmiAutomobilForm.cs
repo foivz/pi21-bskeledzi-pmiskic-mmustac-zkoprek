@@ -14,9 +14,11 @@ namespace projekt
     public partial class IznajmiAutomobilForm : Form
     {
         private IznajmiAutomobil iznajmiAutomobil = null;
+        private readonly CarRentalEntities _db;
         public IznajmiAutomobilForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
 
         private void iznajmiButton_Click(object sender, EventArgs e)
@@ -28,6 +30,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void IznajmiAutomobilForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

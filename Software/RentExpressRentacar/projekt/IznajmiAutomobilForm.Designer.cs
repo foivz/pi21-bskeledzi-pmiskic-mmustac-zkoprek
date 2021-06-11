@@ -94,6 +94,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "IznajmiAutomobilForm";
             this.Text = "IZNAJMI AUTOMOBIL";
+            this.Load += new System.EventHandler(this.IznajmiAutomobilForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.automobilDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

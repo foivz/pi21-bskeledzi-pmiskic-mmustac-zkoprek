@@ -14,9 +14,11 @@ namespace projekt
     public partial class DodajZaposlenikaForm : Form
     {
         private Zaposlenik zaposlenik = null;
+        private readonly CarRentalEntities _db;
         public DodajZaposlenikaForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
         public DodajZaposlenikaForm(Zaposlenik zaposlenik)
         {
@@ -66,6 +68,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajZaposlenikaForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

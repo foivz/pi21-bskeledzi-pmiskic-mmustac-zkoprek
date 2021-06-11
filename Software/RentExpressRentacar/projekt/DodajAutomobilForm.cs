@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using projekt.Klase;
 
+
 namespace projekt
 {
     public partial class DodajAutomobilForm : Form
     {
         private Automobil automobil = null;
+        private readonly CarRentalEntities _db;
         public DodajAutomobilForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
         public DodajAutomobilForm(Automobil automobil)
         {
@@ -38,6 +41,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajAutomobilForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

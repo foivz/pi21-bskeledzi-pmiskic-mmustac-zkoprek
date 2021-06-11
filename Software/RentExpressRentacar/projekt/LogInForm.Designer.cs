@@ -114,6 +114,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "LogInForm";
             this.Text = "PRIJAVI SE";
+            this.Load += new System.EventHandler(this.LogInForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

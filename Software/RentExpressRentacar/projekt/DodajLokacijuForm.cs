@@ -14,9 +14,11 @@ namespace projekt
     public partial class DodajLokacijuForm : Form
     {
         private Lokacija lokacija = null;
+        private readonly CarRentalEntities _db;
         public DodajLokacijuForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
         public DodajLokacijuForm(Lokacija lokacija)
         {
@@ -34,6 +36,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajLokacijuForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

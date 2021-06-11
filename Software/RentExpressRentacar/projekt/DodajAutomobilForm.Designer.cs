@@ -182,6 +182,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "DodajAutomobilForm";
             this.Text = "DODAJ AUTOMOBIL";
+            this.Load += new System.EventHandler(this.DodajAutomobilForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

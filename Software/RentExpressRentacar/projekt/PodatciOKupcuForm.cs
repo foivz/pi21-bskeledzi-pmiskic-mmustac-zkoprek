@@ -19,9 +19,11 @@ namespace projekt
     public partial class PodatciOKupcuForm : Form
     {
         private Kupac kupac;
+        private readonly CarRentalEntities _db;
         public PodatciOKupcuForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)

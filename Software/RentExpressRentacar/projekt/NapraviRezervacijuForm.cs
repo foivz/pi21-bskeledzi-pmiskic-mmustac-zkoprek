@@ -13,10 +13,12 @@ namespace projekt
 {
     public partial class NapraviRezervacijuForm : Form
     {
+        private readonly CarRentalEntities _db;
         private Rezervacija rezervacija = null;
         public NapraviRezervacijuForm()
         {
             InitializeComponent();
+            _db = new CarRentalEntities();
         }
 
         private void ureduButton_Click(object sender, EventArgs e)
@@ -28,6 +30,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void NapraviRezervacijuForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -102,6 +102,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "DodajLokacijuForm";
             this.Text = "DODAJ LOKACIJU";
+            this.Load += new System.EventHandler(this.DodajLokacijuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

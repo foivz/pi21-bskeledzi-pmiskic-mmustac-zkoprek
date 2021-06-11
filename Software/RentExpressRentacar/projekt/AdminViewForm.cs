@@ -22,32 +22,24 @@ namespace projekt
         private List<Automobil> listaAutomobila;
         private List<Lokacija> listaLokacija;
         public int Id { get; set; }
+        private LogInForm _login;
+        public Zaposlenik _zaposlenik;
+        public string _tipZaposlenika;
+        private readonly CarRentalEntities _db;
+        
         public AdminViewForm()
         {
             InitializeComponent();
             Id = 0;
-            listaZaposlenika = new List<Zaposlenik>();
-            listaZaposlenika.Add(new Zaposlenik("Pero", "Perić", "111", Ugovor.NaOgraničenoVrijeme, TipKorisnika.Zaposlenik, Spol.Muško, "111"));
-            listaZaposlenika.Add(new Zaposlenik("Marko", "Marić", "222", Ugovor.Trajni, TipKorisnika.Administrator, Spol.Muško, "222"));
-            listaZaposlenika.Add(new Zaposlenik("Ivana", "Ivić", "333", Ugovor.Trajni, TipKorisnika.Moderator, Spol.Žensko, "333"));
+            _db = new CarRentalEntities();
+        }
+        public AdminViewForm(LogInForm login, Zaposlenik zaposlenik)
+        {
+            InitializeComponent();
+            _login = login;
 
-            listaOsiguranja = new List<Osiguranje>();
-            Osiguranje novoOsiguranje1 = new Osiguranje("Osiguranje 1", 1600.5, "Polica 1", "CROATIA");
-            Osiguranje novoOsiguranje2 = new Osiguranje("Osiguranje 2", 3000, "Polica 2", "Osiguraj se");
-            Osiguranje novoOsiguranje3 = new Osiguranje("Osiguranje 3", 300, "Polica 3", "Jeftino");
-            listaOsiguranja.Add(novoOsiguranje1);
-            listaOsiguranja.Add(novoOsiguranje2);
-            listaOsiguranja.Add(novoOsiguranje3);
-
-            listaAutomobila = new List<Automobil>();
-            listaAutomobila.Add(new Automobil("A1", "BMW M3", "BMW", "M3", 1998, "siva",novoOsiguranje1));
-            listaAutomobila.Add(new Automobil("B1", "Mercedes AMG500", "Mercedes", "AMG500", 1998, "bijela", novoOsiguranje2));
-            listaAutomobila.Add(new Automobil("C1", "Seat Leon", "Seat", "Leon", 2013, "plava", novoOsiguranje3));
-
-            listaLokacija = new List<Lokacija>();
-            listaLokacija.Add(new Lokacija("Varaždin", "Adresa 1"));
-            listaLokacija.Add(new Lokacija("Zadar", "Adresa 2"));
-            listaLokacija.Add(new Lokacija("Zagreb", "Adresa 3"));
+            _zaposlenik = zaposlenik;
+            _tipZaposlenika = zaposlenik.tip_zaposlenika_id.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)

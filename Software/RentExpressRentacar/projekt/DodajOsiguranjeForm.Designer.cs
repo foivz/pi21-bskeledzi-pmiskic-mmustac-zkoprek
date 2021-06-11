@@ -143,6 +143,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Name = "DodajOsiguranjeForm";
             this.Text = "DODAJ OSIGURANJE";
+            this.Load += new System.EventHandler(this.DodajOsiguranjeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
