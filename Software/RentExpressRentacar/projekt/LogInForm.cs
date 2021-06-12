@@ -67,6 +67,7 @@ namespace projekt
         private void LogInForm_Load(object sender, EventArgs e)
         {
             var a = 5;
+            var b = 6;
         }
     }
 }
