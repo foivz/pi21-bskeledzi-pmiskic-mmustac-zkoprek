@@ -23,15 +23,29 @@ namespace projekt
     {
         private Kupac kupac;
         private readonly CarRentalEntities _db;
-        public PodatciOKupcuForm()
+        private Automobil automobil { get; set; }
+        private bool Ka { get; set; }
+        private string kartica { get; set; }
+        private Lokacija lokacija { get; set; }
+
+        public PodatciOKupcuForm(Automobil auto, Lokacija lok, bool k)
         {
             InitializeComponent();
             _db = new CarRentalEntities();
+            automobil = auto;
+            lokacija = lok;
+            Ka = k;
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void JeLiKartica()
+        {
+            if (Ka == true) kartica = "kartica";
+            if (Ka == false) kartica = "gotovina";
         }
 
         private void zavrsiRezervacijuButton_Click(object sender, EventArgs e)
@@ -41,6 +55,8 @@ namespace projekt
                 SviPodaci.Visible = true;
                 return;
             }
+
+            JeLiKartica();
 
             string ime = imeTextBox.Text;
             string prezime = prezimeTextBox.Text;
@@ -67,9 +83,18 @@ namespace projekt
                 $"      42000 Varazdin, Hrvatska \n" +               
                 $"      E-mail: info@rentexpress.hr \n" +
                 $"      OIB: 38282458495 \n \n" +
-                $"      Podaci o placanju: \n" +
+                $"      Podaci o kupcu: \n" +
                 $"      Ime: {ime} \n" +
-                $"      Prezime: {prezime}\n" +
+                $"      Prezime: {prezime}\n \n" +
+                $"      Podaci o iznajmljenom automobilu: \n" +
+                $"      Odabrani automobil: {automobil.marka}\n" +
+                $"      Model automobila: {automobil.model}\n" +
+                $"      Boja automobila: {automobil.boja}\n" +
+                $"      Godina proizvodnje: {automobil.godina_prozivodnje}\n" +
+                $"      Prijedeni kilometri: {automobil.kilometraza}\n" +
+                $"      Lokacija preuzimanja: {lokacija.adresa}\n" +              
+                $"      Nacin placanja: {kartica}\n\n\n" +
+                $"      Hvala Vam i uzivajte u vožnji!" +             
                 $"");
 
             doc.Open();

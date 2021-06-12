@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automobil.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="CarRentalModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -119,7 +119,7 @@
       <DependentUpon>AdminViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Grad.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="IznajmiAutomobilForm.cs">
       <SubType>Form</SubType>
@@ -128,7 +128,7 @@
       <DependentUpon>IznajmiAutomobilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Iznajmljivanje.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="Klase\Automobil.cs" />
     <Compile Include="Klase\Enumeracije.cs" />
@@ -140,7 +140,7 @@
     <Compile Include="Klase\Upit.cs" />
     <Compile Include="Klase\Zaposlenik.cs" />
     <Compile Include="Kupac.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
@@ -149,7 +149,37 @@
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Lokacija.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSvi.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSvi.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSvi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSvi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSvi.edmx</DependentUpon>
     </Compile>
     <Compile Include="NapraviRezervacijuForm.cs">
       <SubType>Form</SubType>
@@ -158,13 +188,13 @@
       <DependentUpon>NapraviRezervacijuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Oprema.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="OpremaAutomobila.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="Osiguranje.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="PodatciOKupcuForm.cs">
       <SubType>Form</SubType>
@@ -181,23 +211,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rezervacija.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="RezervacijaOpreme.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="TipOpreme.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="TipZaposlenika.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="Ugovor.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Zaposlenik.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>ModelSvi.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodajAutomobilForm.resx">
       <DependentUpon>DodajAutomobilForm.cs</DependentUpon>
@@ -245,6 +275,20 @@
     <None Include="CarRentalModel.edmx.diagram">
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="ModelSvi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelSvi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelSvi.edmx.diagram">
+      <DependentUpon>ModelSvi.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -269,6 +313,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
       <LastGenOutput>CarRentalModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelSvi.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSvi.edmx</DependentUpon>
+      <LastGenOutput>ModelSvi.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelSvi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSvi.edmx</DependentUpon>
+      <LastGenOutput>ModelSvi.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

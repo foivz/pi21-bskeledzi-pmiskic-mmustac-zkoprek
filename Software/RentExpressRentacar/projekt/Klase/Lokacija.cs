@@ -18,6 +18,6 @@ namespace projekt.Klase
         public void DohvatiSveLokacije()
         {
             //Dohvaća sve lokacije iz liste
-        }
+        }      
     }
 }

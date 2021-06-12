@@ -15,15 +15,22 @@ namespace projekt
     {
         private IznajmiAutomobil iznajmiAutomobil = null;
         private readonly CarRentalEntities _db;
-        public IznajmiAutomobilForm()
+        private bool Ka { get; set; }
+        private Lokacija Lokacija { get; set; }
+
+        public IznajmiAutomobilForm(bool k, Lokacija lok)
         {
             InitializeComponent();
             _db = new CarRentalEntities();
+            Ka = k;
+            Lokacija = lok;
         }
 
         private void iznajmiButton_Click(object sender, EventArgs e)
         {
-            PodatciOKupcuForm kupacForm = new PodatciOKupcuForm();
+            Automobil auto = automobilDataGridView.CurrentRow.DataBoundItem as Automobil;
+
+            PodatciOKupcuForm kupacForm = new PodatciOKupcuForm(auto, Lokacija, Ka);
             kupacForm.ShowDialog();
         }
 
@@ -34,7 +41,15 @@ namespace projekt
 
         private void IznajmiAutomobilForm_Load(object sender, EventArgs e)
         {
+            automobilDataGridView.DataSource = GetData();
+        }
 
+        private object GetData()
+        {
+            using (var context = new Entities())
+            {
+                return context.Automobils.ToList();
+            }
         }
     }
 }
