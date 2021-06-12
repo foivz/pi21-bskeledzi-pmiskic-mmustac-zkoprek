@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23d1279d9e374f5aa02103f76d68604a" Name="Diagram1">
+        <EntityTypeShape EntityType="Model1.Automobil" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Grad" Width="1.5" PointX="1.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Iznajmljivanje" Width="1.5" PointX="8.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Kupac" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Lokacija" Width="1.5" PointX="3.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Oprema" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.OpremaAutomobila" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Osiguranje" Width="1.5" PointX="11" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Rezervacija" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.RezervacijaOpreme" Width="1.5" PointX="3.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.TipOpreme" Width="1.5" PointX="1.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.TipZaposlenika" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Ugovor" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Zaposlenik" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="Model1.FK_OpremaAutomobila_Automobil" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Rezervacija_Automobil" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Lokacija_Grad" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Rezervacija_Kupac" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Rezervacija_LokacijaPreuzimanja" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Rezervacija_LokacijaVracanja" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Oprema_TipOpreme" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_OpremaAutomobila_Oprema" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_RezervacijaOpreme_TipOpreme" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK2_RezervacijaOpreme_RezervacijaOpreme" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.FK_Zaposlenik_TipZaposlenika" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.OsiguranjeIznajmljivanja" ManuallyRouted="false" />
+        <AssociationConnector Association="Model1.ZaposlenikUloge" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

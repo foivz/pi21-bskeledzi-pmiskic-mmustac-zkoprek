@@ -15,16 +15,44 @@ namespace projekt
     {
         private readonly CarRentalEntities _db;
         private Rezervacija rezervacija = null;
+        public bool kartica;
+        Lokacija lokacija;
+
         public NapraviRezervacijuForm()
         {
             InitializeComponent();
             _db = new CarRentalEntities();
         }
 
+        private Lokacija DohvatiOdabranuLokaciju()
+        {
+            lokacija = lokacijaComboBox.SelectedItem as Lokacija;
+            return lokacija;
+        }
+
         private void ureduButton_Click(object sender, EventArgs e)
         {
-            IznajmiAutomobilForm iznajmiAutomobil = new IznajmiAutomobilForm();
-            iznajmiAutomobil.ShowDialog();
+            DohvatiOdabranuLokaciju();
+
+            if (karticaRadio.Checked == false && gotovinaRadio.Checked == false)
+            {
+                MessageBox.Show("Morate odabrati način plaćanja!");
+                return;
+            }
+
+            if (karticaRadio.Checked == true)
+            {
+                kartica = true;
+                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija);
+                frm.ShowDialog();
+            }
+
+            if (karticaRadio.Checked != true)
+            {
+                kartica = false;
+                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija);
+                frm.ShowDialog();
+            }                                     
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -34,7 +62,16 @@ namespace projekt
 
         private void NapraviRezervacijuForm_Load(object sender, EventArgs e)
         {
+            List<Lokacija> lokacija;
 
-        }
+            using (var context = new EntitiesSvi())
+            {
+                lokacija = context.Lokacijas.ToList();
+            }
+
+            lokacijaComboBox.DataSource = lokacija;
+
+
+        }     
     }
 }

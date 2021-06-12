@@ -36,5 +36,10 @@ namespace projekt
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezervacija> Rezervacijas1 { get; set; }
+
+        public override string ToString()
+        {
+            return adresa;
+        }
     }
 }
