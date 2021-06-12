@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6781bafb46a41fe9cfbdc3907e96f9e" Name="Diagram1">
+        <EntityTypeShape EntityType="CarRentalModel.Automobil" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="CarRentalModel.Grad" Width="1.5" PointX="1.5" PointY="12.625" />
+        <EntityTypeShape EntityType="CarRentalModel.Iznajmljivanje" Width="1.5" PointX="8.75" PointY="2.625" />
+        <EntityTypeShape EntityType="CarRentalModel.Kupac" Width="1.5" PointX="3.75" PointY="8.25" />
+        <EntityTypeShape EntityType="CarRentalModel.Lokacija" Width="1.5" PointX="3.75" PointY="12.25" />
+        <EntityTypeShape EntityType="CarRentalModel.Oprema" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CarRentalModel.OpremaAutomobila" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="CarRentalModel.Osiguranje" Width="1.5" PointX="11" PointY="3.125" />
+        <EntityTypeShape EntityType="CarRentalModel.Rezervacija" Width="1.5" PointX="6" PointY="4.375" />
+        <EntityTypeShape EntityType="CarRentalModel.RezervacijaOpreme" Width="1.5" PointX="3.75" PointY="15.625" />
+        <EntityTypeShape EntityType="CarRentalModel.TipOpreme" Width="1.5" PointX="1.5" PointY="9.5" />
+        <EntityTypeShape EntityType="CarRentalModel.TipZaposlenika" Width="1.5" PointX="8.75" PointY="6.5" />
+        <EntityTypeShape EntityType="CarRentalModel.Ugovor" Width="1.5" PointX="5.75" PointY="9.25" />
+        <EntityTypeShape EntityType="CarRentalModel.Zaposlenik" Width="1.5" PointX="8" PointY="8.625" />
+        <AssociationConnector Association="CarRentalModel.FK_OpremaAutomobila_Automobil" />
+        <AssociationConnector Association="CarRentalModel.FK_Rezervacija_Automobil" />
+        <AssociationConnector Association="CarRentalModel.FK_Lokacija_Grad" />
+        <AssociationConnector Association="CarRentalModel.FK_Rezervacija_Kupac" />
+        <AssociationConnector Association="CarRentalModel.FK_Rezervacija_LokacijaPreuzimanja" />
+        <AssociationConnector Association="CarRentalModel.FK_Rezervacija_LokacijaVracanja" />
+        <AssociationConnector Association="CarRentalModel.FK_Oprema_TipOpreme" />
+        <AssociationConnector Association="CarRentalModel.FK_OpremaAutomobila_Oprema" />
+        <AssociationConnector Association="CarRentalModel.FK_RezervacijaOpreme_TipOpreme" />
+        <AssociationConnector Association="CarRentalModel.FK2_RezervacijaOpreme_RezervacijaOpreme" />
+        <AssociationConnector Association="CarRentalModel.FK_Zaposlenik_TipZaposlenika" />
+        <AssociationConnector Association="CarRentalModel.OsiguranjeIznajmljivanja" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

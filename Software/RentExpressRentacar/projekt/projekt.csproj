@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35B31581-ED6F-43EC-A012-EBFFA2705A03}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>projekt</RootNamespace>
+    <AssemblyName>projekt</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\..\source\repos\Mail slanje - proba 2\Mail slanje - proba 2\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\..\..\source\repos\Mail slanje - proba 2\Mail slanje - proba 2\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\..\..\source\repos\Mail slanje - proba 2\Mail slanje - proba 2\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automobil.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarRentalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarRentalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarRentalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DodajAutomobilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajAutomobilForm.Designer.cs">
+      <DependentUpon>DodajAutomobilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajOsiguranjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajOsiguranjeForm.Designer.cs">
+      <DependentUpon>DodajOsiguranjeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajLokacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajLokacijuForm.Designer.cs">
+      <DependentUpon>DodajLokacijuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajZaposlenikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajZaposlenikaForm.Designer.cs">
+      <DependentUpon>DodajZaposlenikaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminViewForm.Designer.cs">
+      <DependentUpon>AdminViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grad.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IznajmiAutomobilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IznajmiAutomobilForm.Designer.cs">
+      <DependentUpon>IznajmiAutomobilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Iznajmljivanje.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Klase\Automobil.cs" />
+    <Compile Include="Klase\Enumeracije.cs" />
+    <Compile Include="Klase\IznajmiAutomobil.cs" />
+    <Compile Include="Klase\Kupac.cs" />
+    <Compile Include="Klase\Lokacija.cs" />
+    <Compile Include="Klase\Osiguranje.cs" />
+    <Compile Include="Klase\Rezervacija.cs" />
+    <Compile Include="Klase\Upit.cs" />
+    <Compile Include="Klase\Zaposlenik.cs" />
+    <Compile Include="Kupac.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lokacija.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NapraviRezervacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NapraviRezervacijuForm.Designer.cs">
+      <DependentUpon>NapraviRezervacijuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oprema.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpremaAutomobila.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Osiguranje.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PodatciOKupcuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PodatciOKupcuForm.Designer.cs">
+      <DependentUpon>PodatciOKupcuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PosaljiUpitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PosaljiUpitForm.Designer.cs">
+      <DependentUpon>PosaljiUpitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rezervacija.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RezervacijaOpreme.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipOpreme.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipZaposlenika.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ugovor.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="Zaposlenik.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DodajAutomobilForm.resx">
+      <DependentUpon>DodajAutomobilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajOsiguranjeForm.resx">
+      <DependentUpon>DodajOsiguranjeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajLokacijuForm.resx">
+      <DependentUpon>DodajLokacijuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajZaposlenikaForm.resx">
+      <DependentUpon>DodajZaposlenikaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminViewForm.resx">
+      <DependentUpon>AdminViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IznajmiAutomobilForm.resx">
+      <DependentUpon>IznajmiAutomobilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NapraviRezervacijuForm.resx">
+      <DependentUpon>NapraviRezervacijuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodatciOKupcuForm.resx">
+      <DependentUpon>PodatciOKupcuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PosaljiUpitForm.resx">
+      <DependentUpon>PosaljiUpitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="CarRentalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarRentalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarRentalModel.edmx.diagram">
+      <DependentUpon>CarRentalModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CarRentalModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CarRentalModel.Context.cs</LastGenOutput>
+      <DependentUpon>CarRentalModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="CarRentalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarRentalModel.edmx</DependentUpon>
+      <LastGenOutput>CarRentalModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
