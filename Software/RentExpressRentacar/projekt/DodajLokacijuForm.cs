@@ -23,8 +23,8 @@ namespace projekt
         public DodajLokacijuForm(Lokacija lokacija)
         {
             InitializeComponent();
-            gradTextBox.Text = lokacija.Grad;
-            adresaTextBox.Text = lokacija.Adresa;
+            /*gradTextBox.Text = lokacija.Grad;
+            adresaTextBox.Text = lokacija.Adresa;*/
             dodajButton.Text = "Izmijeni";
         }
 

@@ -23,10 +23,10 @@ namespace projekt
         public DodajOsiguranjeForm(Osiguranje osiguranje)
         {
             InitializeComponent();
-            nazivTextBox.Text = osiguranje.Naziv;
+            /*nazivTextBox.Text = osiguranje.Naziv;
             cijenaTextBox.Text = osiguranje.Cijena.ToString();
             policaTextBox.Text = osiguranje.PolicaOsiguranja;
-            opisRichTextBox.Text = osiguranje.Opis;
+            opisRichTextBox.Text = osiguranje.Opis;*/
             dodajButton.Text = "Izmijeni";
         }
 

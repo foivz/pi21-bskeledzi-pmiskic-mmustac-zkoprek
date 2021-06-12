@@ -14,9 +14,9 @@
         <EntityTypeShape EntityType="CarRentalModel.OpremaAutomobila" Width="1.5" PointX="3" PointY="4.5" />
         <EntityTypeShape EntityType="CarRentalModel.Osiguranje" Width="1.5" PointX="11" PointY="3.125" />
         <EntityTypeShape EntityType="CarRentalModel.Rezervacija" Width="1.5" PointX="6" PointY="4.375" />
-        <EntityTypeShape EntityType="CarRentalModel.RezervacijaOpreme" Width="1.5" PointX="3.75" PointY="15.625" />
+        <EntityTypeShape EntityType="CarRentalModel.RezervacijaOpreme" Width="1.5" PointX="3.75" PointY="1.625" />
         <EntityTypeShape EntityType="CarRentalModel.TipOpreme" Width="1.5" PointX="1.5" PointY="9.5" />
-        <EntityTypeShape EntityType="CarRentalModel.TipZaposlenika" Width="1.5" PointX="8.75" PointY="6.5" />
+        <EntityTypeShape EntityType="CarRentalModel.TipZaposlenika" Width="1.5" PointX="5.75" PointY="15.25" />
         <EntityTypeShape EntityType="CarRentalModel.Ugovor" Width="1.5" PointX="5.75" PointY="9.25" />
         <EntityTypeShape EntityType="CarRentalModel.Zaposlenik" Width="1.5" PointX="8" PointY="8.625" />
         <AssociationConnector Association="CarRentalModel.FK_OpremaAutomobila_Automobil" />
@@ -31,6 +31,13 @@
         <AssociationConnector Association="CarRentalModel.FK2_RezervacijaOpreme_RezervacijaOpreme" />
         <AssociationConnector Association="CarRentalModel.FK_Zaposlenik_TipZaposlenika" />
         <AssociationConnector Association="CarRentalModel.OsiguranjeIznajmljivanja" />
+        <AssociationConnector Association="CarRentalModel.ZaposlenikUloge" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7.25" PointY="16.047841796874998" />
+          <ConnectorPoint PointX="7.745" PointY="16.047841796874998" />
+          <ConnectorPoint PointX="7.745" PointY="15.412425130208334" />
+          <ConnectorPoint PointX="8.75" PointY="15.412425130208334" />
+          <ConnectorPoint PointX="8.75" PointY="11.3744921875" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

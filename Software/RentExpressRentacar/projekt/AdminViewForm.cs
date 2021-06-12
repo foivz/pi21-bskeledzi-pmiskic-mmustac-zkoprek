@@ -17,10 +17,7 @@ namespace projekt
         private Osiguranje osiguranje = null;
         private Lokacija lokacija = null;
         private Automobil automobil = null;
-        private List<Zaposlenik> listaZaposlenika;
-        private List<Osiguranje> listaOsiguranja;
-        private List<Automobil> listaAutomobila;
-        private List<Lokacija> listaLokacija;
+        
         public int Id { get; set; }
         private LogInForm _login;
         public Zaposlenik _zaposlenik;
@@ -39,30 +36,87 @@ namespace projekt
             _login = login;
 
             _zaposlenik = zaposlenik;
-            _tipZaposlenika = zaposlenik.tip_zaposlenika_id.ToString();
+            _tipZaposlenika = zaposlenik.TipZaposlenikas.FirstOrDefault().naziv.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            osvjeziButtone();
-            vidiZaposlenikeButton.Enabled = false;
-            osvjeziDataGrid();
+            if(_tipZaposlenika == "admin")
+            {
+                AdminView();
+                osvjeziDataGrid();
+            }
+            else if(_tipZaposlenika == "moderator")
+            {
+                ModeratorView();
+                osvjeziDataGrid();
+            }
+            
+            
 
         }
+
+        private void ModeratorView()
+        {
+            vidiZaposlenikeButton.Visible = true;
+            vidiOsiguranjaButton.Visible = true;
+            vidiLokacijeButton.Visible = true;
+            vidiAutomobileButton.Visible = true;
+            statistikaButton.Visible = true;
+            dodajButton.Visible = false;
+            izbrisiButton.Visible =false;
+            izmijeniButton.Visible = false;
+        }
+
+        private void AdminView()
+        {
+            vidiZaposlenikeButton.Visible = true;
+            vidiOsiguranjaButton.Visible = true;
+            vidiLokacijeButton.Visible = true;
+            vidiAutomobileButton.Visible = true;
+            statistikaButton.Visible = true;
+            dodajButton.Visible = true;
+            izbrisiButton.Visible = true;
+            izmijeniButton.Visible = true;
+
+        }
+
         private void vidiZaposlenikeButton_Click(object sender, EventArgs e)
         {
             glavniLabel.Text = "Popis zaposlenika: ";
             dodajButton.Text = "Dodaj zaposlenika ";
             izmijeniButton.Text = "Izmijeni zaposlenika ";
             izbrisiButton.Text = "Izbriši zaposlenika";
-            osvjeziButtone();
-            vidiZaposlenikeButton.Enabled = false;
-            Id = 0;
-            osvjeziDataGrid();
+            if (_tipZaposlenika == "admin")
+            {
+                osvjeziButtone();
+                vidiZaposlenikeButton.Enabled = false;
+                Id = 0;
+                osvjeziDataGrid();
+            }
+            else
+            {
+                osvjeziButtoneZaposleniciMod();
+                vidiZaposlenikeButton.Enabled = false;
+                Id = 0;
+                osvjeziDataGrid();
+            }
+        }
+
+        private void osvjeziButtoneZaposleniciMod()
+        {
+            vidiOsiguranjaButton.Enabled = true;
+            dodajButton.Visible = false;
+            izbrisiButton.Visible = false;
+            izmijeniButton.Visible = false;
+
         }
 
         private void vidiOsiguranjaButton_Click(object sender, EventArgs e)
         {
+            dodajButton.Visible = true;
+            izbrisiButton.Visible = true;
+            izmijeniButton.Visible = true;
             glavniLabel.Text = "Popis osiguranja: ";
             dodajButton.Text = "Dodaj osiguranje ";
             izmijeniButton.Text = "Izmijeni osiguranje ";
@@ -75,6 +129,9 @@ namespace projekt
 
         private void vidiLokacijeButton_Click(object sender, EventArgs e)
         {
+            dodajButton.Visible = true;
+            izbrisiButton.Visible = true;
+            izmijeniButton.Visible = true;
             glavniLabel.Text = "Popis lokacija: ";
             dodajButton.Text = "Dodaj lokaciju ";
             izmijeniButton.Text = "Izmijeni lokaciju ";
@@ -87,6 +144,9 @@ namespace projekt
 
         private void vidiAutomobilButton_Click(object sender, EventArgs e)
         {
+            dodajButton.Visible = true;
+            izbrisiButton.Visible = true;
+            izmijeniButton.Visible = true;
             glavniLabel.Text = "Popis automobila: ";
             dodajButton.Text = "Dodaj automobil ";
             izmijeniButton.Text = "Izmijeni automobil ";
@@ -201,7 +261,7 @@ namespace projekt
                         {
                             zaposlenik = glavniDataGrid.CurrentRow.DataBoundItem as Zaposlenik;
                         }
-                        listaZaposlenika.Remove(zaposlenik);
+                      //  listaZaposlenika.Remove(zaposlenik);
                         osvjeziDataGrid();
                         break;
                     }
@@ -211,7 +271,7 @@ namespace projekt
                         {
                             osiguranje = glavniDataGrid.CurrentRow.DataBoundItem as Osiguranje;
                         }
-                        listaOsiguranja.Remove(osiguranje);
+                     //   listaOsiguranja.Remove(osiguranje);
                         osvjeziDataGrid();
                         break;
                     }
@@ -221,7 +281,7 @@ namespace projekt
                         {
                             lokacija = glavniDataGrid.CurrentRow.DataBoundItem as Lokacija;
                         }
-                        listaLokacija.Remove(lokacija);
+                      //  listaLokacija.Remove(lokacija);
                         osvjeziDataGrid();
                         break;
                     }
@@ -231,7 +291,7 @@ namespace projekt
                         {
                             automobil = glavniDataGrid.CurrentRow.DataBoundItem as Automobil;
                         }
-                        listaAutomobila.Remove(automobil);
+                     //   listaAutomobila.Remove(automobil);
                         osvjeziDataGrid();
                         break;
                     }
@@ -254,25 +314,25 @@ namespace projekt
                 case 0:
                     {
                         glavniDataGrid.DataSource = null;
-                        glavniDataGrid.DataSource = listaZaposlenika;
+                     //   glavniDataGrid.DataSource = listaZaposlenika;
                         break;
                     }
                 case 1:
                     {
                         glavniDataGrid.DataSource = null;
-                        glavniDataGrid.DataSource = listaOsiguranja;
+                       // glavniDataGrid.DataSource = listaOsiguranja;
                         break;
                     }
                 case 2:
                     {
                         glavniDataGrid.DataSource = null;
-                        glavniDataGrid.DataSource = listaLokacija;
+                      //  glavniDataGrid.DataSource = listaLokacija;
                         break;
                     }
                 case 3:
                     {
                         glavniDataGrid.DataSource = null;
-                        glavniDataGrid.DataSource = listaAutomobila;
+                     //   glavniDataGrid.DataSource = listaAutomobila;
                         break;
                     }
                 default:

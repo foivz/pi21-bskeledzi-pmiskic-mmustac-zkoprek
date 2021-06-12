@@ -24,12 +24,12 @@ namespace projekt
         public DodajAutomobilForm(Automobil automobil)
         {
             InitializeComponent();
-            nazivTextBox.Text = automobil.Naziv;
+           /* nazivTextBox.Text = automobil.Naziv;
             markaTextBox.Text = automobil.Marka;
             modelTextBox.Text = automobil.Model;
             godinaTextBox.Text = automobil.GodinaProizvodnje.ToString();
             oznakaTextBox.Text = automobil.Oznaka;
-            bojaTextBox.Text = automobil.Boja;
+            bojaTextBox.Text = automobil.Boja;*/
             dodajButton.Text = "Izmijeni";
         }
 

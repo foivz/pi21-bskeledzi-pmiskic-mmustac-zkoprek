@@ -38,7 +38,7 @@ namespace projekt
                 var korisnik = _db.Zaposleniks.FirstOrDefault(q => q.korisnicko_ime == korisnickoIme && q.lozinka == hashedPassword);
                 if (korisnik == null)
                 {
-                    MessageBox.Show("Unesite podatke u polja!");
+                    MessageBox.Show("Unesite ispravne podatke u polja!");
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace projekt
 
         private void LogInForm_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
