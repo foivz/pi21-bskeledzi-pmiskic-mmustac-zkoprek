@@ -78,6 +78,7 @@ namespace projekt
             // 
             this.lozinkaTextBox.Location = new System.Drawing.Point(50, 65);
             this.lozinkaTextBox.Name = "lozinkaTextBox";
+            this.lozinkaTextBox.PasswordChar = '*';
             this.lozinkaTextBox.Size = new System.Drawing.Size(100, 20);
             this.lozinkaTextBox.TabIndex = 4;
             // 

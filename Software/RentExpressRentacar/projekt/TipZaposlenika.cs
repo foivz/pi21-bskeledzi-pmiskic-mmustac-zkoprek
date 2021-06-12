@@ -14,7 +14,16 @@ namespace projekt
     
     public partial class TipZaposlenika
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TipZaposlenika()
+        {
+            this.Zaposleniks = new HashSet<Zaposlenik>();
+        }
+    
         public int tip_zaposlenika_id { get; set; }
         public string naziv { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zaposlenik> Zaposleniks { get; set; }
     }
 }

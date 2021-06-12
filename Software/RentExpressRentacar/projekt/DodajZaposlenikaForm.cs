@@ -23,11 +23,11 @@ namespace projekt
         public DodajZaposlenikaForm(Zaposlenik zaposlenik)
         {
             InitializeComponent();
-            imeTextBox.Text = zaposlenik.Ime;
+            /*imeTextBox.Text = zaposlenik.Ime;
             prezimeTextBox.Text = zaposlenik.Prezime;
             oibTextBox.Text = zaposlenik.Oib;
-            brojTelefonaTextBox.Text = zaposlenik.BrojTelefona;
-            if(zaposlenik.Spol == Spol.Muško)
+            brojTelefonaTextBox.Text = zaposlenik.BrojTelefona;*/
+            /*if(zaposlenik.Spol == Spol.Muško)
             {
                 muskoRadio.Checked = true;
             }
@@ -56,7 +56,7 @@ namespace projekt
             else
             {
                 trajniRadio.Checked = true;
-            }
+            }*/
             dodajButton.Text = "Izmijeni";
         }
 

@@ -134,10 +134,17 @@
           <Property Name="ime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="prezime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="OIB" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="tip_zaposlenika_id" Type="int" Nullable="false" />
           <Property Name="ugovor_id" Type="int" Nullable="false" />
           <Property Name="korisnicko_ime" Type="varchar" MaxLength="50" />
           <Property Name="lozinka" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ZaposlenikUloge">
+          <Key>
+            <PropertyRef Name="id_zaposlenik" />
+            <PropertyRef Name="id_tipzaposlenika" />
+          </Key>
+          <Property Name="id_zaposlenik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipzaposlenika" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Lokacija_Grad">
           <End Role="Grad" Type="Self.Grad" Multiplicity="1" />
@@ -283,6 +290,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ZaposlenikUloge_TipZaposlenika">
+          <End Role="TipZaposlenika" Type="Self.TipZaposlenika" Multiplicity="1" />
+          <End Role="ZaposlenikUloge" Type="Self.ZaposlenikUloge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipZaposlenika">
+              <PropertyRef Name="tip_zaposlenika_id" />
+            </Principal>
+            <Dependent Role="ZaposlenikUloge">
+              <PropertyRef Name="id_tipzaposlenika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZaposlenikUloge_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="1" />
+          <End Role="ZaposlenikUloge" Type="Self.ZaposlenikUloge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="id_zaposlenik" />
+            </Principal>
+            <Dependent Role="ZaposlenikUloge">
+              <PropertyRef Name="id_zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK2_RezervacijaOpreme_RezervacijaOpreme">
           <End Role="TipOpreme" Type="Self.TipOpreme" Multiplicity="1" />
           <End Role="RezervacijaOpreme" Type="Self.RezervacijaOpreme" Multiplicity="*" />
@@ -311,6 +342,7 @@
           <EntitySet Name="TipZaposlenika" EntityType="Self.TipZaposlenika" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ugovor" EntityType="Self.Ugovor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zaposlenik" EntityType="Self.Zaposlenik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZaposlenikUloge" EntityType="Self.ZaposlenikUloge" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Lokacija_Grad" Association="Self.FK_Lokacija_Grad">
             <End Role="Grad" EntitySet="Grad" />
             <End Role="Lokacija" EntitySet="Lokacija" />
@@ -358,6 +390,14 @@
           <AssociationSet Name="FK_Zaposlenik_TipZaposlenika" Association="Self.FK_Zaposlenik_TipZaposlenika">
             <End Role="Ugovor" EntitySet="Ugovor" />
             <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZaposlenikUloge_TipZaposlenika" Association="Self.FK_ZaposlenikUloge_TipZaposlenika">
+            <End Role="TipZaposlenika" EntitySet="TipZaposlenika" />
+            <End Role="ZaposlenikUloge" EntitySet="ZaposlenikUloge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZaposlenikUloge_Zaposlenik" Association="Self.FK_ZaposlenikUloge_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="ZaposlenikUloge" EntitySet="ZaposlenikUloge" />
           </AssociationSet>
           <AssociationSet Name="FK2_RezervacijaOpreme_RezervacijaOpreme" Association="Self.FK2_RezervacijaOpreme_RezervacijaOpreme">
             <End Role="TipOpreme" EntitySet="TipOpreme" />
@@ -430,6 +470,10 @@
           <AssociationSet Name="OsiguranjeIznajmljivanja" Association="CarRentalModel.OsiguranjeIznajmljivanja">
             <End Role="Iznajmljivanje" EntitySet="Iznajmljivanjes" />
             <End Role="Osiguranje" EntitySet="Osiguranjes" />
+          </AssociationSet>
+          <AssociationSet Name="ZaposlenikUloge" Association="CarRentalModel.ZaposlenikUloge">
+            <End Role="TipZaposlenika" EntitySet="TipZaposlenikas" />
+            <End Role="Zaposlenik" EntitySet="Zaposleniks" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Automobil">
@@ -559,6 +603,7 @@
           </Key>
           <Property Name="tip_zaposlenika_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Zaposleniks" Relationship="CarRentalModel.ZaposlenikUloge" FromRole="TipZaposlenika" ToRole="Zaposlenik" />
         </EntityType>
         <EntityType Name="Ugovor">
           <Key>
@@ -576,11 +621,11 @@
           <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="OIB" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="tip_zaposlenika_id" Type="Int32" Nullable="false" />
           <Property Name="ugovor_id" Type="Int32" Nullable="false" />
           <Property Name="korisnicko_ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="lozinka" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Ugovor" Relationship="CarRentalModel.FK_Zaposlenik_TipZaposlenika" FromRole="Zaposlenik" ToRole="Ugovor" />
+          <NavigationProperty Name="TipZaposlenikas" Relationship="CarRentalModel.ZaposlenikUloge" FromRole="Zaposlenik" ToRole="TipZaposlenika" />
         </EntityType>
         <Association Name="FK_OpremaAutomobila_Automobil">
           <End Type="CarRentalModel.Automobil" Role="Automobil" Multiplicity="1" />
@@ -718,7 +763,11 @@
           <End Type="CarRentalModel.Iznajmljivanje" Role="Iznajmljivanje" Multiplicity="*" />
           <End Type="CarRentalModel.Osiguranje" Role="Osiguranje" Multiplicity="*" />
         </Association>
-      </Schema>
+        <Association Name="ZaposlenikUloge">
+          <End Type="CarRentalModel.TipZaposlenika" Role="TipZaposlenika" Multiplicity="*" />
+          <End Type="CarRentalModel.Zaposlenik" Role="Zaposlenik" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -855,7 +904,6 @@
                 <ScalarProperty Name="lozinka" ColumnName="lozinka" />
                 <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
                 <ScalarProperty Name="ugovor_id" ColumnName="ugovor_id" />
-                <ScalarProperty Name="tip_zaposlenika_id" ColumnName="tip_zaposlenika_id" />
                 <ScalarProperty Name="OIB" ColumnName="OIB" />
                 <ScalarProperty Name="prezime" ColumnName="prezime" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -869,6 +917,14 @@
             </EndProperty>
             <EndProperty Name="Iznajmljivanje">
               <ScalarProperty Name="id_iznajmljivanje" ColumnName="id_iznajmljivanje" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ZaposlenikUloge" TypeName="CarRentalModel.ZaposlenikUloge" StoreEntitySet="ZaposlenikUloge">
+            <EndProperty Name="Zaposlenik">
+              <ScalarProperty Name="id_zaposlenik" ColumnName="id_zaposlenik" />
+            </EndProperty>
+            <EndProperty Name="TipZaposlenika">
+              <ScalarProperty Name="tip_zaposlenika_id" ColumnName="id_tipzaposlenika" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
