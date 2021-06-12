@@ -13,6 +13,9 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Net.Mail;
 using System.Web;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
+using System.Drawing.Imaging;
 
 namespace projekt
 {
@@ -33,6 +36,59 @@ namespace projekt
 
         private void zavrsiRezervacijuButton_Click(object sender, EventArgs e)
         {
+            if (vozackaDozvolaTextBox.Text == "" || txtEmail.Text == "" || brojKarticeTextBox.Text == "" || cvvTextBox.Text == "" || datumIstekaTextBox.Text == "" || prezimeTextBox.Text == "" || imeTextBox.Text == "" || oibTextBox.Text == "")
+            {
+                SviPodaci.Visible = true;
+                return;
+            }
+
+            string ime = imeTextBox.Text;
+            string prezime = prezimeTextBox.Text;
+
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 20, 42, 35);
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Potvrda uspješne transakcije.pdf", FileMode.Create));
+            
+            string imagepath1 = "Logo.jpeg";
+            string imagepath2 = "qrcode.jpg";
+
+            iTextSharp.text.Image jpeg = iTextSharp.text.Image.GetInstance(imagepath1);
+            jpeg.SetAbsolutePosition(20, 690);
+            jpeg.ScaleToFit(1200f, 80f);
+
+            iTextSharp.text.Image qrcode = iTextSharp.text.Image.GetInstance(imagepath2);
+            qrcode.SetAbsolutePosition(525, 705);
+            qrcode.ScaleToFit(100f, 70f);
+
+            Paragraph paragraph1 = new Paragraph($"\n \n \n");
+            
+            Paragraph paragraph = new Paragraph($"\n" +
+                $"      RentExpress d.o.o \n" +
+                $"      Ul. Julija Merlica 9 \n" +
+                $"      42000 Varazdin, Hrvatska \n" +               
+                $"      E-mail: info@rentexpress.hr \n" +
+                $"      OIB: 38282458495 \n \n" +
+                $"      Podaci o placanju: \n" +
+                $"      Ime: {ime} \n" +
+                $"      Prezime: {prezime}\n" +
+                $"");
+
+            doc.Open();
+            doc.Add(paragraph1);
+            doc.Add(paragraph);
+            doc.Add(jpeg);
+            doc.Add(qrcode);
+            doc.Close();
+
+            MailMessage mail = new MailMessage("RentExpressDoo@gmail.com", txtEmail.Text, "Potvrda plaćanja", "Potvrda plaćanja nalazi se u privitku. Hvala Vam što ste poslovali s nama!");
+            System.Net.Mail.Attachment attachment;
+            attachment = new System.Net.Mail.Attachment("Potvrda uspješne transakcije.pdf");
+            mail.Attachments.Add(attachment);
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.Port = 587;
+            client.Credentials = new System.Net.NetworkCredential("RentExpressDoo@gmail.com", "rentexpress123");
+            client.EnableSsl = true;
+            client.Send(mail);
+            MessageBox.Show("Mail je uspješno poslan!", "Uspjeh!", MessageBoxButtons.OK);
             Close();
         }
 
@@ -41,25 +97,11 @@ namespace projekt
 
         }
 
-        private void mailButton_Click(object sender, EventArgs e)
+        private void imeTextBox_TextChanged(object sender, EventArgs e)
         {
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 20, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
-            doc.Open();
-            Paragraph paragraph = new Paragraph("Podaci o plaćanju: ____");
-            doc.Add(paragraph);
-            doc.Close();
-
-            MailMessage mail = new MailMessage("RentExpressDoo@gmail.com", txtEmail.Text, "Potvrda plaćanja", "Potvrda plaćanja nalazi se u privitku. Hvala Vam što ste poslovali s nama!");
-            System.Net.Mail.Attachment attachment;
-            attachment = new System.Net.Mail.Attachment("Test.pdf");
-            mail.Attachments.Add(attachment);
-            SmtpClient client = new SmtpClient("smtp.gmail.com");
-            client.Port = 587;
-            client.Credentials = new System.Net.NetworkCredential("RentExpressDoo@gmail.com", "rentexpress123");
-            client.EnableSsl = true;
-            client.Send(mail);
-            MessageBox.Show("Mail je uspješno poslan!", "Uspjeh!", MessageBoxButtons.OK);
+            SviPodaci.Visible = false;           
         }
+
+
     }
 }
