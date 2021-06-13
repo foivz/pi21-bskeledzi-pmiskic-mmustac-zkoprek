@@ -18,8 +18,6 @@ namespace projekt
         public TipOpreme()
         {
             this.Opremas = new HashSet<Oprema>();
-            this.RezervacijaOpremes = new HashSet<RezervacijaOpreme>();
-            this.RezervacijaOpremes1 = new HashSet<RezervacijaOpreme>();
         }
     
         public int id_tip_opreme { get; set; }
@@ -27,9 +25,5 @@ namespace projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oprema> Opremas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RezervacijaOpreme> RezervacijaOpremes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RezervacijaOpreme> RezervacijaOpremes1 { get; set; }
     }
 }

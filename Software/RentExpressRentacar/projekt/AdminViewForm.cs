@@ -36,7 +36,7 @@ namespace projekt
             _login = login;
 
             _zaposlenik = zaposlenik;
-            _tipZaposlenika = zaposlenik.TipZaposlenikas.FirstOrDefault().naziv.ToString();
+            _tipZaposlenika = zaposlenik.ZaposlenikUloges.FirstOrDefault().TipZaposlenika.naziv;
         }
 
         private void Form1_Load(object sender, EventArgs e)

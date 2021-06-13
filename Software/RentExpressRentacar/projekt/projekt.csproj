@@ -166,6 +166,9 @@
     <Compile Include="Osiguranje.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="OsiguranjeIznajmljivanja.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PodatciOKupcuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +200,9 @@
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Zaposlenik.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZaposlenikUloge.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodajAutomobilForm.resx">

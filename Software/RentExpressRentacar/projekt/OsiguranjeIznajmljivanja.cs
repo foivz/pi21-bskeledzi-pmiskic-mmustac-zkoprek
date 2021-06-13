@@ -12,13 +12,13 @@ namespace projekt
     using System;
     using System.Collections.Generic;
     
-    public partial class RezervacijaOpreme
+    public partial class OsiguranjeIznajmljivanja
     {
         public int id { get; set; }
-        public Nullable<int> id_rezervacija { get; set; }
-        public Nullable<int> id_oprema { get; set; }
+        public Nullable<int> id_iznajmljivanje { get; set; }
+        public Nullable<int> id_osiguranje { get; set; }
     
-        public virtual Oprema Oprema { get; set; }
-        public virtual Rezervacija Rezervacija { get; set; }
+        public virtual Iznajmljivanje Iznajmljivanje { get; set; }
+        public virtual Osiguranje Osiguranje { get; set; }
     }
 }

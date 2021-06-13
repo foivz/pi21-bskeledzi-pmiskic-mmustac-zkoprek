@@ -17,7 +17,7 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zaposlenik()
         {
-            this.TipZaposlenikas = new HashSet<TipZaposlenika>();
+            this.ZaposlenikUloges = new HashSet<ZaposlenikUloge>();
         }
     
         public int id_zaposlenik { get; set; }
@@ -30,6 +30,6 @@ namespace projekt
     
         public virtual Ugovor Ugovor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TipZaposlenika> TipZaposlenikas { get; set; }
+        public virtual ICollection<ZaposlenikUloge> ZaposlenikUloges { get; set; }
     }
 }
