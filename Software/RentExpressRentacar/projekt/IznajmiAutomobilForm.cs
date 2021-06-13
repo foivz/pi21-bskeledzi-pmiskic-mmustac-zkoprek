@@ -17,20 +17,24 @@ namespace projekt
         private readonly CarRentalEntities _db;
         private bool Ka { get; set; }
         private Lokacija Lokacija { get; set; }
+        private string datum1 { get; set; }
+        private string datum2 { get; set; }
 
-        public IznajmiAutomobilForm(bool k, Lokacija lok)
+        public IznajmiAutomobilForm(bool k, Lokacija lok, string d1, string d2)
         {
             InitializeComponent();
             _db = new CarRentalEntities();
             Ka = k;
             Lokacija = lok;
+            datum1 = d1;
+            datum2 = d2;
         }
 
         private void iznajmiButton_Click(object sender, EventArgs e)
         {
             Automobil auto = automobilDataGridView.CurrentRow.DataBoundItem as Automobil;
 
-            PodatciOKupcuForm kupacForm = new PodatciOKupcuForm(auto, Lokacija, Ka);
+            PodatciOKupcuForm kupacForm = new PodatciOKupcuForm(auto, Lokacija, Ka, datum1, datum2);
             kupacForm.ShowDialog();
         }
 
@@ -41,14 +45,31 @@ namespace projekt
 
         private void IznajmiAutomobilForm_Load(object sender, EventArgs e)
         {
-            automobilDataGridView.DataSource = GetData();
+            GetData();
         }
 
-        private object GetData()
+        private void GetData()
         {
-            using (var context = new Entities())
+            using (var context = new Entities1())
             {
-                return context.Automobils.ToList();
+                var query = from p in context.Automobils.Include("OpremaAutomobilas").Include("Rezervacijas")
+                            select p;
+
+                automobilDataGridView.DataSource = query.ToList();
+            }
+        }
+
+        private void automobilTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string txt = automobilTextBox.Text;
+
+            using (var context = new Entities1())
+            {
+                var query = from p in context.Automobils.Include("OpremaAutomobilas").Include("Rezervacijas")
+                            where p.marka.Contains(txt)
+                            select p;
+
+                automobilDataGridView.DataSource = query.ToList();
             }
         }
     }

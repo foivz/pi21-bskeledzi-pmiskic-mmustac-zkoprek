@@ -27,14 +27,18 @@ namespace projekt
         private bool Ka { get; set; }
         private string kartica { get; set; }
         private Lokacija lokacija { get; set; }
+        private string datum1 { get; set; }
+        private string datum2 { get; set; }
 
-        public PodatciOKupcuForm(Automobil auto, Lokacija lok, bool k)
+        public PodatciOKupcuForm(Automobil auto, Lokacija lok, bool k, string d1, string d2)
         {
             InitializeComponent();
             _db = new CarRentalEntities();
             automobil = auto;
             lokacija = lok;
             Ka = k;
+            datum1 = d1;
+            datum2 = d2;
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -83,18 +87,21 @@ namespace projekt
                 $"      42000 Varazdin, Hrvatska \n" +               
                 $"      E-mail: info@rentexpress.hr \n" +
                 $"      OIB: 38282458495 \n \n" +
-                $"      Podaci o kupcu: \n" +
+                $"      PODACI O KUPCU: \n" +
                 $"      Ime: {ime} \n" +
                 $"      Prezime: {prezime}\n \n" +
-                $"      Podaci o iznajmljenom automobilu: \n" +
+                $"      PODACI IZNAJMLJENOM AUTOMOBILU: \n" +
                 $"      Odabrani automobil: {automobil.marka}\n" +
                 $"      Model automobila: {automobil.model}\n" +
                 $"      Boja automobila: {automobil.boja}\n" +
                 $"      Godina proizvodnje: {automobil.godina_prozivodnje}\n" +
-                $"      Prijedeni kilometri: {automobil.kilometraza}\n" +
-                $"      Lokacija preuzimanja: {lokacija.adresa}\n" +              
+                $"      Prijedeni kilometri: {automobil.kilometraza}\n\n" +
+                $"      PODACI O PREUZIMANJU:\n" +
+                $"      Lokacija preuzimanja: {lokacija.adresa}\n" +
+                $"      Datum preuzimanja: {datum1}\n" +
+                $"      Datum vracanja: {datum2}\n" +              
                 $"      Nacin placanja: {kartica}\n\n\n" +
-                $"      Hvala Vam i uzivajte u vožnji!" +             
+                $"      Hvala Vam i uzivajte u voznji!" +             
                 $"");
 
             doc.Open();
