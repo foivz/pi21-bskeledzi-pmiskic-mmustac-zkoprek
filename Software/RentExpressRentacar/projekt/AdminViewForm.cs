@@ -125,6 +125,7 @@ namespace projekt
             vidiOsiguranjaButton.Enabled = false;
             Id = 1;
             osvjeziDataGrid();
+
         }
 
         private void vidiLokacijeButton_Click(object sender, EventArgs e)
@@ -314,25 +315,60 @@ namespace projekt
                 case 0:
                     {
                         glavniDataGrid.DataSource = null;
+                        using (var context = new CarRentalEntities())
+                        {
+                            var query = from z in context.Zaposleniks
+                                        select z;
+                            glavniDataGrid.DataSource = query.ToList();
+                            glavniDataGrid.Columns[7].Visible = false;
+                            glavniDataGrid.Columns[8].Visible = false;
+                        }
                      //   glavniDataGrid.DataSource = listaZaposlenika;
                         break;
                     }
                 case 1:
                     {
                         glavniDataGrid.DataSource = null;
-                       // glavniDataGrid.DataSource = listaOsiguranja;
+                        using (var context = new CarRentalEntities())
+                        {
+                            var query = from z in context.Osiguranjes
+                                        select z;
+                            glavniDataGrid.DataSource = query.ToList();
+                            glavniDataGrid.Columns[3].Visible = false;
+                        }
+                        // glavniDataGrid.DataSource = listaOsiguranja;
                         break;
                     }
                 case 2:
                     {
                         glavniDataGrid.DataSource = null;
-                      //  glavniDataGrid.DataSource = listaLokacija;
+                        using (var context = new CarRentalEntities())
+                        {
+                            var query = from z in context.Lokacijas
+                                        select z;
+                            glavniDataGrid.DataSource = query.ToList();
+                            glavniDataGrid.Columns[3].Visible = false;
+                            glavniDataGrid.Columns[4].Visible = false;
+                            glavniDataGrid.Columns[5].Visible = false;
+                            glavniDataGrid.Columns[6].Visible = false;
+                            glavniDataGrid.Columns[7].Visible = false;
+                        }
+                        //  glavniDataGrid.DataSource = listaLokacija;
                         break;
                     }
                 case 3:
                     {
                         glavniDataGrid.DataSource = null;
-                     //   glavniDataGrid.DataSource = listaAutomobila;
+                        using (var context = new CarRentalEntities())
+                        {
+                            var query = from z in context.Automobils
+                                        select z;
+                            glavniDataGrid.DataSource = query.ToList();
+                            glavniDataGrid.Columns[6].Visible = false;
+                            glavniDataGrid.Columns[7].Visible = false;
+                            glavniDataGrid.Columns[8].Visible = false;
+                        }
+                        //   glavniDataGrid.DataSource = listaAutomobila;
                         break;
                     }
                 default:
