@@ -57,18 +57,20 @@ namespace projekt
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 12);
+            this.label1.Location = new System.Drawing.Point(43, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Upišite ime:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 45);
+            this.label2.Location = new System.Drawing.Point(43, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(109, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Upišite prezime:";
             // 
@@ -77,9 +79,11 @@ namespace projekt
             this.groupBox1.Controls.Add(this.moderatorRadio);
             this.groupBox1.Controls.Add(this.zaposlenikRadio);
             this.groupBox1.Controls.Add(this.adminRadio);
-            this.groupBox1.Location = new System.Drawing.Point(35, 219);
+            this.groupBox1.Location = new System.Drawing.Point(47, 270);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(158, 95);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(211, 117);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Odaberite rank:";
@@ -87,9 +91,10 @@ namespace projekt
             // moderatorRadio
             // 
             this.moderatorRadio.AutoSize = true;
-            this.moderatorRadio.Location = new System.Drawing.Point(33, 42);
+            this.moderatorRadio.Location = new System.Drawing.Point(44, 52);
+            this.moderatorRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.moderatorRadio.Name = "moderatorRadio";
-            this.moderatorRadio.Size = new System.Drawing.Size(73, 17);
+            this.moderatorRadio.Size = new System.Drawing.Size(94, 21);
             this.moderatorRadio.TabIndex = 6;
             this.moderatorRadio.TabStop = true;
             this.moderatorRadio.Text = "Moderator";
@@ -98,9 +103,10 @@ namespace projekt
             // zaposlenikRadio
             // 
             this.zaposlenikRadio.AutoSize = true;
-            this.zaposlenikRadio.Location = new System.Drawing.Point(33, 65);
+            this.zaposlenikRadio.Location = new System.Drawing.Point(44, 80);
+            this.zaposlenikRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.zaposlenikRadio.Name = "zaposlenikRadio";
-            this.zaposlenikRadio.Size = new System.Drawing.Size(77, 17);
+            this.zaposlenikRadio.Size = new System.Drawing.Size(98, 21);
             this.zaposlenikRadio.TabIndex = 5;
             this.zaposlenikRadio.TabStop = true;
             this.zaposlenikRadio.Text = "Zaposlenik";
@@ -109,9 +115,10 @@ namespace projekt
             // adminRadio
             // 
             this.adminRadio.AutoSize = true;
-            this.adminRadio.Location = new System.Drawing.Point(33, 19);
+            this.adminRadio.Location = new System.Drawing.Point(44, 23);
+            this.adminRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.adminRadio.Name = "adminRadio";
-            this.adminRadio.Size = new System.Drawing.Size(85, 17);
+            this.adminRadio.Size = new System.Drawing.Size(112, 21);
             this.adminRadio.TabIndex = 4;
             this.adminRadio.TabStop = true;
             this.adminRadio.Text = "Administrator";
@@ -121,9 +128,11 @@ namespace projekt
             // 
             this.groupBox2.Controls.Add(this.trajniRadio);
             this.groupBox2.Controls.Add(this.naOgranicenoVrijemeRadio);
-            this.groupBox2.Location = new System.Drawing.Point(35, 320);
+            this.groupBox2.Location = new System.Drawing.Point(47, 394);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(169, 71);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(225, 87);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Odaberite ugovor zaposlenika:";
@@ -131,9 +140,10 @@ namespace projekt
             // trajniRadio
             // 
             this.trajniRadio.AutoSize = true;
-            this.trajniRadio.Location = new System.Drawing.Point(20, 42);
+            this.trajniRadio.Location = new System.Drawing.Point(27, 52);
+            this.trajniRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.trajniRadio.Name = "trajniRadio";
-            this.trajniRadio.Size = new System.Drawing.Size(51, 17);
+            this.trajniRadio.Size = new System.Drawing.Size(65, 21);
             this.trajniRadio.TabIndex = 1;
             this.trajniRadio.TabStop = true;
             this.trajniRadio.Text = "Trajni";
@@ -142,9 +152,10 @@ namespace projekt
             // naOgranicenoVrijemeRadio
             // 
             this.naOgranicenoVrijemeRadio.AutoSize = true;
-            this.naOgranicenoVrijemeRadio.Location = new System.Drawing.Point(20, 19);
+            this.naOgranicenoVrijemeRadio.Location = new System.Drawing.Point(27, 23);
+            this.naOgranicenoVrijemeRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.naOgranicenoVrijemeRadio.Name = "naOgranicenoVrijemeRadio";
-            this.naOgranicenoVrijemeRadio.Size = new System.Drawing.Size(131, 17);
+            this.naOgranicenoVrijemeRadio.Size = new System.Drawing.Size(171, 21);
             this.naOgranicenoVrijemeRadio.TabIndex = 0;
             this.naOgranicenoVrijemeRadio.TabStop = true;
             this.naOgranicenoVrijemeRadio.Text = "Na ograničeno vrijeme";
@@ -152,24 +163,27 @@ namespace projekt
             // 
             // imeTextBox
             // 
-            this.imeTextBox.Location = new System.Drawing.Point(119, 9);
+            this.imeTextBox.Location = new System.Drawing.Point(159, 11);
+            this.imeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imeTextBox.Name = "imeTextBox";
-            this.imeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.imeTextBox.Size = new System.Drawing.Size(132, 22);
             this.imeTextBox.TabIndex = 8;
             // 
             // prezimeTextBox
             // 
-            this.prezimeTextBox.Location = new System.Drawing.Point(119, 42);
+            this.prezimeTextBox.Location = new System.Drawing.Point(159, 52);
+            this.prezimeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.prezimeTextBox.Name = "prezimeTextBox";
-            this.prezimeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prezimeTextBox.Size = new System.Drawing.Size(132, 22);
             this.prezimeTextBox.TabIndex = 9;
             // 
             // muskoRadio
             // 
             this.muskoRadio.AutoSize = true;
-            this.muskoRadio.Location = new System.Drawing.Point(14, 19);
+            this.muskoRadio.Location = new System.Drawing.Point(19, 23);
+            this.muskoRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.muskoRadio.Name = "muskoRadio";
-            this.muskoRadio.Size = new System.Drawing.Size(57, 17);
+            this.muskoRadio.Size = new System.Drawing.Size(70, 21);
             this.muskoRadio.TabIndex = 7;
             this.muskoRadio.TabStop = true;
             this.muskoRadio.Text = "Muško";
@@ -178,9 +192,10 @@ namespace projekt
             // zenskoRadio
             // 
             this.zenskoRadio.AutoSize = true;
-            this.zenskoRadio.Location = new System.Drawing.Point(14, 42);
+            this.zenskoRadio.Location = new System.Drawing.Point(19, 52);
+            this.zenskoRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.zenskoRadio.Name = "zenskoRadio";
-            this.zenskoRadio.Size = new System.Drawing.Size(61, 17);
+            this.zenskoRadio.Size = new System.Drawing.Size(76, 21);
             this.zenskoRadio.TabIndex = 8;
             this.zenskoRadio.TabStop = true;
             this.zenskoRadio.Text = "Žensko";
@@ -190,18 +205,21 @@ namespace projekt
             // 
             this.groupBox3.Controls.Add(this.muskoRadio);
             this.groupBox3.Controls.Add(this.zenskoRadio);
-            this.groupBox3.Location = new System.Drawing.Point(35, 140);
+            this.groupBox3.Location = new System.Drawing.Point(47, 172);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(144, 73);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(192, 90);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Odaberite spol:";
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(35, 397);
+            this.dodajButton.Location = new System.Drawing.Point(47, 489);
+            this.dodajButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dodajButton.Name = "dodajButton";
-            this.dodajButton.Size = new System.Drawing.Size(75, 23);
+            this.dodajButton.Size = new System.Drawing.Size(100, 28);
             this.dodajButton.TabIndex = 11;
             this.dodajButton.Text = "Dodaj";
             this.dodajButton.UseVisualStyleBackColor = true;
@@ -209,9 +227,10 @@ namespace projekt
             // 
             // odustaniButton
             // 
-            this.odustaniButton.Location = new System.Drawing.Point(118, 397);
+            this.odustaniButton.Location = new System.Drawing.Point(157, 489);
+            this.odustaniButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.odustaniButton.Name = "odustaniButton";
-            this.odustaniButton.Size = new System.Drawing.Size(75, 23);
+            this.odustaniButton.Size = new System.Drawing.Size(100, 28);
             this.odustaniButton.TabIndex = 12;
             this.odustaniButton.Text = "Odustani";
             this.odustaniButton.UseVisualStyleBackColor = true;
@@ -220,40 +239,44 @@ namespace projekt
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 77);
+            this.label3.Location = new System.Drawing.Point(43, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 13;
             this.label3.Text = "Upišite OIB:";
             // 
             // oibTextBox
             // 
-            this.oibTextBox.Location = new System.Drawing.Point(119, 74);
+            this.oibTextBox.Location = new System.Drawing.Point(159, 91);
+            this.oibTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.oibTextBox.Name = "oibTextBox";
-            this.oibTextBox.Size = new System.Drawing.Size(100, 20);
+            this.oibTextBox.Size = new System.Drawing.Size(132, 22);
             this.oibTextBox.TabIndex = 14;
             // 
             // brojTelefonaTextBox
             // 
-            this.brojTelefonaTextBox.Location = new System.Drawing.Point(119, 104);
+            this.brojTelefonaTextBox.Location = new System.Drawing.Point(159, 128);
+            this.brojTelefonaTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.brojTelefonaTextBox.Name = "brojTelefonaTextBox";
-            this.brojTelefonaTextBox.Size = new System.Drawing.Size(100, 20);
+            this.brojTelefonaTextBox.Size = new System.Drawing.Size(132, 22);
             this.brojTelefonaTextBox.TabIndex = 16;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 107);
+            this.label4.Location = new System.Drawing.Point(43, 132);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "Broj telefona:";
             // 
             // DodajZaposlenikaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 440);
+            this.ClientSize = new System.Drawing.Size(349, 542);
             this.Controls.Add(this.brojTelefonaTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.oibTextBox);
@@ -267,7 +290,9 @@ namespace projekt
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DodajZaposlenikaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DODAJ ZAPOSLENIKA";
             this.Load += new System.EventHandler(this.DodajZaposlenikaForm_Load);
             this.groupBox1.ResumeLayout(false);
