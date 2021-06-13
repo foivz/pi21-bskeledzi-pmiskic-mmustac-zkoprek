@@ -347,5 +347,10 @@ namespace projekt
                 MessageBox.Show("f1");
             }
         }
+
+        private void AdminViewForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _login.Close();
+        }
     }
 }

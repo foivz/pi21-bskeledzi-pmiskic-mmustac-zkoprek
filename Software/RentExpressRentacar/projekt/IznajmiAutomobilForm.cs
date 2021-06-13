@@ -50,7 +50,7 @@ namespace projekt
 
         private void GetData()
         {
-            using (var context = new Entities1())
+            using (var context = new CarRentalEntities())
             {
                 var query = from p in context.Automobils.Include("OpremaAutomobilas").Include("Rezervacijas")
                             select p;
@@ -63,7 +63,7 @@ namespace projekt
         {
             string txt = automobilTextBox.Text;
 
-            using (var context = new Entities1())
+            using (var context = new CarRentalEntities())
             {
                 var query = from p in context.Automobils.Include("OpremaAutomobilas").Include("Rezervacijas")
                             where p.marka.Contains(txt)
