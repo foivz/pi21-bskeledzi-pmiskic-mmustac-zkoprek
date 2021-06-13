@@ -80,14 +80,15 @@ namespace projekt
         {
             List<Lokacija> lokacija;
 
-            using (var context = new Entities1())
+            using (var context = new CarRentalEntities())
             {
                 lokacija = context.Lokacijas.ToList();
             }
 
-            lokacijaComboBox.DataSource = lokacija;
+             lokacijaComboBox.DataSource = lokacija;
+            lokacijaComboBox.DisplayMember = "adresa";
 
 
-        }     
+        }
     }
 }

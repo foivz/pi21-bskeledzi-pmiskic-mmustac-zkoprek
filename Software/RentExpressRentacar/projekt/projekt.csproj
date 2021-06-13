@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automobil.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CarRentalModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -119,7 +119,7 @@
       <DependentUpon>AdminViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Grad.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="IznajmiAutomobilForm.cs">
       <SubType>Form</SubType>
@@ -128,7 +128,7 @@
       <DependentUpon>IznajmiAutomobilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Iznajmljivanje.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Klase\Automobil.cs" />
     <Compile Include="Klase\Enumeracije.cs" />
@@ -140,7 +140,7 @@
     <Compile Include="Klase\Upit.cs" />
     <Compile Include="Klase\Zaposlenik.cs" />
     <Compile Include="Kupac.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
@@ -149,22 +149,7 @@
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Lokacija.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSvi.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSvi.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSvi.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSvi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSvi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSvi.edmx</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NapraviRezervacijuForm.cs">
       <SubType>Form</SubType>
@@ -173,13 +158,13 @@
       <DependentUpon>NapraviRezervacijuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Oprema.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OpremaAutomobila.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Osiguranje.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OsiguranjeIznajmljivanja.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
@@ -199,23 +184,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rezervacija.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RezervacijaOpreme.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TipOpreme.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TipZaposlenika.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ugovor.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Zaposlenik.cs">
-      <DependentUpon>ModelSvi.tt</DependentUpon>
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ZaposlenikUloge.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
@@ -263,15 +248,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarRentalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="CarRentalModel.edmx.diagram">
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="ModelSvi.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelSvi.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelSvi.edmx.diagram">
-      <DependentUpon>ModelSvi.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -285,32 +264,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CarRentalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CarRentalModel.Context.cs</LastGenOutput>
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
+      <LastGenOutput>CarRentalModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="CarRentalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
       <LastGenOutput>CarRentalModel.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelSvi.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSvi.edmx</DependentUpon>
-      <LastGenOutput>ModelSvi.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelSvi.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSvi.edmx</DependentUpon>
-      <LastGenOutput>ModelSvi.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
