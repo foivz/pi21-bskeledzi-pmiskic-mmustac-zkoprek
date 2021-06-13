@@ -261,6 +261,7 @@ namespace projekt
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PodatciOKupcuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PODATCI O KUPCU";
             this.Load += new System.EventHandler(this.PodatciOKupcuForm_Load);
             this.ResumeLayout(false);

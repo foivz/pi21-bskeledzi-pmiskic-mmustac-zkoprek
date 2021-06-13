@@ -15,8 +15,10 @@ namespace projekt
     {
         private readonly CarRentalEntities _db;
         private Rezervacija rezervacija = null;
-        public bool kartica;
-        Lokacija lokacija;
+        private bool kartica;
+        private string datum1;
+        private string datum2;
+        private Lokacija lokacija;
 
         public NapraviRezervacijuForm()
         {
@@ -30,9 +32,23 @@ namespace projekt
             return lokacija;
         }
 
+        private string DohvatiOdabraniDatum1()
+        {
+            datum1 = kalendarPruzimanje.Text;
+            return datum1;
+        }
+
+        private string DohvatiOdabraniDatum2()
+        {
+            datum2 = kalendarVracanje.Text;
+            return datum2;
+        }
+
         private void ureduButton_Click(object sender, EventArgs e)
         {
             DohvatiOdabranuLokaciju();
+            DohvatiOdabraniDatum1();
+            DohvatiOdabraniDatum2();
 
             if (karticaRadio.Checked == false && gotovinaRadio.Checked == false)
             {
@@ -43,14 +59,14 @@ namespace projekt
             if (karticaRadio.Checked == true)
             {
                 kartica = true;
-                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija);
+                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija, datum1, datum2);
                 frm.ShowDialog();
             }
 
             if (karticaRadio.Checked != true)
             {
                 kartica = false;
-                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija);
+                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija, datum1, datum2);
                 frm.ShowDialog();
             }                                     
         }
@@ -64,7 +80,7 @@ namespace projekt
         {
             List<Lokacija> lokacija;
 
-            using (var context = new EntitiesSvi())
+            using (var context = new Entities1())
             {
                 lokacija = context.Lokacijas.ToList();
             }

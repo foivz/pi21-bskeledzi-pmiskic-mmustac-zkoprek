@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Automobil">
           <Key>
             <PropertyRef Name="id_automobil" />
@@ -326,7 +326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Model1StoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Automobil" EntityType="Self.Automobil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grad" EntityType="Self.Grad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Iznajmljivanje" EntityType="Self.Iznajmljivanje" Schema="dbo" store:Type="Tables" />
@@ -408,7 +408,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Automobil">
           <Key>
             <PropertyRef Name="id_automobil" />
@@ -700,7 +700,7 @@
           <End Role="TipZaposlenika" Type="Self.TipZaposlenika" Multiplicity="*" />
           <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="EntitiesSvi" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Automobils" EntityType="Self.Automobil" />
           <EntitySet Name="Grads" EntityType="Self.Grad" />
           <EntitySet Name="Iznajmljivanjes" EntityType="Self.Iznajmljivanje" />
@@ -773,9 +773,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="EntitiesSvi">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
           <EntitySetMapping Name="Automobils">
-            <EntityTypeMapping TypeName="Model1.Automobil">
+            <EntityTypeMapping TypeName="Model.Automobil">
               <MappingFragment StoreEntitySet="Automobil">
                 <ScalarProperty Name="id_automobil" ColumnName="id_automobil" />
                 <ScalarProperty Name="marka" ColumnName="marka" />
@@ -787,7 +787,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Grads">
-            <EntityTypeMapping TypeName="Model1.Grad">
+            <EntityTypeMapping TypeName="Model.Grad">
               <MappingFragment StoreEntitySet="Grad">
                 <ScalarProperty Name="id_grad" ColumnName="id_grad" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
@@ -795,7 +795,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Iznajmljivanjes">
-            <EntityTypeMapping TypeName="Model1.Iznajmljivanje">
+            <EntityTypeMapping TypeName="Model.Iznajmljivanje">
               <MappingFragment StoreEntitySet="Iznajmljivanje">
                 <ScalarProperty Name="id_iznajmljivanje" ColumnName="id_iznajmljivanje" />
                 <ScalarProperty Name="id_kupac" ColumnName="id_kupac" />
@@ -809,7 +809,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kupacs">
-            <EntityTypeMapping TypeName="Model1.Kupac">
+            <EntityTypeMapping TypeName="Model.Kupac">
               <MappingFragment StoreEntitySet="Kupac">
                 <ScalarProperty Name="id_kupac" ColumnName="id_kupac" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -819,7 +819,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lokacijas">
-            <EntityTypeMapping TypeName="Model1.Lokacija">
+            <EntityTypeMapping TypeName="Model.Lokacija">
               <MappingFragment StoreEntitySet="Lokacija">
                 <ScalarProperty Name="id_lokacija" ColumnName="id_lokacija" />
                 <ScalarProperty Name="id_grad" ColumnName="id_grad" />
@@ -828,7 +828,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Opremas">
-            <EntityTypeMapping TypeName="Model1.Oprema">
+            <EntityTypeMapping TypeName="Model.Oprema">
               <MappingFragment StoreEntitySet="Oprema">
                 <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
                 <ScalarProperty Name="ime_opreme" ColumnName="ime_opreme" />
@@ -837,7 +837,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OpremaAutomobilas">
-            <EntityTypeMapping TypeName="Model1.OpremaAutomobila">
+            <EntityTypeMapping TypeName="Model.OpremaAutomobila">
               <MappingFragment StoreEntitySet="OpremaAutomobila">
                 <ScalarProperty Name="id_oprema_automobila" ColumnName="id_oprema_automobila" />
                 <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
@@ -848,7 +848,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Osiguranjes">
-            <EntityTypeMapping TypeName="Model1.Osiguranje">
+            <EntityTypeMapping TypeName="Model.Osiguranje">
               <MappingFragment StoreEntitySet="Osiguranje">
                 <ScalarProperty Name="id_osiguranje" ColumnName="id_osiguranje" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
@@ -857,7 +857,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rezervacijas">
-            <EntityTypeMapping TypeName="Model1.Rezervacija">
+            <EntityTypeMapping TypeName="Model.Rezervacija">
               <MappingFragment StoreEntitySet="Rezervacija">
                 <ScalarProperty Name="id_rezervacija" ColumnName="id_rezervacija" />
                 <ScalarProperty Name="id_kupac" ColumnName="id_kupac" />
@@ -868,7 +868,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RezervacijaOpremes">
-            <EntityTypeMapping TypeName="Model1.RezervacijaOpreme">
+            <EntityTypeMapping TypeName="Model.RezervacijaOpreme">
               <MappingFragment StoreEntitySet="RezervacijaOpreme">
                 <ScalarProperty Name="id_rezervacija" ColumnName="id_rezervacija" />
                 <ScalarProperty Name="id_kategorija_opreme" ColumnName="id_kategorija_opreme" />
@@ -876,7 +876,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipOpremes">
-            <EntityTypeMapping TypeName="Model1.TipOpreme">
+            <EntityTypeMapping TypeName="Model.TipOpreme">
               <MappingFragment StoreEntitySet="TipOpreme">
                 <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -884,7 +884,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipZaposlenikas">
-            <EntityTypeMapping TypeName="Model1.TipZaposlenika">
+            <EntityTypeMapping TypeName="Model.TipZaposlenika">
               <MappingFragment StoreEntitySet="TipZaposlenika">
                 <ScalarProperty Name="tip_zaposlenika_id" ColumnName="tip_zaposlenika_id" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
@@ -892,7 +892,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ugovors">
-            <EntityTypeMapping TypeName="Model1.Ugovor">
+            <EntityTypeMapping TypeName="Model.Ugovor">
               <MappingFragment StoreEntitySet="Ugovor">
                 <ScalarProperty Name="ugovor_id" ColumnName="ugovor_id" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
@@ -900,7 +900,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zaposleniks">
-            <EntityTypeMapping TypeName="Model1.Zaposlenik">
+            <EntityTypeMapping TypeName="Model.Zaposlenik">
               <MappingFragment StoreEntitySet="Zaposlenik">
                 <ScalarProperty Name="id_zaposlenik" ColumnName="id_zaposlenik" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -912,7 +912,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="OsiguranjeIznajmljivanja" TypeName="Model1.OsiguranjeIznajmljivanja" StoreEntitySet="OsiguranjeIznajmljivanja">
+          <AssociationSetMapping Name="OsiguranjeIznajmljivanja" TypeName="Model.OsiguranjeIznajmljivanja" StoreEntitySet="OsiguranjeIznajmljivanja">
             <EndProperty Name="Iznajmljivanje">
               <ScalarProperty Name="id_iznajmljivanje" ColumnName="id_iznajmljivanje" />
             </EndProperty>
@@ -920,7 +920,7 @@
               <ScalarProperty Name="id_osiguranje" ColumnName="id_osiguranje" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="ZaposlenikUloge" TypeName="Model1.ZaposlenikUloge" StoreEntitySet="ZaposlenikUloge">
+          <AssociationSetMapping Name="ZaposlenikUloge" TypeName="Model.ZaposlenikUloge" StoreEntitySet="ZaposlenikUloge">
             <EndProperty Name="TipZaposlenika">
               <ScalarProperty Name="tip_zaposlenika_id" ColumnName="id_tipzaposlenika" />
             </EndProperty>

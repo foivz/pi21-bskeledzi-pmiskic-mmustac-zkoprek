@@ -29,21 +29,18 @@ namespace projekt
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.odustaniButton = new System.Windows.Forms.Button();
             this.iznajmiButton = new System.Windows.Forms.Button();
             this.automobilTextBox = new System.Windows.Forms.TextBox();
             this.automobilDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.automobilDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // odustaniButton
             // 
             this.odustaniButton.Location = new System.Drawing.Point(631, 304);
-            this.odustaniButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.odustaniButton.Margin = new System.Windows.Forms.Padding(4);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(100, 28);
             this.odustaniButton.TabIndex = 9;
@@ -54,7 +51,7 @@ namespace projekt
             // iznajmiButton
             // 
             this.iznajmiButton.Location = new System.Drawing.Point(28, 304);
-            this.iznajmiButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iznajmiButton.Margin = new System.Windows.Forms.Padding(4);
             this.iznajmiButton.Name = "iznajmiButton";
             this.iznajmiButton.Size = new System.Drawing.Size(100, 28);
             this.iznajmiButton.TabIndex = 8;
@@ -65,17 +62,18 @@ namespace projekt
             // automobilTextBox
             // 
             this.automobilTextBox.Location = new System.Drawing.Point(107, 15);
-            this.automobilTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.automobilTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.automobilTextBox.Name = "automobilTextBox";
             this.automobilTextBox.Size = new System.Drawing.Size(260, 22);
             this.automobilTextBox.TabIndex = 7;
+            this.automobilTextBox.TextChanged += new System.EventHandler(this.automobilTextBox_TextChanged);
             // 
             // automobilDataGridView
             // 
             this.automobilDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.automobilDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.automobilDataGridView.Location = new System.Drawing.Point(28, 59);
-            this.automobilDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.automobilDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.automobilDataGridView.Name = "automobilDataGridView";
             this.automobilDataGridView.RowHeadersWidth = 51;
             this.automobilDataGridView.Size = new System.Drawing.Size(703, 224);
@@ -101,12 +99,12 @@ namespace projekt
             this.Controls.Add(this.automobilTextBox);
             this.Controls.Add(this.automobilDataGridView);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IznajmiAutomobilForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IZNAJMI AUTOMOBIL";
             this.Load += new System.EventHandler(this.IznajmiAutomobilForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.automobilDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +117,5 @@ namespace projekt
         private System.Windows.Forms.TextBox automobilTextBox;
         private System.Windows.Forms.DataGridView automobilDataGridView;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
