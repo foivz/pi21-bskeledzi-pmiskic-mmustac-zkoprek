@@ -17,6 +17,7 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kupac()
         {
+            this.Iznajmljivanjes = new HashSet<Iznajmljivanje>();
             this.Rezervacijas = new HashSet<Rezervacija>();
         }
     
@@ -25,6 +26,8 @@ namespace projekt
         public System.DateTime datum_rodenja { get; set; }
         public byte vozacka_dozvola { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Iznajmljivanje> Iznajmljivanjes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
     }

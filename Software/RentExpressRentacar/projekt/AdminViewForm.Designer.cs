@@ -39,6 +39,7 @@ namespace projekt
             this.glavniDataGrid = new System.Windows.Forms.DataGridView();
             this.vidiZaposlenikeButton = new System.Windows.Forms.Button();
             this.izbrisiButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,6 +117,7 @@ namespace projekt
             this.glavniDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.glavniDataGrid.Location = new System.Drawing.Point(12, 25);
             this.glavniDataGrid.Name = "glavniDataGrid";
+            this.glavniDataGrid.RowHeadersWidth = 51;
             this.glavniDataGrid.Size = new System.Drawing.Size(776, 251);
             this.glavniDataGrid.TabIndex = 1;
             // 
@@ -139,11 +141,21 @@ namespace projekt
             this.izbrisiButton.UseVisualStyleBackColor = true;
             this.izbrisiButton.Click += new System.EventHandler(this.izbrisiButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(360, 286);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 31);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // AdminViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 327);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.izbrisiButton);
             this.Controls.Add(this.vidiZaposlenikeButton);
             this.Controls.Add(this.statistikaButton);
@@ -155,7 +167,9 @@ namespace projekt
             this.Controls.Add(this.glavniDataGrid);
             this.Controls.Add(this.glavniLabel);
             this.Name = "AdminViewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administratorska forma";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminViewForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AdminViewForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).EndInit();
@@ -175,6 +189,7 @@ namespace projekt
         private System.Windows.Forms.DataGridView glavniDataGrid;
         private System.Windows.Forms.Button vidiZaposlenikeButton;
         private System.Windows.Forms.Button izbrisiButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 

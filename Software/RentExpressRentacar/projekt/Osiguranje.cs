@@ -17,7 +17,7 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Osiguranje()
         {
-            this.Iznajmljivanjes = new HashSet<Iznajmljivanje>();
+            this.OsiguranjeIznajmljivanjas = new HashSet<OsiguranjeIznajmljivanja>();
         }
     
         public int id_osiguranje { get; set; }
@@ -25,6 +25,6 @@ namespace projekt
         public string opis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Iznajmljivanje> Iznajmljivanjes { get; set; }
+        public virtual ICollection<OsiguranjeIznajmljivanja> OsiguranjeIznajmljivanjas { get; set; }
     }
 }

@@ -36,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -166,6 +166,9 @@
     <Compile Include="Osiguranje.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="OsiguranjeIznajmljivanja.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PodatciOKupcuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +200,9 @@
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Zaposlenik.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZaposlenikUloge.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodajAutomobilForm.resx">
@@ -242,6 +248,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarRentalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="CarRentalModel.edmx.diagram">
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
     </None>
@@ -257,22 +264,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CarRentalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CarRentalModel.Context.cs</LastGenOutput>
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
+      <LastGenOutput>CarRentalModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="CarRentalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarRentalModel.edmx</DependentUpon>
       <LastGenOutput>CarRentalModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
