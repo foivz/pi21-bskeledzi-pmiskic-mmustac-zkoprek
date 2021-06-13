@@ -17,7 +17,7 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Iznajmljivanje()
         {
-            this.Osiguranjes = new HashSet<Osiguranje>();
+            this.OsiguranjeIznajmljivanjas = new HashSet<OsiguranjeIznajmljivanja>();
         }
     
         public int id_iznajmljivanje { get; set; }
@@ -25,11 +25,14 @@ namespace projekt
         public int id_automobil { get; set; }
         public System.DateTime pocetni_datum { get; set; }
         public System.DateTime zavrsni_datum { get; set; }
-        public int id_lokacija { get; set; }
-        public string lokacija_preuzimanja { get; set; }
-        public string lokacija_vracanja { get; set; }
+        public int lokacija_preuzimanja { get; set; }
+        public int lokacija_vracanja { get; set; }
     
+        public virtual Automobil Automobil { get; set; }
+        public virtual Kupac Kupac { get; set; }
+        public virtual Lokacija Lokacija { get; set; }
+        public virtual Lokacija Lokacija1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Osiguranje> Osiguranjes { get; set; }
+        public virtual ICollection<OsiguranjeIznajmljivanja> OsiguranjeIznajmljivanjas { get; set; }
     }
 }

@@ -14,6 +14,12 @@ namespace projekt
     
     public partial class Rezervacija
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rezervacija()
+        {
+            this.RezervacijaOpremes = new HashSet<RezervacijaOpreme>();
+        }
+    
         public int id_rezervacija { get; set; }
         public int id_kupac { get; set; }
         public int id_automobil { get; set; }
@@ -24,5 +30,7 @@ namespace projekt
         public virtual Kupac Kupac { get; set; }
         public virtual Lokacija Lokacija { get; set; }
         public virtual Lokacija Lokacija1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RezervacijaOpreme> RezervacijaOpremes { get; set; }
     }
 }

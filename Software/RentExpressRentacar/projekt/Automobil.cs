@@ -17,6 +17,7 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Automobil()
         {
+            this.Iznajmljivanjes = new HashSet<Iznajmljivanje>();
             this.OpremaAutomobilas = new HashSet<OpremaAutomobila>();
             this.Rezervacijas = new HashSet<Rezervacija>();
         }
@@ -28,6 +29,8 @@ namespace projekt
         public int kilometraza { get; set; }
         public string boja { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Iznajmljivanje> Iznajmljivanjes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OpremaAutomobila> OpremaAutomobilas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

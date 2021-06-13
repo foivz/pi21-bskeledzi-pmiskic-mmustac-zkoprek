@@ -33,11 +33,13 @@ namespace projekt
         public virtual DbSet<Oprema> Opremas { get; set; }
         public virtual DbSet<OpremaAutomobila> OpremaAutomobilas { get; set; }
         public virtual DbSet<Osiguranje> Osiguranjes { get; set; }
+        public virtual DbSet<OsiguranjeIznajmljivanja> OsiguranjeIznajmljivanjas { get; set; }
         public virtual DbSet<Rezervacija> Rezervacijas { get; set; }
         public virtual DbSet<RezervacijaOpreme> RezervacijaOpremes { get; set; }
         public virtual DbSet<TipOpreme> TipOpremes { get; set; }
         public virtual DbSet<TipZaposlenika> TipZaposlenikas { get; set; }
         public virtual DbSet<Ugovor> Ugovors { get; set; }
         public virtual DbSet<Zaposlenik> Zaposleniks { get; set; }
+        public virtual DbSet<ZaposlenikUloge> ZaposlenikUloges { get; set; }
     }
 }

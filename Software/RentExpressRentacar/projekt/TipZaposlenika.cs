@@ -17,13 +17,13 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TipZaposlenika()
         {
-            this.Zaposleniks = new HashSet<Zaposlenik>();
+            this.ZaposlenikUloges = new HashSet<ZaposlenikUloge>();
         }
     
         public int tip_zaposlenika_id { get; set; }
         public string naziv { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zaposlenik> Zaposleniks { get; set; }
+        public virtual ICollection<ZaposlenikUloge> ZaposlenikUloges { get; set; }
     }
 }

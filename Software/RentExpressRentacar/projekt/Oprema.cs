@@ -18,6 +18,7 @@ namespace projekt
         public Oprema()
         {
             this.OpremaAutomobilas = new HashSet<OpremaAutomobila>();
+            this.RezervacijaOpremes = new HashSet<RezervacijaOpreme>();
         }
     
         public int id_oprema { get; set; }
@@ -27,5 +28,7 @@ namespace projekt
         public virtual TipOpreme TipOpreme { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OpremaAutomobila> OpremaAutomobilas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RezervacijaOpreme> RezervacijaOpremes { get; set; }
     }
 }

@@ -17,6 +17,8 @@ namespace projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Lokacija()
         {
+            this.Iznajmljivanjes = new HashSet<Iznajmljivanje>();
+            this.Iznajmljivanjes1 = new HashSet<Iznajmljivanje>();
             this.Rezervacijas = new HashSet<Rezervacija>();
             this.Rezervacijas1 = new HashSet<Rezervacija>();
         }
@@ -26,6 +28,10 @@ namespace projekt
         public string adresa { get; set; }
     
         public virtual Grad Grad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Iznajmljivanje> Iznajmljivanjes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Iznajmljivanje> Iznajmljivanjes1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
