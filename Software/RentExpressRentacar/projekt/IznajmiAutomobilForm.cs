@@ -56,9 +56,11 @@ namespace projekt
                             select p;
 
                 automobilDataGridView.DataSource = query.ToList();
+
                 automobilDataGridView.Columns[6].Visible = false;
                 automobilDataGridView.Columns[7].Visible = false;
                 automobilDataGridView.Columns[8].Visible = false;
+
 
             }
         }

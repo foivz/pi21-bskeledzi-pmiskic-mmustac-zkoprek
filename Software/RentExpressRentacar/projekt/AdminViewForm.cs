@@ -386,7 +386,9 @@ namespace projekt
 
         private void AdminViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             _login.Close(); 
+
         }
     }
 }
