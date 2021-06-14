@@ -14,7 +14,7 @@ namespace projekt
 {
     public partial class DodajAutomobilForm : Form
     {
-        private Automobil automobil = null;
+        
         private readonly CarRentalEntities _db;
         public DodajAutomobilForm()
         {

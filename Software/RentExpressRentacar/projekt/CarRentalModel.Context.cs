@@ -39,6 +39,7 @@ namespace projekt
         public virtual DbSet<TipOpreme> TipOpremes { get; set; }
         public virtual DbSet<TipZaposlenika> TipZaposlenikas { get; set; }
         public virtual DbSet<Ugovor> Ugovors { get; set; }
+        public virtual DbSet<Upiti> Upitis { get; set; }
         public virtual DbSet<Zaposlenik> Zaposleniks { get; set; }
         public virtual DbSet<ZaposlenikUloge> ZaposlenikUloges { get; set; }
     }

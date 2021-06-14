@@ -19,5 +19,7 @@ namespace projekt.Klase
         {
             //Dohvaća sve lokacije iz liste
         }
+
+        
     }
 }
