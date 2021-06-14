@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using projekt.Klase;
+
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;

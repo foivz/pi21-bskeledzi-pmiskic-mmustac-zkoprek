@@ -10,14 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
-using iTextSharp.text.pdf;
-using projekt.Klase;
+
 
 namespace projekt
 {
     public partial class PosaljiUpitForm : Form
     {
-        private Klase.Upiti upit = null;
+       
         private readonly CarRentalEntities _db;
 
         public PosaljiUpitForm()

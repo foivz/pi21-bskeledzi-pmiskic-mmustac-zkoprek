@@ -131,15 +131,6 @@
     <Compile Include="Iznajmljivanje.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Klase\Automobil.cs" />
-    <Compile Include="Klase\Enumeracije.cs" />
-    <Compile Include="Klase\IznajmiAutomobil.cs" />
-    <Compile Include="Klase\Kupac.cs" />
-    <Compile Include="Klase\Lokacija.cs" />
-    <Compile Include="Klase\Osiguranje.cs" />
-    <Compile Include="Klase\Rezervacija.cs" />
-    <Compile Include="Klase\Upiti.cs" />
-    <Compile Include="Klase\Zaposlenik.cs" />
     <Compile Include="Kupac.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
