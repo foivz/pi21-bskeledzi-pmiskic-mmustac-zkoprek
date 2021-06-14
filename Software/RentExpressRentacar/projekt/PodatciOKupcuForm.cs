@@ -122,6 +122,25 @@ namespace projekt
             client.Send(mail);
             MessageBox.Show("Mail je uspješno poslan!", "Uspjeh!", MessageBoxButtons.OK);
             Close();
+
+            Upiti upit = new Upiti();
+            upit.email = txtEmail.Text;
+            upit.predmet = "Rezervacija";
+            upit.opis = automobil.marka + automobil.model;
+
+            using (var context = new CarRentalEntities())
+            {
+                Upiti noviUpit = new Upiti
+                {
+                    predmet ="Rezervacija",
+                    opis = automobil.marka + " " + automobil.model,
+                    email = txtEmail.Text
+
+                };
+
+                context.Upitis.Add(noviUpit);
+                context.SaveChanges();
+            }
         }
 
         private void PodatciOKupcuForm_Load(object sender, EventArgs e)

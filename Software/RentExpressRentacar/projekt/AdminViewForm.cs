@@ -344,10 +344,10 @@ namespace projekt
                         glavniDataGrid.DataSource = null;
                         using (var context = new CarRentalEntities())
                         {
-                            var query = from z in context.Lokacijas
+                            var query = from z in context.Lokacijas.Include("Grad")
                                         select z;
                             glavniDataGrid.DataSource = query.ToList();
-                            glavniDataGrid.Columns[3].Visible = false;
+                            //glavniDataGrid.Columns[3].Visible = false;
                             glavniDataGrid.Columns[4].Visible = false;
                             glavniDataGrid.Columns[5].Visible = false;
                             glavniDataGrid.Columns[6].Visible = false;
@@ -389,6 +389,12 @@ namespace projekt
 
             _login.Close(); 
 
+        }
+
+        private void ObavjestBtn_Click(object sender, EventArgs e)
+        {
+            var form = new PregledObavijestForm();
+            form.ShowDialog();
         }
     }
 }
