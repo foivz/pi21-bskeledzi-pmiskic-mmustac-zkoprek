@@ -13,7 +13,7 @@ namespace projekt
 {
     public partial class DodajLokacijuForm : Form
     {
-        private Lokacija lokacija = null;
+        
         private readonly CarRentalEntities _db;
         public DodajLokacijuForm()
         {

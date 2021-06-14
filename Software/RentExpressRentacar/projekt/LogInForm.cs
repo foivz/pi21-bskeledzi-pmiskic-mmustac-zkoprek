@@ -23,6 +23,7 @@ namespace projekt
         private void kupacButton_Click(object sender, EventArgs e)
         {
             NapraviRezervacijuForm napraviRezervaciju = new NapraviRezervacijuForm();
+            
             napraviRezervaciju.ShowDialog();
         }
 
