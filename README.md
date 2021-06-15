@@ -19,7 +19,7 @@ Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
 F01 | Prijava zaposlenika, admina ili kupca |Prije korištenja aplikacije se korisnik treba prijaviti kao zaposlenik, admin ili pristupiti kao kupac.| Boris Skeledžija
 F02 | Iznajmljivanje automobila |Potencijalni kupac pregledava sve automobile dostupne za rezervaciju u željenom terminu. Kupac vidi koliki su troškovi za rezervaciju, iznajmljivanje te ostalo. Od ponuđenih gradova i lokacija u njima kupac odabire. | Petar Miškić
-F03 | Dodavanje i brisanje zaposlenika, lokacija, automobila | Admin ima mogućnost dodavanja ili brisanja zaposlenika, lokacija, automobila te upravljanjima ovlastima i ulogama u aplikaciji | Mateo Mustać
+F03 | Dodavanje, mijenjanje i brisanje zaposlenika, osiguranja, lokacija i automobila | Admin ima mogućnost dodavanja ili brisanja zaposlenika, lokacija, automobila te upravljanjima ovlastima i ulogama u aplikaciji | Mateo Mustać
 F04 | Obavijesti | Zaposlenik dobiva obavijesti o prijavi kvara, rezervaciji, upitima i sl. Kada zaposlenik potvrdi rezervaciju, kupac prima obavijest o uspješnoj rezervaciji. Moguće je i kad je aplikacija ugašena.  | Petar Miškić
 F05 | Upiti | Kupac može slati upite o lokacijama, rezervaciji, bilo čemu što ga zanima. Na upite odgovara zaposlenik. Obavijesti se dobivaju i kad je aplikacija ugašena | Boris Skeledžija
 F06 | Način plaćanja | Kupac odabire način plaćanja, ima opciju slanja podataka o plaćanju na e-mail u obliku PDF-a. Postoji i dodatak 2D QR-Code. | Zvonimir Koprek

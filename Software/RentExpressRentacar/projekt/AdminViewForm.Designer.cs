@@ -172,7 +172,6 @@ namespace projekt
             this.Text = "Administratorska forma";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminViewForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AdminViewForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

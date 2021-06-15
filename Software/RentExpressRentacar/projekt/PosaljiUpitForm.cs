@@ -10,13 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
-
+using iTextSharp.text.pdf;
 
 namespace projekt
 {
     public partial class PosaljiUpitForm : Form
     {
-       
         private readonly CarRentalEntities _db;
 
         public PosaljiUpitForm()
@@ -57,15 +56,10 @@ namespace projekt
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Potvrda uspješne transakcije.pdf", FileMode.Create));
 
             string imagepath1 = "Logo.jpeg";
-            string imagepath2 = "qrcode.jpg";
 
             iTextSharp.text.Image jpeg = iTextSharp.text.Image.GetInstance(imagepath1);
             jpeg.SetAbsolutePosition(20, 690);
             jpeg.ScaleToFit(1200f, 80f);
-
-            iTextSharp.text.Image qrcode = iTextSharp.text.Image.GetInstance(imagepath2);
-            qrcode.SetAbsolutePosition(525, 705);
-            qrcode.ScaleToFit(100f, 70f);
 
             Paragraph paragraph1 = new Paragraph($"\n \n \n");
 
@@ -85,10 +79,9 @@ namespace projekt
             doc.Add(paragraph1);
             doc.Add(paragraph);
             doc.Add(jpeg);
-            doc.Add(qrcode);
             doc.Close();
 
-            MailMessage mail = new MailMessage("RentExpressDoo@gmail.com","RentExpressDoo@gmail.com", "Novi Upit", "Upit");
+            MailMessage mail = new MailMessage("RentExpressDoo@gmail.com", emailTextBox.Text, "Novi Upit", "Upit");
             System.Net.Mail.Attachment attachment;
             attachment = new System.Net.Mail.Attachment("Potvrda uspješne transakcije.pdf");
             mail.Attachments.Add(attachment);
@@ -99,13 +92,6 @@ namespace projekt
             client.Send(mail);
             MessageBox.Show("Mail je uspješno poslan!", "Uspjeh!", MessageBoxButtons.OK);
             Close();
-
-
-
         }   
-        private void PosaljiUpitForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
