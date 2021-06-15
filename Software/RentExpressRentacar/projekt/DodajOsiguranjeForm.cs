@@ -24,8 +24,6 @@ namespace projekt
         {
             InitializeComponent();
             nazivTextBox.Text = osiguranje.naziv;
-            //cijenaTextBox.Text = osiguranje.Cijena.ToString();
-            //policaTextBox.Text = osiguranje.PolicaOsiguranja;
             opisRichTextBox.Text = osiguranje.opis;
             dodajButton.Text = "Izmijeni";
             _db = new CarRentalEntities();
@@ -73,11 +71,6 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void DodajOsiguranjeForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

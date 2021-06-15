@@ -133,7 +133,6 @@ namespace projekt
             this.Name = "PosaljiUpitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POŠALJI UPIT";
-            this.Load += new System.EventHandler(this.PosaljiUpitForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

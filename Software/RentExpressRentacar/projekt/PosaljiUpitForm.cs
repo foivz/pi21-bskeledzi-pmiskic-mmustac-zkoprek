@@ -93,9 +93,5 @@ namespace projekt
             MessageBox.Show("Mail je uspješno poslan!", "Uspjeh!", MessageBoxButtons.OK);
             Close();
         }   
-        private void PosaljiUpitForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

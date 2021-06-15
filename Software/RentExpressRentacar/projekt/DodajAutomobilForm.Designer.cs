@@ -198,7 +198,6 @@ namespace projekt
             this.Name = "DodajAutomobilForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DODAJ AUTOMOBIL";
-            this.Load += new System.EventHandler(this.DodajAutomobilForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -159,6 +159,8 @@ namespace projekt
         private void statistikaButton_Click(object sender, EventArgs e)
         {
             //Gumb koji će prikazati statistiku, grafove & tablice rezervacija itd...
+            var form = new PregledStatistikeForm();
+            form.ShowDialog();
         }
 
         private void dodajButton_Click(object sender, EventArgs e)
@@ -284,7 +286,6 @@ namespace projekt
                                 context.SaveChanges();
                             }
                         }
-                      //  listaZaposlenika.Remove(zaposlenik);
                         osvjeziDataGrid();
                         break;
                     }
@@ -303,7 +304,6 @@ namespace projekt
                                 context.SaveChanges();
                             }
                         }
-                        //   listaOsiguranja.Remove(osiguranje);
                         osvjeziDataGrid();
                         break;
                     }
@@ -322,7 +322,6 @@ namespace projekt
                                 context.SaveChanges();
                             }
                         }
-                        //  listaLokacija.Remove(lokacija);
                         osvjeziDataGrid();
                         break;
                     }
@@ -341,7 +340,6 @@ namespace projekt
                                 context.SaveChanges();
                             }
                         }
-                        //   listaAutomobila.Remove(automobil);
                         osvjeziDataGrid();
                         break;
                     }
@@ -373,7 +371,6 @@ namespace projekt
                             glavniDataGrid.Columns[7].Visible = false;
                             glavniDataGrid.Columns[8].Visible = false;
                         }
-                     //   glavniDataGrid.DataSource = listaZaposlenika;
                         break;
                     }
                 case 1:
@@ -386,7 +383,6 @@ namespace projekt
                             glavniDataGrid.DataSource = query.ToList();
                             glavniDataGrid.Columns[3].Visible = false;
                         }
-                        // glavniDataGrid.DataSource = listaOsiguranja;
                         break;
                     }
                 case 2:
@@ -397,13 +393,11 @@ namespace projekt
                             var query = from z in context.Lokacijas.Include("Grad")
                                         select z;
                             glavniDataGrid.DataSource = query.ToList();
-                            //glavniDataGrid.Columns[3].Visible = false;
                             glavniDataGrid.Columns[4].Visible = false;
                             glavniDataGrid.Columns[5].Visible = false;
                             glavniDataGrid.Columns[6].Visible = false;
                             glavniDataGrid.Columns[7].Visible = false;
                         }
-                        //  glavniDataGrid.DataSource = listaLokacija;
                         break;
                     }
                 case 3:
@@ -419,7 +413,6 @@ namespace projekt
                             glavniDataGrid.Columns[8].Visible = false;
                             glavniDataGrid.Columns[9].Visible = false;
                         }
-                        //   glavniDataGrid.DataSource = listaAutomobila;
                         break;
                     }
                 default:
@@ -427,13 +420,11 @@ namespace projekt
             }
         }
 
-        private void AdminViewForm_KeyUp(object sender, KeyEventArgs e)
-        {
-        }
-
         private void AdminViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             _login.Close(); 
+
         }
 
         private void ObavjestBtn_Click(object sender, EventArgs e)

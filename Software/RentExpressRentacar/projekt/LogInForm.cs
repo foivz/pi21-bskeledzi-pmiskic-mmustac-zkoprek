@@ -55,19 +55,12 @@ namespace projekt
 
                 MessageBox.Show("Nesto je poslo po zlu!");
             }
-          //  AdminViewForm administratorskaForma = new AdminViewForm();
-          //  administratorskaForma.ShowDialog();
         }
 
         private void upitButton_Click(object sender, EventArgs e)
         {
             PosaljiUpitForm upitForm = new PosaljiUpitForm();
             upitForm.ShowDialog();
-        }
-
-        private void LogInForm_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }

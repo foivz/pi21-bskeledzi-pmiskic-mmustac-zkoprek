@@ -13,7 +13,6 @@ namespace projekt
     public partial class NapraviRezervacijuForm : Form
     {
         private readonly CarRentalEntities _db;
-        private Rezervacija rezervacija = null;
         private bool kartica;
         private string datum1;
         private string datum2;

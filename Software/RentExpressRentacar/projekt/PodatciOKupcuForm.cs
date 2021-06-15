@@ -18,10 +18,8 @@ using System.Drawing.Imaging;
 
 namespace projekt
 {
-
     public partial class PodatciOKupcuForm : Form
     {
-        private Kupac kupac;
         private readonly CarRentalEntities _db;
         private Automobil automobil { get; set; }
         private bool Ka { get; set; }
@@ -40,6 +38,8 @@ namespace projekt
             Ka = k;
             datum1 = d1;
             datum2 = d2;
+            
+            
             string[] datumP = d1.Split('.');
             string[] datumV = d2.Split('.');
             string[] datumPr = datumP[0].Split('.');

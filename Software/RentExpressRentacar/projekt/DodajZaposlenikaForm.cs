@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utils;
 
 namespace projekt
 {
@@ -50,9 +51,7 @@ namespace projekt
                 string prezime = prezimeTextBox.Text;
                 string oib = oibTextBox.Text;
                 string korime = korisnickoImeTextBox.Text;
-                //Ugovor ugovor = null;
                 int ugovor_id;
-                //Ugovor ugovori = new Ugovor();
 
                 if (naOgranicenoVrijemeRadio.Checked == true)
                 {
@@ -77,9 +76,7 @@ namespace projekt
                 string prezime = prezimeTextBox.Text;
                 string oib = oibTextBox.Text;
                 string korime = korisnickoImeTextBox.Text;
-                //Ugovor ugovor = null;
                 int ugovor_id;
-                //Ugovor ugovori = new Ugovor();
 
                 if (naOgranicenoVrijemeRadio.Checked == true)
                 {
@@ -89,7 +86,7 @@ namespace projekt
                 {
                     ugovor_id = 2;
                 }
-                //string lozinka = Utils.DefaultHashedPassword();
+                string lozinka = Utils.Utils.DefaultHashedPassword();
 
                 Zaposlenik noviZaposlenik = new Zaposlenik
                 {
@@ -97,8 +94,8 @@ namespace projekt
                     prezime = prezime,
                     OIB = oib,
                     korisnicko_ime = korime,
-                    ugovor_id = ugovor_id
-                    //lozinka = lozinka
+                    ugovor_id = ugovor_id,
+                    lozinka = lozinka
                 };
 
                 _db.Zaposleniks.Add(noviZaposlenik);

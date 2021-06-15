@@ -20,16 +20,6 @@ namespace projekt
         {
             InitializeComponent();
             _db = new CarRentalEntities();
-            PopuniOpremu();
-        }
-
-        private void PopuniOpremu()
-        {
-            List<Oprema> listaOpreme = new List<Oprema>();
-            
-            listaOpreme = _db.Opremas.ToList();
-            
-            
         }
 
         public DodajAutomobilForm(Automobil automobil)
@@ -38,7 +28,6 @@ namespace projekt
             markaTextBox.Text = automobil.marka;
             modelTextBox.Text = automobil.model;
             godinaTextBox.Text = automobil.godina_prozivodnje.ToString();
-            //opremaComboBox.SelectedItem = automobil.OpremaAutomobilas;
             kilometrazaTextBox.Text = automobil.kilometraza.ToString();
             bojaTextBox.Text = automobil.boja;
             dodajButton.Text = "Izmijeni";
@@ -60,10 +49,6 @@ namespace projekt
                     int kilometraza = int.Parse(kilometrazaTextBox.Text);
                     string boja = bojaTextBox.Text;
                     string cijena = txtCijenPoDanu.Text;
-
-                    //OpremaAutomobila oprema = opremaComboBox.SelectedItem as OpremaAutomobila;
-
-                    //context.OpremaAutomobilas.Attach(oprema);
 
                     context.Automobils.Attach(odabraniAutomobil);
 
@@ -88,10 +73,6 @@ namespace projekt
                     string boja = bojaTextBox.Text;
                     string cijena = txtCijenPoDanu.Text;
 
-                    //OpremaAutomobila oprema = opremaComboBox.SelectedItem as OpremaAutomobila;
-
-                    //context.OpremaAutomobilas.Attach(oprema);
-
                     Automobil noviAutomobil = new Automobil
                     {
                         marka = marka,
@@ -99,7 +80,7 @@ namespace projekt
                         godina_prozivodnje = godinaProizvodnje,
                         kilometraza = kilometraza,
                         boja = boja,
-                        cijena = int.Parse(cijena)                   //OpremaAutomobilas = oprema
+                        cijena = int.Parse(cijena)
                     };
                     context.Automobils.Add(noviAutomobil);
                     context.SaveChanges();
@@ -111,11 +92,6 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void DodajAutomobilForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
