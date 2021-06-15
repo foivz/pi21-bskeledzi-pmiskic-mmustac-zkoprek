@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using projekt.Klase;
 
 namespace projekt
 {
@@ -51,14 +50,12 @@ namespace projekt
                 ModeratorView();
                 osvjeziDataGrid();
             }
-            
-            
-
         }
 
         private void ModeratorView()
         {
             vidiZaposlenikeButton.Visible = true;
+            vidiZaposlenikeButton.Enabled = false;
             vidiOsiguranjaButton.Visible = true;
             vidiLokacijeButton.Visible = true;
             vidiAutomobileButton.Visible = true;
@@ -71,6 +68,7 @@ namespace projekt
         private void AdminView()
         {
             vidiZaposlenikeButton.Visible = true;
+            vidiZaposlenikeButton.Enabled = false;
             vidiOsiguranjaButton.Visible = true;
             vidiLokacijeButton.Visible = true;
             vidiAutomobileButton.Visible = true;
@@ -161,6 +159,8 @@ namespace projekt
         private void statistikaButton_Click(object sender, EventArgs e)
         {
             //Gumb koji će prikazati statistiku, grafove & tablice rezervacija itd...
+            var form = new PregledStatistikeForm();
+            form.ShowDialog();
         }
 
         private void dodajButton_Click(object sender, EventArgs e)
@@ -210,20 +210,29 @@ namespace projekt
                         {
                             zaposlenik = glavniDataGrid.CurrentRow.DataBoundItem as Zaposlenik;
                         }
-                        DodajZaposlenikaForm izmijeniZaposlenika = new DodajZaposlenikaForm(zaposlenik);
-                        izmijeniZaposlenika.ShowDialog();
-                        osvjeziDataGrid();
+                        if (zaposlenik != null)
+                        {
+                            DodajZaposlenikaForm izmijeniZaposlenika = new DodajZaposlenikaForm(zaposlenik);
+                            izmijeniZaposlenika.ShowDialog();
+                            osvjeziDataGrid();
+                        }
                         break;
                     }
                 case 1:
                     {
-                        if (glavniDataGrid.CurrentRow.DataBoundItem != null)
+                        if (glavniDataGrid.DataSource != null)
                         {
-                            osiguranje = glavniDataGrid.CurrentRow.DataBoundItem as Osiguranje;
+                            if (glavniDataGrid.CurrentRow.DataBoundItem != null)
+                            {
+                                osiguranje = glavniDataGrid.CurrentRow.DataBoundItem as Osiguranje;
+                            }
                         }
-                        DodajOsiguranjeForm dodajOsiguranje = new DodajOsiguranjeForm(osiguranje);
-                        dodajOsiguranje.ShowDialog();
-                        osvjeziDataGrid();
+                        if (osiguranje != null)
+                        {
+                            DodajOsiguranjeForm dodajOsiguranje = new DodajOsiguranjeForm(osiguranje);
+                            dodajOsiguranje.ShowDialog();
+                            osvjeziDataGrid();
+                        }
                         break;
                     }
                 case 2:
@@ -232,9 +241,12 @@ namespace projekt
                         {
                             lokacija = glavniDataGrid.CurrentRow.DataBoundItem as Lokacija;
                         }
-                        DodajLokacijuForm dodajLokaciju = new DodajLokacijuForm(lokacija);
-                        dodajLokaciju.ShowDialog();
-                        osvjeziDataGrid();
+                        if (lokacija != null)
+                        {
+                            DodajLokacijuForm dodajLokaciju = new DodajLokacijuForm(lokacija);
+                            dodajLokaciju.ShowDialog();
+                            osvjeziDataGrid();
+                        }
                         break;
                     }
                 case 3:
@@ -243,9 +255,12 @@ namespace projekt
                         {
                             automobil = glavniDataGrid.CurrentRow.DataBoundItem as Automobil;
                         }
-                        DodajAutomobilForm dodajAutomobil = new DodajAutomobilForm(automobil);
-                        dodajAutomobil.ShowDialog();
-                        osvjeziDataGrid();
+                        if (automobil != null)
+                        {
+                            DodajAutomobilForm dodajAutomobil = new DodajAutomobilForm(automobil);
+                            dodajAutomobil.ShowDialog();
+                            osvjeziDataGrid();
+                        }
                         break;
                     }
                 default:
@@ -262,7 +277,15 @@ namespace projekt
                         {
                             zaposlenik = glavniDataGrid.CurrentRow.DataBoundItem as Zaposlenik;
                         }
-                      //  listaZaposlenika.Remove(zaposlenik);
+                        if(zaposlenik != null)
+                        {
+                            using (var context = new CarRentalEntities())
+                            {
+                                context.Zaposleniks.Attach(zaposlenik);
+                                context.Zaposleniks.Remove(zaposlenik);
+                                context.SaveChanges();
+                            }
+                        }
                         osvjeziDataGrid();
                         break;
                     }
@@ -272,7 +295,15 @@ namespace projekt
                         {
                             osiguranje = glavniDataGrid.CurrentRow.DataBoundItem as Osiguranje;
                         }
-                     //   listaOsiguranja.Remove(osiguranje);
+                        if (osiguranje != null)
+                        {
+                            using (var context = new CarRentalEntities())
+                            {
+                                context.Osiguranjes.Attach(osiguranje);
+                                context.Osiguranjes.Remove(osiguranje);
+                                context.SaveChanges();
+                            }
+                        }
                         osvjeziDataGrid();
                         break;
                     }
@@ -282,7 +313,15 @@ namespace projekt
                         {
                             lokacija = glavniDataGrid.CurrentRow.DataBoundItem as Lokacija;
                         }
-                      //  listaLokacija.Remove(lokacija);
+                        if (lokacija != null)
+                        {
+                            using (var context = new CarRentalEntities())
+                            {
+                                context.Lokacijas.Attach(lokacija);
+                                context.Lokacijas.Remove(lokacija);
+                                context.SaveChanges();
+                            }
+                        }
                         osvjeziDataGrid();
                         break;
                     }
@@ -292,7 +331,15 @@ namespace projekt
                         {
                             automobil = glavniDataGrid.CurrentRow.DataBoundItem as Automobil;
                         }
-                     //   listaAutomobila.Remove(automobil);
+                        if (automobil != null)
+                        {
+                            using (var context = new CarRentalEntities())
+                            {
+                                context.Automobils.Attach(automobil);
+                                context.Automobils.Remove(automobil);
+                                context.SaveChanges();
+                            }
+                        }
                         osvjeziDataGrid();
                         break;
                     }
@@ -320,10 +367,10 @@ namespace projekt
                             var query = from z in context.Zaposleniks
                                         select z;
                             glavniDataGrid.DataSource = query.ToList();
+                            glavniDataGrid.Columns["lozinka"].Visible = false;
                             glavniDataGrid.Columns[7].Visible = false;
                             glavniDataGrid.Columns[8].Visible = false;
                         }
-                     //   glavniDataGrid.DataSource = listaZaposlenika;
                         break;
                     }
                 case 1:
@@ -336,7 +383,6 @@ namespace projekt
                             glavniDataGrid.DataSource = query.ToList();
                             glavniDataGrid.Columns[3].Visible = false;
                         }
-                        // glavniDataGrid.DataSource = listaOsiguranja;
                         break;
                     }
                 case 2:
@@ -347,13 +393,11 @@ namespace projekt
                             var query = from z in context.Lokacijas.Include("Grad")
                                         select z;
                             glavniDataGrid.DataSource = query.ToList();
-                            //glavniDataGrid.Columns[3].Visible = false;
                             glavniDataGrid.Columns[4].Visible = false;
                             glavniDataGrid.Columns[5].Visible = false;
                             glavniDataGrid.Columns[6].Visible = false;
                             glavniDataGrid.Columns[7].Visible = false;
                         }
-                        //  glavniDataGrid.DataSource = listaLokacija;
                         break;
                     }
                 case 3:
@@ -364,23 +408,15 @@ namespace projekt
                             var query = from z in context.Automobils
                                         select z;
                             glavniDataGrid.DataSource = query.ToList();
-                            glavniDataGrid.Columns[6].Visible = false;
+                            glavniDataGrid.Columns[6].HeaderText = "Cijena HRK";
                             glavniDataGrid.Columns[7].Visible = false;
                             glavniDataGrid.Columns[8].Visible = false;
+                            glavniDataGrid.Columns[9].Visible = false;
                         }
-                        //   glavniDataGrid.DataSource = listaAutomobila;
                         break;
                     }
                 default:
                     break;
-            }
-        }
-
-        private void AdminViewForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                MessageBox.Show("f1");
             }
         }
 

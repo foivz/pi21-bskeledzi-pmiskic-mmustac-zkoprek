@@ -7,13 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using projekt.Klase;
 
 namespace projekt
 {
     public partial class IznajmiAutomobilForm : Form
     {
-        private IznajmiAutomobil iznajmiAutomobil = null;
         private readonly CarRentalEntities _db;
         private bool Ka { get; set; }
         private Lokacija Lokacija { get; set; }
@@ -56,11 +54,11 @@ namespace projekt
                             select p;
 
                 automobilDataGridView.DataSource = query.ToList();
-
-                automobilDataGridView.Columns[6].Visible = false;
+                automobilDataGridView.Columns[6].HeaderText = "Cijena HRK";
                 automobilDataGridView.Columns[7].Visible = false;
+                automobilDataGridView.Columns[0].Visible = false;
                 automobilDataGridView.Columns[8].Visible = false;
-
+                automobilDataGridView.Columns[9].Visible = false;
 
             }
         }

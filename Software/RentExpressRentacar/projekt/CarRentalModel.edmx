@@ -15,6 +15,7 @@
           <Property Name="godina_prozivodnje" Type="int" Nullable="false" />
           <Property Name="kilometraza" Type="int" Nullable="false" />
           <Property Name="boja" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cijena" Type="float" />
         </EntityType>
         <EntityType Name="Grad">
           <Key>
@@ -589,6 +590,7 @@
           <NavigationProperty Name="Iznajmljivanjes" Relationship="Model.FK_Iznajmljivanje_Automobil" FromRole="Automobil" ToRole="Iznajmljivanje" />
           <NavigationProperty Name="OpremaAutomobilas" Relationship="Model.FK_OpremaAutomobila_Automobil" FromRole="Automobil" ToRole="OpremaAutomobila" />
           <NavigationProperty Name="Rezervacijas" Relationship="Model.FK_Rezervacija_Automobil" FromRole="Automobil" ToRole="Rezervacija" />
+          <Property Name="cijena" Type="Double" />
         </EntityType>
         <EntityType Name="Grad">
           <Key>
@@ -1000,6 +1002,7 @@
           <EntitySetMapping Name="Automobils">
             <EntityTypeMapping TypeName="Model.Automobil">
               <MappingFragment StoreEntitySet="Automobil">
+                <ScalarProperty Name="cijena" ColumnName="cijena" />
                 <ScalarProperty Name="boja" ColumnName="boja" />
                 <ScalarProperty Name="kilometraza" ColumnName="kilometraza" />
                 <ScalarProperty Name="godina_prozivodnje" ColumnName="godina_prozivodnje" />
