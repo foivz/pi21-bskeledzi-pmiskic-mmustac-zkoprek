@@ -40,6 +40,7 @@ namespace projekt
             this.kalendarPruzimanje = new System.Windows.Forms.DateTimePicker();
             this.kalendarVracanje = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.gradComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@ namespace projekt
             this.groupBox1.Controls.Add(this.karticaRadio);
             this.groupBox1.Location = new System.Drawing.Point(23, 104);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 64);
+            this.groupBox1.Size = new System.Drawing.Size(238, 64);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Način plaćanja:";
@@ -99,9 +100,9 @@ namespace projekt
             // lokacijaComboBox
             // 
             this.lokacijaComboBox.FormattingEnabled = true;
-            this.lokacijaComboBox.Location = new System.Drawing.Point(124, 61);
+            this.lokacijaComboBox.Location = new System.Drawing.Point(229, 62);
             this.lokacijaComboBox.Name = "lokacijaComboBox";
-            this.lokacijaComboBox.Size = new System.Drawing.Size(170, 21);
+            this.lokacijaComboBox.Size = new System.Drawing.Size(135, 21);
             this.lokacijaComboBox.TabIndex = 12;
             // 
             // label2
@@ -125,7 +126,7 @@ namespace projekt
             // kalendarPruzimanje
             // 
             this.kalendarPruzimanje.Location = new System.Drawing.Point(124, 15);
-            this.kalendarPruzimanje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kalendarPruzimanje.Margin = new System.Windows.Forms.Padding(2);
             this.kalendarPruzimanje.Name = "kalendarPruzimanje";
             this.kalendarPruzimanje.Size = new System.Drawing.Size(137, 20);
             this.kalendarPruzimanje.TabIndex = 16;
@@ -133,7 +134,7 @@ namespace projekt
             // kalendarVracanje
             // 
             this.kalendarVracanje.Location = new System.Drawing.Point(124, 37);
-            this.kalendarVracanje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kalendarVracanje.Margin = new System.Windows.Forms.Padding(2);
             this.kalendarVracanje.Name = "kalendarVracanje";
             this.kalendarVracanje.Size = new System.Drawing.Size(137, 20);
             this.kalendarVracanje.TabIndex = 18;
@@ -147,11 +148,21 @@ namespace projekt
             this.label3.TabIndex = 17;
             this.label3.Text = "Datum vraćanja:";
             // 
+            // gradComboBox
+            // 
+            this.gradComboBox.FormattingEnabled = true;
+            this.gradComboBox.Location = new System.Drawing.Point(124, 62);
+            this.gradComboBox.Name = "gradComboBox";
+            this.gradComboBox.Size = new System.Drawing.Size(94, 21);
+            this.gradComboBox.TabIndex = 19;
+            this.gradComboBox.SelectedIndexChanged += new System.EventHandler(this.gradComboBox_SelectedIndexChanged);
+            // 
             // NapraviRezervacijuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 239);
+            this.ClientSize = new System.Drawing.Size(376, 243);
+            this.Controls.Add(this.gradComboBox);
             this.Controls.Add(this.kalendarVracanje);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.kalendarPruzimanje);
@@ -185,5 +196,6 @@ namespace projekt
         private System.Windows.Forms.DateTimePicker kalendarPruzimanje;
         private System.Windows.Forms.DateTimePicker kalendarVracanje;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox gradComboBox;
     }
 }

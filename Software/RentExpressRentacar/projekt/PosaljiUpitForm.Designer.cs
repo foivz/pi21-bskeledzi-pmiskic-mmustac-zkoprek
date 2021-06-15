@@ -42,7 +42,7 @@ namespace projekt
             // odustaniButton
             // 
             this.odustaniButton.Location = new System.Drawing.Point(369, 311);
-            this.odustaniButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.odustaniButton.Margin = new System.Windows.Forms.Padding(4);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(100, 28);
             this.odustaniButton.TabIndex = 15;
@@ -53,7 +53,7 @@ namespace projekt
             // posaljiButton
             // 
             this.posaljiButton.Location = new System.Drawing.Point(47, 311);
-            this.posaljiButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.posaljiButton.Margin = new System.Windows.Forms.Padding(4);
             this.posaljiButton.Name = "posaljiButton";
             this.posaljiButton.Size = new System.Drawing.Size(100, 28);
             this.posaljiButton.TabIndex = 14;
@@ -64,7 +64,7 @@ namespace projekt
             // opisRichTextBox
             // 
             this.opisRichTextBox.Location = new System.Drawing.Point(47, 169);
-            this.opisRichTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.opisRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.opisRichTextBox.Name = "opisRichTextBox";
             this.opisRichTextBox.Size = new System.Drawing.Size(421, 117);
             this.opisRichTextBox.TabIndex = 13;
@@ -82,8 +82,8 @@ namespace projekt
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(132, 64);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailTextBox.Location = new System.Drawing.Point(132, 91);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(336, 22);
             this.emailTextBox.TabIndex = 11;
@@ -91,7 +91,7 @@ namespace projekt
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 73);
+            this.label2.Location = new System.Drawing.Point(43, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 17);
@@ -100,8 +100,8 @@ namespace projekt
             // 
             // predmetTextBox
             // 
-            this.predmetTextBox.Location = new System.Drawing.Point(132, 15);
-            this.predmetTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.predmetTextBox.Location = new System.Drawing.Point(133, 49);
+            this.predmetTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.predmetTextBox.Name = "predmetTextBox";
             this.predmetTextBox.Size = new System.Drawing.Size(336, 22);
             this.predmetTextBox.TabIndex = 9;
@@ -109,7 +109,7 @@ namespace projekt
             // predmetLabel
             // 
             this.predmetLabel.AutoSize = true;
-            this.predmetLabel.Location = new System.Drawing.Point(43, 23);
+            this.predmetLabel.Location = new System.Drawing.Point(44, 52);
             this.predmetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.predmetLabel.Name = "predmetLabel";
             this.predmetLabel.Size = new System.Drawing.Size(65, 17);
@@ -129,7 +129,7 @@ namespace projekt
             this.Controls.Add(this.label2);
             this.Controls.Add(this.predmetTextBox);
             this.Controls.Add(this.predmetLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PosaljiUpitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POŠALJI UPIT";

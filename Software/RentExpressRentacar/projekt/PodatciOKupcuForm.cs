@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using projekt.Klase;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -19,6 +18,7 @@ using System.Drawing.Imaging;
 
 namespace projekt
 {
+
     public partial class PodatciOKupcuForm : Form
     {
         private Kupac kupac;
@@ -29,6 +29,7 @@ namespace projekt
         private Lokacija lokacija { get; set; }
         private string datum1 { get; set; }
         private string datum2 { get; set; }
+        private string cijena { get; set; }
 
         public PodatciOKupcuForm(Automobil auto, Lokacija lok, bool k, string d1, string d2)
         {
@@ -39,6 +40,98 @@ namespace projekt
             Ka = k;
             datum1 = d1;
             datum2 = d2;
+            string[] datumP = d1.Split('.');
+            string[] datumV = d2.Split('.');
+            string[] datumPr = datumP[0].Split('.');
+            string[] datumVr = datumV[0].Split('.');
+            double prviDatum = double.Parse(datumPr[0]);
+            double drugiDatum = double.Parse(datumVr[0]);
+
+            string[] mjesec = datumV[1].Split(' ');
+            string m = mjesec[1];
+
+            int i = 0;
+            double dana = 0;
+
+            if (drugiDatum < prviDatum)
+            {
+                 switch (m)
+                 {
+                    case "siječnja":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    case "veljače":
+                        {
+                            i = 28;
+                            break;
+                        }
+                    case "ožujka":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    case "travnja":
+                        {
+                            i = 30;
+                            break;
+                        }
+                    case "svibnja":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    case "lipnja":
+                        {
+                            i = 30;
+                            break;
+                        }
+                    case "srpnja":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    case "kolovoza":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    case "rujna":
+                        {
+                            i = 30;
+                            break;
+                        }
+                    case "listopada":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    case "studenog":
+                        {
+                            i = 30;
+                            break;
+                        }
+                    case "prosinca":
+                        {
+                            i = 31;
+                            break;
+                        }
+                    default: break;
+                 }
+
+                 dana = i - prviDatum;
+                 dana += drugiDatum;
+                
+            }
+            else
+            {
+                dana = drugiDatum - prviDatum;
+            }
+           
+            double? cijenaAutomobila = auto.cijena;
+            cijena = (cijenaAutomobila * dana).ToString();
+            txtCijena.Text = cijena += " HRK";
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -49,8 +142,16 @@ namespace projekt
         private void JeLiKartica()
         {
             if (Ka == true) kartica = "kartica";
-            if (Ka == false) kartica = "gotovina";
+            if (Ka == false)
+            {
+                cvvTextBox.Enabled = false;
+                datumIstekaTextBox.Enabled = false;
+                brojKarticeTextBox.Enabled = false;
+                kartica = "gotovina";
+            } 
         }
+
+       
 
         private void zavrsiRezervacijuButton_Click(object sender, EventArgs e)
         {
@@ -100,7 +201,9 @@ namespace projekt
                 $"      Lokacija preuzimanja: {lokacija.adresa}\n" +
                 $"      Datum preuzimanja: {datum1}\n" +
                 $"      Datum vracanja: {datum2}\n" +              
-                $"      Nacin placanja: {kartica}\n\n\n" +
+                $"      Nacin placanja: {kartica}\n\n" +
+                $"      UKUPNA CIJENA: {cijena} \n\n\n" +
+                $"      " +
                 $"      Hvala Vam i uzivajte u voznji!" +             
                 $"");
 
@@ -145,7 +248,7 @@ namespace projekt
 
         private void PodatciOKupcuForm_Load(object sender, EventArgs e)
         {
-
+            JeLiKartica();
         }
 
         private void imeTextBox_TextChanged(object sender, EventArgs e)

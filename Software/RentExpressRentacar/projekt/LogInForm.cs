@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using Utils;
 
 namespace projekt
 {
@@ -29,13 +30,12 @@ namespace projekt
 
         private void adminButton_Click(object sender, EventArgs e)
         {
-
             try
             {
                 SHA256 sha256 = SHA256.Create();
                 var korisnickoIme = korisnickoImeTextBox.Text.Trim();
                 var lozinka = lozinkaTextBox.Text.Trim();
-                var hashedPassword = Utils.HashPassword(lozinka);
+                var hashedPassword = Utils.Utils.HashPassword(lozinka);
                 var korisnik = _db.Zaposleniks.FirstOrDefault(q => q.korisnicko_ime == korisnickoIme && q.lozinka == hashedPassword);
                 if (korisnik == null)
                 {

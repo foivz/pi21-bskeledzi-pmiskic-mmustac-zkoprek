@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using projekt.Klase;
 
 namespace projekt
 {
@@ -19,6 +18,7 @@ namespace projekt
         private string datum1;
         private string datum2;
         private Lokacija lokacija;
+        private Grad grad;
 
         public NapraviRezervacijuForm()
         {
@@ -26,6 +26,11 @@ namespace projekt
             _db = new CarRentalEntities();
         }
 
+        private Grad DohvatiOdabraniGrad()
+        {
+            grad = gradComboBox.SelectedItem as Grad;
+            return grad;
+        }
         private Lokacija DohvatiOdabranuLokaciju()
         {
             lokacija = lokacijaComboBox.SelectedItem as Lokacija;
@@ -59,7 +64,7 @@ namespace projekt
             if (karticaRadio.Checked == true)
             {
                 kartica = true;
-                IznajmiAutomobilForm frm = new IznajmiAutomobilForm(kartica, lokacija, datum1, datum2);
+                IznajmiAutomobilForm frm = new IznajmiAutomobilForm( kartica, lokacija, datum1, datum2);
                 frm.ShowDialog();
             }
 
@@ -79,16 +84,49 @@ namespace projekt
         private void NapraviRezervacijuForm_Load(object sender, EventArgs e)
         {
             List<Lokacija> lokacija;
+            List<Grad> grad;
 
+            using(var context = new CarRentalEntities())
+            {
+                grad = context.Grads.ToList();
+            }
+            gradComboBox.DataSource = grad;
+            gradComboBox.DisplayMember = "grad";
+            
             using (var context = new CarRentalEntities())
             {
                 lokacija = context.Lokacijas.ToList();
             }
 
-             lokacijaComboBox.DataSource = lokacija;
+            lokacijaComboBox.DataSource = lokacija;
             lokacijaComboBox.DisplayMember = "adresa";
 
 
+        }
+
+        private void gradComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Grad grad = gradComboBox.SelectedItem as Grad;
+            int id = grad.id_grad;
+            Lokacija nova = new Lokacija();
+            List<Lokacija> listaLokacija = new List<Lokacija>();
+            using (var context = new CarRentalEntities())
+            {
+
+                listaLokacija = context.Lokacijas.ToList();
+                           
+            }
+
+            List<string> pomocnaLista = new List<string>();
+            foreach (Lokacija item in listaLokacija)
+            {
+                if(id == item.id_grad)
+                {
+                    pomocnaLista.Add(item.adresa);
+                }
+            }
+
+            lokacijaComboBox.DataSource = pomocnaLista;
         }
     }
 }
