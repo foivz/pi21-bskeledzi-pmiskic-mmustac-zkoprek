@@ -15,6 +15,7 @@ using System.Web;
 using iTextSharp.text.html;
 using iTextSharp.text.html.simpleparser;
 using System.Drawing.Imaging;
+using PQScan.BarcodeCreator;
 
 namespace projekt
 {
@@ -151,7 +152,20 @@ namespace projekt
             } 
         }
 
-       
+        private void KreirajPDF417 ()
+        {
+            PQScan.BarcodeCreator.Barcode pdf417 = new PQScan.BarcodeCreator.Barcode();
+            pdf417.Data = $"Rent Express d.o.o\n" +
+                          $"Odabrali ste automobil marke: {automobil.marka}\n" +
+                          $"Zahvaljujemo Vam na ukazanom povjerenju!";
+            pdf417.BarType = BarCodeType.PDF417;
+            pdf417.Width = 170;
+            pdf417.Height = 40;
+            pdf417.BarcodeColor = Color.Black;
+            pdf417.BackgroundColor = Color.White;
+            pdf417.PictureFormat = ImageFormat.Png;
+            pdf417.CreateBarcode("pdf417-csharp.png");
+        }
 
         private void zavrsiRezervacijuButton_Click(object sender, EventArgs e)
         {
@@ -160,7 +174,7 @@ namespace projekt
                 SviPodaci.Visible = true;
                 return;
             }
-
+           
             JeLiKartica();
 
             string ime = imeTextBox.Text;
@@ -170,15 +184,17 @@ namespace projekt
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Potvrda uspješne transakcije.pdf", FileMode.Create));
             
             string imagepath1 = "Logo.jpeg";
-            string imagepath2 = "qrcode.jpg";
+            string imagepath2 = "pdf417-csharp.png";
 
             iTextSharp.text.Image jpeg = iTextSharp.text.Image.GetInstance(imagepath1);
             jpeg.SetAbsolutePosition(20, 690);
             jpeg.ScaleToFit(1200f, 80f);
 
-            iTextSharp.text.Image qrcode = iTextSharp.text.Image.GetInstance(imagepath2);
-            qrcode.SetAbsolutePosition(525, 705);
-            qrcode.ScaleToFit(100f, 70f);
+            KreirajPDF417();
+
+            iTextSharp.text.Image PDF417 = iTextSharp.text.Image.GetInstance(imagepath2);
+            PDF417.SetAbsolutePosition(410, 725);
+            PDF417.ScaleToFit(170f, 40f);
 
             Paragraph paragraph1 = new Paragraph($"\n \n \n");
             
@@ -211,7 +227,7 @@ namespace projekt
             doc.Add(paragraph1);
             doc.Add(paragraph);
             doc.Add(jpeg);
-            doc.Add(qrcode);
+            doc.Add(PDF417);
             doc.Close();
 
             MailMessage mail = new MailMessage("RentExpressDoo@gmail.com", txtEmail.Text, "Potvrda plaćanja", "Potvrda plaćanja nalazi se u privitku. Hvala Vam što ste poslovali s nama!");

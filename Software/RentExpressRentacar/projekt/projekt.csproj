@@ -48,11 +48,9 @@
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp.pdfa">
-      <HintPath>..\..\..\..\..\..\source\repos\Mail slanje - proba 2\Mail slanje - proba 2\itextsharp.pdfa.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp.xtra">
-      <HintPath>..\..\..\..\..\..\source\repos\Mail slanje - proba 2\Mail slanje - proba 2\itextsharp.xtra.dll</HintPath>
+    <Reference Include="PQScan.BarcodeCreator, Version=6.3.0.41116, Culture=neutral, PublicKeyToken=7cc657bf9afce61f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\source\repos\PDF 417 proba\PDF 417 proba\bin\Debug\PQScan.BarcodeCreator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
