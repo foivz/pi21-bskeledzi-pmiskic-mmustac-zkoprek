@@ -104,6 +104,7 @@ namespace projekt
             this.Name = "DodajLokacijuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DODAJ LOKACIJU";
+            this.Load += new System.EventHandler(this.DodajLokacijuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

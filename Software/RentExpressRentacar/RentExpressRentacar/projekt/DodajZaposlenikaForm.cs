@@ -95,10 +95,22 @@ namespace projekt
                     OIB = oib,
                     korisnicko_ime = korime,
                     ugovor_id = ugovor_id,
-                    lozinka = lozinka
+                    lozinka = lozinka,
+                    pregled = 1,
+                    obavijesti = 1,
+                    dodavanje = 1,
+                    statistika = 1
                 };
 
                 _db.Zaposleniks.Add(noviZaposlenik);
+                _db.SaveChanges();
+
+                ZaposlenikUloge zu = new ZaposlenikUloge
+                {
+                    id_tip_zaposlenika = (cmbUloge.SelectedItem as TipZaposlenika).tip_zaposlenika_id,
+                    id_zaposlenik = (_db.Zaposleniks.ToList().Last()).id_zaposlenik
+                };
+                _db.ZaposlenikUloges.Add(zu);
                 _db.SaveChanges();
             }
             Close();
@@ -107,6 +119,26 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajZaposlenikaForm_Load(object sender, EventArgs e)
+        {
+            UcitajUloge();
+        }
+        
+        private void UcitajUloge()
+        {
+            cmbUloge.DataSource = null;
+            using (var context = new CarRentalEntities())
+            {
+                var query = from u in context.TipZaposlenikas select u;
+                cmbUloge.DataSource = query.ToList();
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

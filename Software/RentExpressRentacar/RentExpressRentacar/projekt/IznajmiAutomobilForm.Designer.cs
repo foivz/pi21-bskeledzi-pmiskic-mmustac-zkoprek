@@ -34,15 +34,15 @@ namespace projekt
             this.automobilTextBox = new System.Windows.Forms.TextBox();
             this.automobilDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbPoduzeca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.automobilDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // odustaniButton
             // 
-            this.odustaniButton.Location = new System.Drawing.Point(631, 304);
-            this.odustaniButton.Margin = new System.Windows.Forms.Padding(4);
+            this.odustaniButton.Location = new System.Drawing.Point(473, 247);
             this.odustaniButton.Name = "odustaniButton";
-            this.odustaniButton.Size = new System.Drawing.Size(100, 28);
+            this.odustaniButton.Size = new System.Drawing.Size(75, 23);
             this.odustaniButton.TabIndex = 9;
             this.odustaniButton.Text = "Odustani";
             this.odustaniButton.UseVisualStyleBackColor = true;
@@ -50,10 +50,9 @@ namespace projekt
             // 
             // iznajmiButton
             // 
-            this.iznajmiButton.Location = new System.Drawing.Point(28, 304);
-            this.iznajmiButton.Margin = new System.Windows.Forms.Padding(4);
+            this.iznajmiButton.Location = new System.Drawing.Point(21, 247);
             this.iznajmiButton.Name = "iznajmiButton";
-            this.iznajmiButton.Size = new System.Drawing.Size(100, 28);
+            this.iznajmiButton.Size = new System.Drawing.Size(75, 23);
             this.iznajmiButton.TabIndex = 8;
             this.iznajmiButton.Text = "Iznajmi";
             this.iznajmiButton.UseVisualStyleBackColor = true;
@@ -61,10 +60,9 @@ namespace projekt
             // 
             // automobilTextBox
             // 
-            this.automobilTextBox.Location = new System.Drawing.Point(107, 15);
-            this.automobilTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.automobilTextBox.Location = new System.Drawing.Point(80, 12);
             this.automobilTextBox.Name = "automobilTextBox";
-            this.automobilTextBox.Size = new System.Drawing.Size(260, 22);
+            this.automobilTextBox.Size = new System.Drawing.Size(196, 20);
             this.automobilTextBox.TabIndex = 7;
             this.automobilTextBox.TextChanged += new System.EventHandler(this.automobilTextBox_TextChanged);
             // 
@@ -72,34 +70,41 @@ namespace projekt
             // 
             this.automobilDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.automobilDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.automobilDataGridView.Location = new System.Drawing.Point(28, 59);
-            this.automobilDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.automobilDataGridView.Location = new System.Drawing.Point(21, 48);
             this.automobilDataGridView.Name = "automobilDataGridView";
             this.automobilDataGridView.RowHeadersWidth = 51;
-            this.automobilDataGridView.Size = new System.Drawing.Size(703, 224);
+            this.automobilDataGridView.Size = new System.Drawing.Size(625, 182);
             this.automobilDataGridView.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(18, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Automobil:";
             // 
+            // cmbPoduzeca
+            // 
+            this.cmbPoduzeca.FormattingEnabled = true;
+            this.cmbPoduzeca.Location = new System.Drawing.Point(342, 11);
+            this.cmbPoduzeca.Name = "cmbPoduzeca";
+            this.cmbPoduzeca.Size = new System.Drawing.Size(304, 21);
+            this.cmbPoduzeca.TabIndex = 10;
+            this.cmbPoduzeca.SelectedIndexChanged += new System.EventHandler(this.cmbPoduzeca_SelectedIndexChanged);
+            // 
             // IznajmiAutomobilForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 351);
+            this.ClientSize = new System.Drawing.Size(658, 285);
+            this.Controls.Add(this.cmbPoduzeca);
             this.Controls.Add(this.odustaniButton);
             this.Controls.Add(this.iznajmiButton);
             this.Controls.Add(this.automobilTextBox);
             this.Controls.Add(this.automobilDataGridView);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IznajmiAutomobilForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IZNAJMI AUTOMOBIL";
@@ -117,5 +122,6 @@ namespace projekt
         private System.Windows.Forms.TextBox automobilTextBox;
         private System.Windows.Forms.DataGridView automobilDataGridView;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbPoduzeca;
     }
 }

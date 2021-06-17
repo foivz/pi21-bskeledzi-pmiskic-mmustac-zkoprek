@@ -29,6 +29,7 @@ namespace projekt
         public Nullable<System.DateTime> datum_vracanja { get; set; }
         public Nullable<System.DateTime> createdAt { get; set; }
         public string email { get; set; }
+        public Nullable<int> idPoduzeca { get; set; }
     
         public virtual Automobil Automobil { get; set; }
         public virtual Kupac Kupac { get; set; }

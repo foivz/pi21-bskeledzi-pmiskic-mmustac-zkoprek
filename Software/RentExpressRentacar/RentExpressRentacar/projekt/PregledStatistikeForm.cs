@@ -21,7 +21,18 @@ namespace projekt
 
         private void PregledStatistikeForm_Load(object sender, EventArgs e)
         {
-            var automobili = _db.Automobils.ToList();
+            
+
+            var automobili = new List<Automobil>();
+
+            using(var context = new CarRentalEntities())
+            {
+                var query = from a in context.Automobils
+                            where a.idPoduzeca == InfoPoduzeca.idPoduzeca
+                            select a;
+                automobili = query.ToList();
+            }
+            
             List<int> brojMarki = new List<int>();
             var broj = automobili.GroupBy(i => i.marka);
             foreach (var grp in broj)

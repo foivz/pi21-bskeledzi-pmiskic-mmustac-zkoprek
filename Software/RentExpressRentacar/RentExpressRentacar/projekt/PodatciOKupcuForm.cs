@@ -235,10 +235,10 @@ namespace projekt
             {
                 Upiti noviUpit = new Upiti
                 {
-                    predmet ="Rezervacija",
+                    predmet = "Rezervacija",
                     opis = automobil.marka + " " + automobil.model,
-                    email = txtEmail.Text
-
+                    email = txtEmail.Text,
+                    idPoduzeca = automobil.idPoduzeca
                 };
 
                 context.Upitis.Add(noviUpit);

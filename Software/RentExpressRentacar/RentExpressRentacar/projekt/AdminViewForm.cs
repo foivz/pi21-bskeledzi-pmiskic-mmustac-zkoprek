@@ -50,6 +50,7 @@ namespace projekt
                 ModeratorView();
                 osvjeziDataGrid();
             }
+            UcitajImePoduzeca();
         }
 
         private void ModeratorView()
@@ -365,7 +366,7 @@ namespace projekt
                         using (var context = new CarRentalEntities())
                         {
                             var query = from z in context.Zaposleniks
-                                        select z;
+                                        where z.idPoduzeca == InfoPoduzeca.idPoduzeca select z;
                             glavniDataGrid.DataSource = query.ToList();
                             glavniDataGrid.Columns["lozinka"].Visible = false;
                             glavniDataGrid.Columns[7].Visible = false;
@@ -406,7 +407,7 @@ namespace projekt
                         using (var context = new CarRentalEntities())
                         {
                             var query = from z in context.Automobils
-                                        select z;
+                                       where z.idPoduzeca == InfoPoduzeca.idPoduzeca select z;
                             glavniDataGrid.DataSource = query.ToList();
                             glavniDataGrid.Columns[6].HeaderText = "Cijena HRK";
                             glavniDataGrid.Columns[7].Visible = false;
@@ -431,6 +432,24 @@ namespace projekt
         {
             var form = new PregledObavijestForm();
             form.ShowDialog();
+        }
+
+        private void UcitajImePoduzeca()
+        {
+            List<Poduzece> poduzeca = new List<Poduzece>();
+
+            using (var context = new CarRentalEntities())
+            {
+                var query = from p in context.Poduzeces select p;
+
+                poduzeca = query.ToList();
+            }
+
+            foreach (var p in poduzeca)
+            {
+                if(p.id == InfoPoduzeca.idPoduzeca)
+                    lblPoduzece.Text = p.nazivPoduzeca;
+            }
         }
     }
 }
