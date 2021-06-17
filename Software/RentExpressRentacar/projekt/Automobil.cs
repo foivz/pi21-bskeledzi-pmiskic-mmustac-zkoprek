@@ -28,6 +28,7 @@ namespace projekt
         public int godina_prozivodnje { get; set; }
         public int kilometraza { get; set; }
         public string boja { get; set; }
+        public Nullable<double> cijena { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Iznajmljivanje> Iznajmljivanjes { get; set; }

@@ -31,9 +31,6 @@ namespace projekt
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.moderatorRadio = new System.Windows.Forms.RadioButton();
-            this.adminRadio = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.trajniRadio = new System.Windows.Forms.RadioButton();
             this.naOgranicenoVrijemeRadio = new System.Windows.Forms.RadioButton();
@@ -43,9 +40,10 @@ namespace projekt
             this.odustaniButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.oibTextBox = new System.Windows.Forms.TextBox();
-            this.brojTelefonaTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.korisnickoImeTextBox = new System.Windows.Forms.TextBox();
+            this.lozinkaTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,44 +65,11 @@ namespace projekt
             this.label2.TabIndex = 1;
             this.label2.Text = "Upišite prezime:";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.moderatorRadio);
-            this.groupBox1.Controls.Add(this.adminRadio);
-            this.groupBox1.Location = new System.Drawing.Point(35, 130);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(158, 70);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Odaberite rank:";
-            // 
-            // moderatorRadio
-            // 
-            this.moderatorRadio.AutoSize = true;
-            this.moderatorRadio.Location = new System.Drawing.Point(33, 42);
-            this.moderatorRadio.Name = "moderatorRadio";
-            this.moderatorRadio.Size = new System.Drawing.Size(73, 17);
-            this.moderatorRadio.TabIndex = 6;
-            this.moderatorRadio.TabStop = true;
-            this.moderatorRadio.Text = "Moderator";
-            this.moderatorRadio.UseVisualStyleBackColor = true;
-            // 
-            // adminRadio
-            // 
-            this.adminRadio.AutoSize = true;
-            this.adminRadio.Location = new System.Drawing.Point(33, 19);
-            this.adminRadio.Name = "adminRadio";
-            this.adminRadio.Size = new System.Drawing.Size(85, 17);
-            this.adminRadio.TabIndex = 4;
-            this.adminRadio.TabStop = true;
-            this.adminRadio.Text = "Administrator";
-            this.adminRadio.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.trajniRadio);
             this.groupBox2.Controls.Add(this.naOgranicenoVrijemeRadio);
-            this.groupBox2.Location = new System.Drawing.Point(35, 206);
+            this.groupBox2.Location = new System.Drawing.Point(35, 162);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(169, 71);
             this.groupBox2.TabIndex = 6;
@@ -149,7 +114,7 @@ namespace projekt
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(35, 283);
+            this.dodajButton.Location = new System.Drawing.Point(35, 248);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(75, 23);
             this.dodajButton.TabIndex = 11;
@@ -159,7 +124,7 @@ namespace projekt
             // 
             // odustaniButton
             // 
-            this.odustaniButton.Location = new System.Drawing.Point(118, 283);
+            this.odustaniButton.Location = new System.Drawing.Point(118, 248);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(75, 23);
             this.odustaniButton.TabIndex = 12;
@@ -183,28 +148,46 @@ namespace projekt
             this.oibTextBox.Size = new System.Drawing.Size(100, 20);
             this.oibTextBox.TabIndex = 14;
             // 
-            // brojTelefonaTextBox
-            // 
-            this.brojTelefonaTextBox.Location = new System.Drawing.Point(119, 104);
-            this.brojTelefonaTextBox.Name = "brojTelefonaTextBox";
-            this.brojTelefonaTextBox.Size = new System.Drawing.Size(100, 20);
-            this.brojTelefonaTextBox.TabIndex = 16;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 107);
+            this.label4.Location = new System.Drawing.Point(32, 109);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Broj telefona:";
+            this.label4.Text = "Korisničko ime:";
+            // 
+            // korisnickoImeTextBox
+            // 
+            this.korisnickoImeTextBox.Location = new System.Drawing.Point(119, 106);
+            this.korisnickoImeTextBox.Name = "korisnickoImeTextBox";
+            this.korisnickoImeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.korisnickoImeTextBox.TabIndex = 16;
+            // 
+            // lozinkaTextBox
+            // 
+            this.lozinkaTextBox.Location = new System.Drawing.Point(119, 136);
+            this.lozinkaTextBox.Name = "lozinkaTextBox";
+            this.lozinkaTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lozinkaTextBox.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Lozinka:";
             // 
             // DodajZaposlenikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 317);
-            this.Controls.Add(this.brojTelefonaTextBox);
+            this.ClientSize = new System.Drawing.Size(239, 285);
+            this.Controls.Add(this.lozinkaTextBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.korisnickoImeTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.oibTextBox);
             this.Controls.Add(this.label3);
@@ -213,15 +196,11 @@ namespace projekt
             this.Controls.Add(this.prezimeTextBox);
             this.Controls.Add(this.imeTextBox);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "DodajZaposlenikaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DODAJ ZAPOSLENIKA";
-            this.Load += new System.EventHandler(this.DodajZaposlenikaForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -233,9 +212,6 @@ namespace projekt
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton moderatorRadio;
-        private System.Windows.Forms.RadioButton adminRadio;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton trajniRadio;
         private System.Windows.Forms.RadioButton naOgranicenoVrijemeRadio;
@@ -245,7 +221,9 @@ namespace projekt
         private System.Windows.Forms.Button odustaniButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox oibTextBox;
-        private System.Windows.Forms.TextBox brojTelefonaTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox korisnickoImeTextBox;
+        private System.Windows.Forms.TextBox lozinkaTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }

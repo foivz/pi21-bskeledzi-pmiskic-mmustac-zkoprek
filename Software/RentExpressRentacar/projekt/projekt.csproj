@@ -59,6 +59,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Utils.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automobil.cs">
@@ -93,6 +98,12 @@
     </Compile>
     <Compile Include="DodajAutomobilForm.Designer.cs">
       <DependentUpon>DodajAutomobilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajCustomZaposlenikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajCustomZaposlenikaForm.Designer.cs">
+      <DependentUpon>DodajCustomZaposlenikaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DodajOsiguranjeForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +132,7 @@
     <Compile Include="Grad.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Grad.novo.cs" />
     <Compile Include="IznajmiAutomobilForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,15 +142,6 @@
     <Compile Include="Iznajmljivanje.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Klase\Automobil.cs" />
-    <Compile Include="Klase\Enumeracije.cs" />
-    <Compile Include="Klase\IznajmiAutomobil.cs" />
-    <Compile Include="Klase\Kupac.cs" />
-    <Compile Include="Klase\Lokacija.cs" />
-    <Compile Include="Klase\Osiguranje.cs" />
-    <Compile Include="Klase\Rezervacija.cs" />
-    <Compile Include="Klase\Upit.cs" />
-    <Compile Include="Klase\Zaposlenik.cs" />
     <Compile Include="Kupac.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
@@ -156,6 +159,12 @@
     </Compile>
     <Compile Include="NapraviRezervacijuForm.Designer.cs">
       <DependentUpon>NapraviRezervacijuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OdgovoriForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdgovoriForm.Designer.cs">
+      <DependentUpon>OdgovoriForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Oprema.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
@@ -181,7 +190,25 @@
     <Compile Include="PosaljiUpitForm.Designer.cs">
       <DependentUpon>PosaljiUpitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PregledObavijestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledObavijestForm.Designer.cs">
+      <DependentUpon>PregledObavijestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledStatistikeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledStatistikeForm.Designer.cs">
+      <DependentUpon>PregledStatistikeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="PromijeniOvlastiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PromijeniOvlastiForm.Designer.cs">
+      <DependentUpon>PromijeniOvlastiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rezervacija.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
@@ -198,7 +225,9 @@
     <Compile Include="Ugovor.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Utils.cs" />
+    <Compile Include="Upiti.cs">
+      <DependentUpon>CarRentalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Zaposlenik.cs">
       <DependentUpon>CarRentalModel.tt</DependentUpon>
     </Compile>
@@ -207,6 +236,9 @@
     </Compile>
     <EmbeddedResource Include="DodajAutomobilForm.resx">
       <DependentUpon>DodajAutomobilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajCustomZaposlenikaForm.resx">
+      <DependentUpon>DodajCustomZaposlenikaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodajOsiguranjeForm.resx">
       <DependentUpon>DodajOsiguranjeForm.cs</DependentUpon>
@@ -229,11 +261,23 @@
     <EmbeddedResource Include="NapraviRezervacijuForm.resx">
       <DependentUpon>NapraviRezervacijuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OdgovoriForm.resx">
+      <DependentUpon>OdgovoriForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PodatciOKupcuForm.resx">
       <DependentUpon>PodatciOKupcuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PosaljiUpitForm.resx">
       <DependentUpon>PosaljiUpitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledObavijestForm.resx">
+      <DependentUpon>PregledObavijestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledStatistikeForm.resx">
+      <DependentUpon>PregledStatistikeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PromijeniOvlastiForm.resx">
+      <DependentUpon>PromijeniOvlastiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

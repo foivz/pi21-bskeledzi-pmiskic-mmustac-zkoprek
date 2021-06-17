@@ -39,6 +39,11 @@ namespace projekt
             this.glavniDataGrid = new System.Windows.Forms.DataGridView();
             this.vidiZaposlenikeButton = new System.Windows.Forms.Button();
             this.izbrisiButton = new System.Windows.Forms.Button();
+            this.ObavjestBtn = new System.Windows.Forms.Button();
+            this.dodajCustomButton = new System.Windows.Forms.Button();
+            this.promijeniOvlastiButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.zaposlenikLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +122,7 @@ namespace projekt
             this.glavniDataGrid.Location = new System.Drawing.Point(12, 25);
             this.glavniDataGrid.Name = "glavniDataGrid";
             this.glavniDataGrid.RowHeadersWidth = 51;
-            this.glavniDataGrid.Size = new System.Drawing.Size(776, 251);
+            this.glavniDataGrid.Size = new System.Drawing.Size(1000, 251);
             this.glavniDataGrid.TabIndex = 1;
             // 
             // vidiZaposlenikeButton
@@ -140,11 +145,64 @@ namespace projekt
             this.izbrisiButton.UseVisualStyleBackColor = true;
             this.izbrisiButton.Click += new System.EventHandler(this.izbrisiButton_Click);
             // 
+            // ObavjestBtn
+            // 
+            this.ObavjestBtn.Location = new System.Drawing.Point(349, 282);
+            this.ObavjestBtn.Name = "ObavjestBtn";
+            this.ObavjestBtn.Size = new System.Drawing.Size(82, 36);
+            this.ObavjestBtn.TabIndex = 10;
+            this.ObavjestBtn.Text = "Prikaži obavijesti";
+            this.ObavjestBtn.UseVisualStyleBackColor = true;
+            this.ObavjestBtn.Click += new System.EventHandler(this.ObavjestBtn_Click);
+            // 
+            // dodajCustomButton
+            // 
+            this.dodajCustomButton.Location = new System.Drawing.Point(794, 282);
+            this.dodajCustomButton.Name = "dodajCustomButton";
+            this.dodajCustomButton.Size = new System.Drawing.Size(106, 36);
+            this.dodajCustomButton.TabIndex = 11;
+            this.dodajCustomButton.Text = "Dodaj zaposlenika (Custom uloga)";
+            this.dodajCustomButton.UseVisualStyleBackColor = true;
+            this.dodajCustomButton.Click += new System.EventHandler(this.dodajCustomButton_Click_1);
+            // 
+            // promijeniOvlastiButton
+            // 
+            this.promijeniOvlastiButton.Location = new System.Drawing.Point(906, 282);
+            this.promijeniOvlastiButton.Name = "promijeniOvlastiButton";
+            this.promijeniOvlastiButton.Size = new System.Drawing.Size(106, 36);
+            this.promijeniOvlastiButton.TabIndex = 12;
+            this.promijeniOvlastiButton.Text = "Promijeni ovlasti";
+            this.promijeniOvlastiButton.UseVisualStyleBackColor = true;
+            this.promijeniOvlastiButton.Click += new System.EventHandler(this.promijeniOvlastiButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(791, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Prijavljen zaposlenik: ";
+            // 
+            // zaposlenikLabel
+            // 
+            this.zaposlenikLabel.AutoSize = true;
+            this.zaposlenikLabel.Location = new System.Drawing.Point(898, 9);
+            this.zaposlenikLabel.Name = "zaposlenikLabel";
+            this.zaposlenikLabel.Size = new System.Drawing.Size(19, 13);
+            this.zaposlenikLabel.TabIndex = 14;
+            this.zaposlenikLabel.Text = "ok";
+            // 
             // AdminViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 327);
+            this.ClientSize = new System.Drawing.Size(1018, 327);
+            this.Controls.Add(this.zaposlenikLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.promijeniOvlastiButton);
+            this.Controls.Add(this.dodajCustomButton);
+            this.Controls.Add(this.ObavjestBtn);
             this.Controls.Add(this.izbrisiButton);
             this.Controls.Add(this.vidiZaposlenikeButton);
             this.Controls.Add(this.statistikaButton);
@@ -160,7 +218,6 @@ namespace projekt
             this.Text = "Administratorska forma";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminViewForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AdminViewForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,6 +235,11 @@ namespace projekt
         private System.Windows.Forms.DataGridView glavniDataGrid;
         private System.Windows.Forms.Button vidiZaposlenikeButton;
         private System.Windows.Forms.Button izbrisiButton;
+        private System.Windows.Forms.Button ObavjestBtn;
+        private System.Windows.Forms.Button dodajCustomButton;
+        private System.Windows.Forms.Button promijeniOvlastiButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label zaposlenikLabel;
     }
 }
 
