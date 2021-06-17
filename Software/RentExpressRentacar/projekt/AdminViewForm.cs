@@ -37,6 +37,7 @@ namespace projekt
 
             _zaposlenik = zaposlenik;
             _tipZaposlenika = zaposlenik.ZaposlenikUloges.FirstOrDefault().TipZaposlenika.naziv;
+            vidiZaposlenikeButton.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -105,6 +106,8 @@ namespace projekt
 
         private void osvjeziButtoneZaposleniciMod()
         {
+            Point novaTocka = new Point(704, 282);
+            statistikaButton.Location = novaTocka;
             vidiOsiguranjaButton.Enabled = true;
             dodajButton.Visible = false;
             izbrisiButton.Visible = false;

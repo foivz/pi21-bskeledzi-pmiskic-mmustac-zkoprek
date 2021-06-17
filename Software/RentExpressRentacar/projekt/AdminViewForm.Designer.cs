@@ -39,7 +39,6 @@ namespace projekt
             this.glavniDataGrid = new System.Windows.Forms.DataGridView();
             this.vidiZaposlenikeButton = new System.Windows.Forms.Button();
             this.izbrisiButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,21 +140,11 @@ namespace projekt
             this.izbrisiButton.UseVisualStyleBackColor = true;
             this.izbrisiButton.Click += new System.EventHandler(this.izbrisiButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(360, 286);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 31);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // AdminViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 327);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.izbrisiButton);
             this.Controls.Add(this.vidiZaposlenikeButton);
             this.Controls.Add(this.statistikaButton);
@@ -189,7 +178,6 @@ namespace projekt
         private System.Windows.Forms.DataGridView glavniDataGrid;
         private System.Windows.Forms.Button vidiZaposlenikeButton;
         private System.Windows.Forms.Button izbrisiButton;
-        private System.Windows.Forms.Button button1;
     }
 }
 
