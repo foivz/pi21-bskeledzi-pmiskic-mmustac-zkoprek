@@ -27,6 +27,11 @@ namespace projekt
         public int ugovor_id { get; set; }
         public string korisnicko_ime { get; set; }
         public string lozinka { get; set; }
+        public Nullable<int> pregled { get; set; }
+        public Nullable<int> obavijesti { get; set; }
+        public Nullable<int> dodavanje { get; set; }
+        public Nullable<int> statistika { get; set; }
+        public Nullable<int> idPoduzeca { get; set; }
     
         public virtual Ugovor Ugovor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

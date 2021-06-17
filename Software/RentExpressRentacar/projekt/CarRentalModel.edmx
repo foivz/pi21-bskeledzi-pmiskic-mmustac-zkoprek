@@ -87,6 +87,13 @@
           <Property Name="id_iznajmljivanje" Type="int" />
           <Property Name="id_osiguranje" Type="int" />
         </EntityType>
+        <EntityType Name="Poduzece">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazivPoduzeca" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Rezervacija">
           <Key>
             <PropertyRef Name="id_rezervacija" />
@@ -96,6 +103,10 @@
           <Property Name="id_automobil" Type="int" Nullable="false" />
           <Property Name="lokacija_preuzimanja" Type="int" Nullable="false" />
           <Property Name="lokacija_vracanja" Type="int" Nullable="false" />
+          <Property Name="datum_preuzimanja" Type="datetime" />
+          <Property Name="datum_vracanja" Type="datetime" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="email" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="RezervacijaOpreme">
           <Key>
@@ -146,6 +157,11 @@
           <Property Name="ugovor_id" Type="int" Nullable="false" />
           <Property Name="korisnicko_ime" Type="varchar" MaxLength="50" />
           <Property Name="lozinka" Type="varchar" MaxLength="200" />
+          <Property Name="pregled" Type="int" />
+          <Property Name="obavijesti" Type="int" />
+          <Property Name="dodavanje" Type="int" />
+          <Property Name="statistika" Type="int" />
+          <Property Name="idPoduzeca" Type="int" />
         </EntityType>
         <EntityType Name="ZaposlenikUloge">
           <Key>
@@ -276,7 +292,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Rezervacija_Automobil">
-          <End Role="Automobil" Type="Self.Automobil" Multiplicity="1" />
+          <End Role="Automobil" Type="Self.Automobil" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Automobil">
@@ -296,30 +314,6 @@
             </Principal>
             <Dependent Role="Rezervacija">
               <PropertyRef Name="id_kupac" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rezervacija_LokacijaPreuzimanja">
-          <End Role="Lokacija" Type="Self.Lokacija" Multiplicity="1" />
-          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Lokacija">
-              <PropertyRef Name="id_lokacija" />
-            </Principal>
-            <Dependent Role="Rezervacija">
-              <PropertyRef Name="lokacija_preuzimanja" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rezervacija_LokacijaVracanja">
-          <End Role="Lokacija" Type="Self.Lokacija" Multiplicity="1" />
-          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Lokacija">
-              <PropertyRef Name="id_lokacija" />
-            </Principal>
-            <Dependent Role="Rezervacija">
-              <PropertyRef Name="lokacija_vracanja" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -393,6 +387,7 @@
           <EntitySet Name="OpremaAutomobila" EntityType="Self.OpremaAutomobila" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Osiguranje" EntityType="Self.Osiguranje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OsiguranjeIznajmljivanja" EntityType="Self.OsiguranjeIznajmljivanja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poduzece" EntityType="Self.Poduzece" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rezervacija" EntityType="Self.Rezervacija" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RezervacijaOpreme" EntityType="Self.RezervacijaOpreme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipOpreme" EntityType="Self.TipOpreme" Schema="dbo" store:Type="Tables" />
@@ -449,14 +444,6 @@
             <End Role="Kupac" EntitySet="Kupac" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rezervacija_LokacijaPreuzimanja" Association="Self.FK_Rezervacija_LokacijaPreuzimanja">
-            <End Role="Lokacija" EntitySet="Lokacija" />
-            <End Role="Rezervacija" EntitySet="Rezervacija" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rezervacija_LokacijaVracanja" Association="Self.FK_Rezervacija_LokacijaVracanja">
-            <End Role="Lokacija" EntitySet="Lokacija" />
-            <End Role="Rezervacija" EntitySet="Rezervacija" />
-          </AssociationSet>
           <AssociationSet Name="FK_RezervacijaOpreme_Oprema" Association="Self.FK_RezervacijaOpreme_Oprema">
             <End Role="Oprema" EntitySet="Oprema" />
             <End Role="RezervacijaOpreme" EntitySet="RezervacijaOpreme" />
@@ -492,6 +479,7 @@
           <EntitySet Name="OpremaAutomobilas" EntityType="Model.OpremaAutomobila" />
           <EntitySet Name="Osiguranjes" EntityType="Model.Osiguranje" />
           <EntitySet Name="OsiguranjeIznajmljivanjas" EntityType="Model.OsiguranjeIznajmljivanja" />
+          <EntitySet Name="Poduzeces" EntityType="Model.Poduzece" />
           <EntitySet Name="Rezervacijas" EntityType="Model.Rezervacija" />
           <EntitySet Name="RezervacijaOpremes" EntityType="Model.RezervacijaOpreme" />
           <EntitySet Name="TipOpremes" EntityType="Model.TipOpreme" />
@@ -534,14 +522,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Rezervacija_Kupac" Association="Model.FK_Rezervacija_Kupac">
             <End Role="Kupac" EntitySet="Kupacs" />
-            <End Role="Rezervacija" EntitySet="Rezervacijas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rezervacija_LokacijaPreuzimanja" Association="Model.FK_Rezervacija_LokacijaPreuzimanja">
-            <End Role="Lokacija" EntitySet="Lokacijas" />
-            <End Role="Rezervacija" EntitySet="Rezervacijas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rezervacija_LokacijaVracanja" Association="Model.FK_Rezervacija_LokacijaVracanja">
-            <End Role="Lokacija" EntitySet="Lokacijas" />
             <End Role="Rezervacija" EntitySet="Rezervacijas" />
           </AssociationSet>
           <AssociationSet Name="FK_Oprema_TipOpreme" Association="Model.FK_Oprema_TipOpreme">
@@ -587,10 +567,10 @@
           <Property Name="godina_prozivodnje" Type="Int32" Nullable="false" />
           <Property Name="kilometraza" Type="Int32" Nullable="false" />
           <Property Name="boja" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cijena" Type="Double" />
           <NavigationProperty Name="Iznajmljivanjes" Relationship="Model.FK_Iznajmljivanje_Automobil" FromRole="Automobil" ToRole="Iznajmljivanje" />
           <NavigationProperty Name="OpremaAutomobilas" Relationship="Model.FK_OpremaAutomobila_Automobil" FromRole="Automobil" ToRole="OpremaAutomobila" />
           <NavigationProperty Name="Rezervacijas" Relationship="Model.FK_Rezervacija_Automobil" FromRole="Automobil" ToRole="Rezervacija" />
-          <Property Name="cijena" Type="Double" />
         </EntityType>
         <EntityType Name="Grad">
           <Key>
@@ -638,8 +618,6 @@
           <NavigationProperty Name="Grad" Relationship="Model.FK_Lokacija_Grad" FromRole="Lokacija" ToRole="Grad" />
           <NavigationProperty Name="Iznajmljivanjes" Relationship="Model.FK_Iznajmljivanje_LokacijaPreuzimanja" FromRole="Lokacija" ToRole="Iznajmljivanje" />
           <NavigationProperty Name="Iznajmljivanjes1" Relationship="Model.FK_Iznajmljivanje_LokacijaVracanja" FromRole="Lokacija" ToRole="Iznajmljivanje" />
-          <NavigationProperty Name="Rezervacijas" Relationship="Model.FK_Rezervacija_LokacijaPreuzimanja" FromRole="Lokacija" ToRole="Rezervacija" />
-          <NavigationProperty Name="Rezervacijas1" Relationship="Model.FK_Rezervacija_LokacijaVracanja" FromRole="Lokacija" ToRole="Rezervacija" />
         </EntityType>
         <EntityType Name="Oprema">
           <Key>
@@ -683,6 +661,13 @@
           <NavigationProperty Name="Iznajmljivanje" Relationship="Model.FK_OsiguranjeIznajmljivanja_Iznajmljivanje" FromRole="OsiguranjeIznajmljivanja" ToRole="Iznajmljivanje" />
           <NavigationProperty Name="Osiguranje" Relationship="Model.FK_OsiguranjeIznajmljivanja_Osiguranje" FromRole="OsiguranjeIznajmljivanja" ToRole="Osiguranje" />
         </EntityType>
+        <EntityType Name="Poduzece">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazivPoduzeca" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Rezervacija">
           <Key>
             <PropertyRef Name="id_rezervacija" />
@@ -692,10 +677,12 @@
           <Property Name="id_automobil" Type="Int32" Nullable="false" />
           <Property Name="lokacija_preuzimanja" Type="Int32" Nullable="false" />
           <Property Name="lokacija_vracanja" Type="Int32" Nullable="false" />
+          <Property Name="datum_preuzimanja" Type="DateTime" Precision="3" />
+          <Property Name="datum_vracanja" Type="DateTime" Precision="3" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Automobil" Relationship="Model.FK_Rezervacija_Automobil" FromRole="Rezervacija" ToRole="Automobil" />
           <NavigationProperty Name="Kupac" Relationship="Model.FK_Rezervacija_Kupac" FromRole="Rezervacija" ToRole="Kupac" />
-          <NavigationProperty Name="Lokacija" Relationship="Model.FK_Rezervacija_LokacijaPreuzimanja" FromRole="Rezervacija" ToRole="Lokacija" />
-          <NavigationProperty Name="Lokacija1" Relationship="Model.FK_Rezervacija_LokacijaVracanja" FromRole="Rezervacija" ToRole="Lokacija" />
           <NavigationProperty Name="RezervacijaOpremes" Relationship="Model.FK_RezervacijaOpreme_Rezervacija" FromRole="Rezervacija" ToRole="RezervacijaOpreme" />
         </EntityType>
         <EntityType Name="RezervacijaOpreme">
@@ -752,6 +739,11 @@
           <Property Name="ugovor_id" Type="Int32" Nullable="false" />
           <Property Name="korisnicko_ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="lozinka" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="pregled" Type="Int32" />
+          <Property Name="obavijesti" Type="Int32" />
+          <Property Name="dodavanje" Type="Int32" />
+          <Property Name="statistika" Type="Int32" />
+          <Property Name="idPoduzeca" Type="Int32" />
           <NavigationProperty Name="Ugovor" Relationship="Model.FK_Zaposlenik_Ugovor" FromRole="Zaposlenik" ToRole="Ugovor" />
           <NavigationProperty Name="ZaposlenikUloges" Relationship="Model.FK_ZaposlenikUloge_Zaposlenik" FromRole="Zaposlenik" ToRole="ZaposlenikUloge" />
         </EntityType>
@@ -790,7 +782,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Rezervacija_Automobil">
-          <End Type="Model.Automobil" Role="Automobil" Multiplicity="1" />
+          <End Type="Model.Automobil" Role="Automobil" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="Model.Rezervacija" Role="Rezervacija" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Automobil">
@@ -870,30 +864,6 @@
             </Principal>
             <Dependent Role="Rezervacija">
               <PropertyRef Name="id_kupac" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rezervacija_LokacijaPreuzimanja">
-          <End Type="Model.Lokacija" Role="Lokacija" Multiplicity="1" />
-          <End Type="Model.Rezervacija" Role="Rezervacija" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Lokacija">
-              <PropertyRef Name="id_lokacija" />
-            </Principal>
-            <Dependent Role="Rezervacija">
-              <PropertyRef Name="lokacija_preuzimanja" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rezervacija_LokacijaVracanja">
-          <End Type="Model.Lokacija" Role="Lokacija" Multiplicity="1" />
-          <End Type="Model.Rezervacija" Role="Rezervacija" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Lokacija">
-              <PropertyRef Name="id_lokacija" />
-            </Principal>
-            <Dependent Role="Rezervacija">
-              <PropertyRef Name="lokacija_vracanja" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -993,7 +963,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1090,9 +1060,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Poduzeces">
+            <EntityTypeMapping TypeName="Model.Poduzece">
+              <MappingFragment StoreEntitySet="Poduzece">
+                <ScalarProperty Name="nazivPoduzeca" ColumnName="nazivPoduzeca" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Rezervacijas">
             <EntityTypeMapping TypeName="Model.Rezervacija">
               <MappingFragment StoreEntitySet="Rezervacija">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="datum_vracanja" ColumnName="datum_vracanja" />
+                <ScalarProperty Name="datum_preuzimanja" ColumnName="datum_preuzimanja" />
                 <ScalarProperty Name="lokacija_vracanja" ColumnName="lokacija_vracanja" />
                 <ScalarProperty Name="lokacija_preuzimanja" ColumnName="lokacija_preuzimanja" />
                 <ScalarProperty Name="id_automobil" ColumnName="id_automobil" />
@@ -1147,6 +1129,11 @@
           <EntitySetMapping Name="Zaposleniks">
             <EntityTypeMapping TypeName="Model.Zaposlenik">
               <MappingFragment StoreEntitySet="Zaposlenik">
+                <ScalarProperty Name="idPoduzeca" ColumnName="idPoduzeca" />
+                <ScalarProperty Name="statistika" ColumnName="statistika" />
+                <ScalarProperty Name="dodavanje" ColumnName="dodavanje" />
+                <ScalarProperty Name="obavijesti" ColumnName="obavijesti" />
+                <ScalarProperty Name="pregled" ColumnName="pregled" />
                 <ScalarProperty Name="lozinka" ColumnName="lozinka" />
                 <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
                 <ScalarProperty Name="ugovor_id" ColumnName="ugovor_id" />

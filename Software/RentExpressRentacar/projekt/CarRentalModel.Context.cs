@@ -34,6 +34,7 @@ namespace projekt
         public virtual DbSet<OpremaAutomobila> OpremaAutomobilas { get; set; }
         public virtual DbSet<Osiguranje> Osiguranjes { get; set; }
         public virtual DbSet<OsiguranjeIznajmljivanja> OsiguranjeIznajmljivanjas { get; set; }
+        public virtual DbSet<Poduzece> Poduzeces { get; set; }
         public virtual DbSet<Rezervacija> Rezervacijas { get; set; }
         public virtual DbSet<RezervacijaOpreme> RezervacijaOpremes { get; set; }
         public virtual DbSet<TipOpreme> TipOpremes { get; set; }

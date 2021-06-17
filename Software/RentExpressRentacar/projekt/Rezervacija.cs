@@ -25,11 +25,13 @@ namespace projekt
         public int id_automobil { get; set; }
         public int lokacija_preuzimanja { get; set; }
         public int lokacija_vracanja { get; set; }
+        public Nullable<System.DateTime> datum_preuzimanja { get; set; }
+        public Nullable<System.DateTime> datum_vracanja { get; set; }
+        public Nullable<System.DateTime> createdAt { get; set; }
+        public string email { get; set; }
     
         public virtual Automobil Automobil { get; set; }
         public virtual Kupac Kupac { get; set; }
-        public virtual Lokacija Lokacija { get; set; }
-        public virtual Lokacija Lokacija1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RezervacijaOpreme> RezervacijaOpremes { get; set; }
     }
