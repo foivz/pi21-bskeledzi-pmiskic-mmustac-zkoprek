@@ -122,6 +122,7 @@ namespace projekt
             this.helpProvider.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " PRIJAVI SE";
+            this.Load += new System.EventHandler(this.LogInForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

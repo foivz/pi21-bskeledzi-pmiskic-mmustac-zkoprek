@@ -28,8 +28,14 @@ namespace projekt
 
         private void osvjeziDgv()
         {
-            var query = _db.Upitis.ToList();
-            dgvObavijesti.DataSource = query;
+            dgvObavijesti.DataSource = null;
+
+            using(var context = new CarRentalEntities())
+            {
+                var query = from o in context.Upitis where o.idPoduzeca == InfoPoduzeca.idPoduzeca select o;
+                dgvObavijesti.DataSource = query.ToList();
+            }
+
 
         }
 

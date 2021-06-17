@@ -50,6 +50,7 @@ namespace projekt
                 ModeratorView();
                 osvjeziDataGrid();
             }
+            UcitajImePoduzeca();
         }
 
         private void ModeratorView()
@@ -365,11 +366,11 @@ namespace projekt
                         using (var context = new CarRentalEntities())
                         {
                             var query = from z in context.Zaposleniks
-                                        select z;
+                                        where z.idPoduzeca == InfoPoduzeca.idPoduzeca select z;
                             glavniDataGrid.DataSource = query.ToList();
                             glavniDataGrid.Columns["lozinka"].Visible = false;
-                            glavniDataGrid.Columns[7].Visible = false;
-                            glavniDataGrid.Columns[8].Visible = false;
+                            glavniDataGrid.Columns[12].Visible = false;
+                            glavniDataGrid.Columns[13].Visible = false;
                         }
                         break;
                     }
@@ -393,10 +394,9 @@ namespace projekt
                             var query = from z in context.Lokacijas.Include("Grad")
                                         select z;
                             glavniDataGrid.DataSource = query.ToList();
+                            glavniDataGrid.Columns[3].Visible = false;
                             glavniDataGrid.Columns[4].Visible = false;
                             glavniDataGrid.Columns[5].Visible = false;
-                            glavniDataGrid.Columns[6].Visible = false;
-                            glavniDataGrid.Columns[7].Visible = false;
                         }
                         break;
                     }
@@ -406,12 +406,12 @@ namespace projekt
                         using (var context = new CarRentalEntities())
                         {
                             var query = from z in context.Automobils
-                                        select z;
+                                       where z.idPoduzeca == InfoPoduzeca.idPoduzeca select z;
                             glavniDataGrid.DataSource = query.ToList();
                             glavniDataGrid.Columns[6].HeaderText = "Cijena HRK";
-                            glavniDataGrid.Columns[7].Visible = false;
                             glavniDataGrid.Columns[8].Visible = false;
                             glavniDataGrid.Columns[9].Visible = false;
+                            glavniDataGrid.Columns[10].Visible = false;
                         }
                         break;
                     }
@@ -422,13 +422,33 @@ namespace projekt
 
         private void AdminViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             _login.Close(); 
+
         }
 
         private void ObavjestBtn_Click(object sender, EventArgs e)
         {
             var form = new PregledObavijestForm();
             form.ShowDialog();
+        }
+
+        private void UcitajImePoduzeca()
+        {
+            List<Poduzece> poduzeca = new List<Poduzece>();
+
+            using (var context = new CarRentalEntities())
+            {
+                var query = from p in context.Poduzeces select p;
+
+                poduzeca = query.ToList();
+            }
+
+            foreach (var p in poduzeca)
+            {
+                if(p.id == InfoPoduzeca.idPoduzeca)
+                    lblPoduzece.Text = p.nazivPoduzeca;
+            }
         }
     }
 }

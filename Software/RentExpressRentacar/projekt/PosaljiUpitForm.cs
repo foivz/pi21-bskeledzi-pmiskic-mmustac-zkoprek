@@ -39,7 +39,8 @@ namespace projekt
                 {
                     predmet = predmetTextBox.Text,
                     opis = opisRichTextBox.Text,
-                    email = emailTextBox.Text
+                    email = emailTextBox.Text,
+                    idPoduzeca = (cmbPoduzece.SelectedItem as Poduzece).id
                     
                 };
 
@@ -92,6 +93,16 @@ namespace projekt
             client.Send(mail);
             MessageBox.Show("Mail je uspješno poslan!", "Uspjeh!", MessageBoxButtons.OK);
             Close();
-        }   
+        }
+
+        private void PosaljiUpitForm_Load(object sender, EventArgs e)
+        {
+            UcitajPoduzeca();
+        }
+
+        private void UcitajPoduzeca()
+        {
+            cmbPoduzece.DataSource = _db.Poduzeces.ToList();
+        }
     }
 }

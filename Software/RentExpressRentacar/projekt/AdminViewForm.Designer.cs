@@ -40,6 +40,8 @@ namespace projekt
             this.vidiZaposlenikeButton = new System.Windows.Forms.Button();
             this.izbrisiButton = new System.Windows.Forms.Button();
             this.ObavjestBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPoduzece = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.glavniDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,11 +153,31 @@ namespace projekt
             this.ObavjestBtn.UseVisualStyleBackColor = true;
             this.ObavjestBtn.Click += new System.EventHandler(this.ObavjestBtn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(611, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Poduzeće: ";
+            // 
+            // lblPoduzece
+            // 
+            this.lblPoduzece.AutoSize = true;
+            this.lblPoduzece.Location = new System.Drawing.Point(678, 9);
+            this.lblPoduzece.Name = "lblPoduzece";
+            this.lblPoduzece.Size = new System.Drawing.Size(35, 13);
+            this.lblPoduzece.TabIndex = 12;
+            this.lblPoduzece.Text = "label2";
+            // 
             // AdminViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 327);
+            this.Controls.Add(this.lblPoduzece);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ObavjestBtn);
             this.Controls.Add(this.izbrisiButton);
             this.Controls.Add(this.vidiZaposlenikeButton);
@@ -190,6 +212,8 @@ namespace projekt
         private System.Windows.Forms.Button vidiZaposlenikeButton;
         private System.Windows.Forms.Button izbrisiButton;
         private System.Windows.Forms.Button ObavjestBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPoduzece;
     }
 }
 

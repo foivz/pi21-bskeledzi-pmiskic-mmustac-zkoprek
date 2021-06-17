@@ -37,23 +37,41 @@ namespace projekt
                 var lozinka = lozinkaTextBox.Text.Trim();
                 var hashedPassword = Utils.Utils.HashPassword(lozinka);
                 var korisnik = _db.Zaposleniks.FirstOrDefault(q => q.korisnicko_ime == korisnickoIme && q.lozinka == hashedPassword);
+                List<ZaposlenikUloge> ulogeZaposlenika = new List<ZaposlenikUloge>();
+                ulogeZaposlenika = _db.ZaposlenikUloges.ToList();
+                //MessageBox.Show(ulogeZaposlenika.Count() + "");
+
+
+                int ulogaZaposlenika = 0;
+                if(korisnik != null)
+                {
+                    ulogaZaposlenika = ulogeZaposlenika.FirstOrDefault(q => q.id_zaposlenik == korisnik.id_zaposlenik).id_tip_zaposlenika.Value;
+                    InfoPoduzeca.idPoduzeca = korisnik.idPoduzeca.Value;
+
+                }
+                    
+                if(ulogaZaposlenika == 4)
+                {
+                    MessageBox.Show("Prijavljeni ste kao superadmin!");
+                    var superAdminForm = new SuperAdminForm();
+                    superAdminForm.ShowDialog();
+                }
                 if (korisnik == null)
                 {
                     MessageBox.Show("Unesite ispravne podatke u polja!");
                 }
                 else
                 {
+                    
                     var adminViewForm = new AdminViewForm(this, korisnik);
                     adminViewForm.ShowDialog();
                 }
-
-
-
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Nesto je poslo po zlu!");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -61,6 +79,11 @@ namespace projekt
         {
             PosaljiUpitForm upitForm = new PosaljiUpitForm();
             upitForm.ShowDialog();
+        }
+
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,12 +12,9 @@ namespace projekt
     using System;
     using System.Collections.Generic;
     
-    public partial class Upiti
+    public partial class Poduzece
     {
-        public int id_upit { get; set; }
-        public string predmet { get; set; }
-        public string email { get; set; }
-        public string opis { get; set; }
-        public Nullable<int> idPoduzeca { get; set; }
+        public int id { get; set; }
+        public string nazivPoduzeca { get; set; }
     }
 }

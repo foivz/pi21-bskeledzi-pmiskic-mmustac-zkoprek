@@ -76,22 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automobil.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarRentalModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentalModel.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DodajAutomobilForm.cs">
       <SubType>Form</SubType>
@@ -124,9 +109,10 @@
       <DependentUpon>AdminViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Grad.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Grad.novo.cs" />
+    <Compile Include="InfoPoduzeca.cs" />
     <Compile Include="IznajmiAutomobilForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,10 +120,10 @@
       <DependentUpon>IznajmiAutomobilForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Iznajmljivanje.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Kupac.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
@@ -146,7 +132,22 @@
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Lokacija.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="NapraviRezervacijuForm.cs">
       <SubType>Form</SubType>
@@ -161,16 +162,16 @@
       <DependentUpon>OdgovoriForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Oprema.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="OpremaAutomobila.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Osiguranje.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="OsiguranjeIznajmljivanja.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="PodatciOKupcuForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +179,10 @@
     <Compile Include="PodatciOKupcuForm.Designer.cs">
       <DependentUpon>PodatciOKupcuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Poduzece.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Poduzece.partial.cs" />
     <Compile Include="PosaljiUpitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,28 +204,36 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rezervacija.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="RezervacijaOpreme.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuperAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperAdminForm.Designer.cs">
+      <DependentUpon>SuperAdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TipOpreme.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="TipZaposlenika.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TipZaposlenika.partial.cs" />
     <Compile Include="Ugovor.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Upiti.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Zaposlenik.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Zaposlenik.partial.cs" />
     <Compile Include="ZaposlenikUloge.cs">
-      <DependentUpon>CarRentalModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodajAutomobilForm.resx">
       <DependentUpon>DodajAutomobilForm.cs</DependentUpon>
@@ -270,13 +283,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="CarRentalModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarRentalModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <EmbeddedResource Include="SuperAdminForm.resx">
+      <DependentUpon>SuperAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
-    <None Include="CarRentalModel.edmx.diagram">
-      <DependentUpon>CarRentalModel.edmx</DependentUpon>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -293,15 +309,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CarRentalModel.Context.tt">
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarRentalModel.edmx</DependentUpon>
-      <LastGenOutput>CarRentalModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CarRentalModel.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarRentalModel.edmx</DependentUpon>
-      <LastGenOutput>CarRentalModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

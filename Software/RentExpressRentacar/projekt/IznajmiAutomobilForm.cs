@@ -43,15 +43,18 @@ namespace projekt
 
         private void IznajmiAutomobilForm_Load(object sender, EventArgs e)
         {
+            UcitajPoduzeca();
             GetData();
+            
         }
 
         private void GetData()
         {
+            int idPoduzeca = (cmbPoduzeca.SelectedItem as Poduzece).id;
             using (var context = new CarRentalEntities())
             {
                 var query = from p in context.Automobils.Include("OpremaAutomobilas").Include("Rezervacijas")
-                            select p;
+                            where p.idPoduzeca == idPoduzeca select p;
 
                 automobilDataGridView.DataSource = query.ToList();
                 automobilDataGridView.Columns[6].HeaderText = "Cijena HRK";
@@ -65,16 +68,28 @@ namespace projekt
 
         private void automobilTextBox_TextChanged(object sender, EventArgs e)
         {
+            int idPoduzeca = (cmbPoduzeca.SelectedItem as Poduzece).id;
             string txt = automobilTextBox.Text;
 
             using (var context = new CarRentalEntities())
             {
                 var query = from p in context.Automobils.Include("OpremaAutomobilas").Include("Rezervacijas")
-                            where p.marka.Contains(txt)
+                            where p.marka.Contains(txt) && p.idPoduzeca == idPoduzeca
                             select p;
 
                 automobilDataGridView.DataSource = query.ToList();
             }
+        }
+
+        private void UcitajPoduzeca()
+        {
+            cmbPoduzeca.DataSource = null;
+            cmbPoduzeca.DataSource = _db.Poduzeces.ToList();
+        }
+
+        private void cmbPoduzeca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetData();
         }
     }
 }

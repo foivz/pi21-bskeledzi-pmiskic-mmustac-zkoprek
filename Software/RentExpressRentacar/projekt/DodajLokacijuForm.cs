@@ -87,5 +87,10 @@ namespace projekt
         {
             Close();
         }
+
+        private void DodajLokacijuForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

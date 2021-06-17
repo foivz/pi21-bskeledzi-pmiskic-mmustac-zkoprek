@@ -72,6 +72,7 @@ namespace projekt
                     int kilometraza = int.Parse(kilometrazaTextBox.Text);
                     string boja = bojaTextBox.Text;
                     string cijena = txtCijenPoDanu.Text;
+                    int idPoduzeca = InfoPoduzeca.idPoduzeca;
 
                     Automobil noviAutomobil = new Automobil
                     {
@@ -80,7 +81,8 @@ namespace projekt
                         godina_prozivodnje = godinaProizvodnje,
                         kilometraza = kilometraza,
                         boja = boja,
-                        cijena = int.Parse(cijena)
+                        cijena = int.Parse(cijena),
+                        idPoduzeca = idPoduzeca
                     };
                     context.Automobils.Add(noviAutomobil);
                     context.SaveChanges();
@@ -92,6 +94,11 @@ namespace projekt
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajAutomobilForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

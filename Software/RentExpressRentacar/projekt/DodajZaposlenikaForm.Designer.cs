@@ -42,6 +42,8 @@ namespace projekt
             this.oibTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.korisnickoImeTextBox = new System.Windows.Forms.TextBox();
+            this.cmbUloge = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,12 +69,13 @@ namespace projekt
             // 
             this.groupBox2.Controls.Add(this.trajniRadio);
             this.groupBox2.Controls.Add(this.naOgranicenoVrijemeRadio);
-            this.groupBox2.Location = new System.Drawing.Point(35, 132);
+            this.groupBox2.Location = new System.Drawing.Point(35, 175);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(169, 71);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Odaberite ugovor zaposlenika:";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // trajniRadio
             // 
@@ -112,7 +115,7 @@ namespace projekt
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(35, 218);
+            this.dodajButton.Location = new System.Drawing.Point(35, 261);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(75, 23);
             this.dodajButton.TabIndex = 11;
@@ -122,7 +125,7 @@ namespace projekt
             // 
             // odustaniButton
             // 
-            this.odustaniButton.Location = new System.Drawing.Point(118, 218);
+            this.odustaniButton.Location = new System.Drawing.Point(118, 261);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(75, 23);
             this.odustaniButton.TabIndex = 12;
@@ -162,11 +165,30 @@ namespace projekt
             this.korisnickoImeTextBox.Size = new System.Drawing.Size(100, 20);
             this.korisnickoImeTextBox.TabIndex = 16;
             // 
+            // cmbUloge
+            // 
+            this.cmbUloge.FormattingEnabled = true;
+            this.cmbUloge.Location = new System.Drawing.Point(118, 148);
+            this.cmbUloge.Name = "cmbUloge";
+            this.cmbUloge.Size = new System.Drawing.Size(121, 21);
+            this.cmbUloge.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 151);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Uloga:";
+            // 
             // DodajZaposlenikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 254);
+            this.ClientSize = new System.Drawing.Size(411, 327);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbUloge);
             this.Controls.Add(this.korisnickoImeTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.oibTextBox);
@@ -181,6 +203,7 @@ namespace projekt
             this.Name = "DodajZaposlenikaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DODAJ ZAPOSLENIKA";
+            this.Load += new System.EventHandler(this.DodajZaposlenikaForm_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -203,5 +226,7 @@ namespace projekt
         private System.Windows.Forms.TextBox oibTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox korisnickoImeTextBox;
+        private System.Windows.Forms.ComboBox cmbUloge;
+        private System.Windows.Forms.Label label5;
     }
 }
