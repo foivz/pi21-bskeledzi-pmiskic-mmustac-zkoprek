@@ -29,6 +29,8 @@ namespace projekt
         private string datum1 { get; set; }
         private string datum2 { get; set; }
         private string cijena { get; set; }
+        private string iznos { get; set; }
+        private string CijenaSLipama { get; set; }
 
         public PodatciOKupcuForm(Automobil auto, Lokacija lok, bool k, string d1, string d2)
         {
@@ -132,7 +134,7 @@ namespace projekt
            
             double? cijenaAutomobila = auto.cijena;
             cijena = (cijenaAutomobila * dana).ToString();
-            txtCijena.Text = cijena += " HRK";
+            txtCijena.Text = cijena + " HRK";
         }
 
         private void odustaniButton_Click(object sender, EventArgs e)
@@ -147,17 +149,107 @@ namespace projekt
             {
                 cvvTextBox.Enabled = false;
                 datumIstekaTextBox.Enabled = false;
-                brojKarticeTextBox.Enabled = false;
+                txtBrojRacuna.Enabled = false;
                 kartica = "gotovina";
             } 
         }
 
+        private void PretvoriCijenuUIznosSLipama()
+        {
+            CijenaSLipama = cijena + "00";
+            switch (CijenaSLipama.Length)
+            {
+                case 3:
+                    {
+                        iznos = "000000000000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 4:
+                    {
+                        iznos = "00000000000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 5:
+                    {
+                        iznos = "0000000000" + CijenaSLipama;
+                        break;
+                    }
+                case 6:
+                    {
+                        iznos = "000000000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 7:
+                    {
+                        iznos = "00000000" + CijenaSLipama;
+                        break;
+                    }
+                case 8:
+                    {
+                        iznos = "0000000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 9:
+                    {
+                        iznos = "000000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 10:
+                    {
+                        iznos = "00000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 11:
+                    {
+                        iznos = "0000" + CijenaSLipama;
+                        break;
+                    }
+
+                case 12:
+                    {
+                        iznos = "000" + CijenaSLipama;
+                        break;
+                    }
+                case 13:
+                    {
+                        iznos = "00" + CijenaSLipama;
+                        break;
+                    }
+                case 14:
+                    {
+                        iznos = "0" + CijenaSLipama;
+                        break;
+                    }
+            }
+        }
+
         private void KreirajPDF417 ()
         {
-            PQScan.BarcodeCreator.Barcode pdf417 = new PQScan.BarcodeCreator.Barcode();
-            pdf417.Data = $"Rent Express d.o.o\n" +
-                          $"Odabrali ste automobil marke: {automobil.marka}\n" +
-                          $"Zahvaljujemo Vam na ukazanom povjerenju!";
+            PretvoriCijenuUIznosSLipama();
+
+            PQScan.BarcodeCreator.Barcode pdf417 = new PQScan.BarcodeCreator.Barcode();                              
+
+            pdf417.Data = $"HRVHUB30\n" +
+                          $"HRK\n" +
+                          $"{iznos}\n" +
+                          $"{imeTextBox.Text} {prezimeTextBox.Text}\n" +
+                          $"{txtAdresa.Text}\n" +
+                          $"{txtPostanskiBroj.Text} {txtGrad.Text}\n" +
+                          $"RentExpress d.o.o\n" +
+                          $"Julija Merlica 9\n" +
+                          $"42000 Varazdin\n" +
+                          $"HR1210010051863000160\n" +
+                          $"HR01\n" +
+                          $"7269-68949637676-00019\n" +
+                          $"COST\n" +
+                          $"Trosak najma vozila\n";
+
             pdf417.BarType = BarCodeType.PDF417;
             pdf417.Width = 170;
             pdf417.Height = 40;
@@ -169,7 +261,7 @@ namespace projekt
 
         private void zavrsiRezervacijuButton_Click(object sender, EventArgs e)
         {
-            if (vozackaDozvolaTextBox.Text == "" || txtEmail.Text == "" || brojKarticeTextBox.Text == "" || cvvTextBox.Text == "" || datumIstekaTextBox.Text == "" || prezimeTextBox.Text == "" || imeTextBox.Text == "" || oibTextBox.Text == "")
+            if (txtGrad.Text == "" || txtEmail.Text == "" || txtBrojRacuna.Text == "" || cvvTextBox.Text == "" || datumIstekaTextBox.Text == "" || prezimeTextBox.Text == "" || imeTextBox.Text == "" || oibTextBox.Text == "")
             {
                 SviPodaci.Visible = true;
                 return;
@@ -218,7 +310,7 @@ namespace projekt
                 $"      Datum preuzimanja: {datum1}\n" +
                 $"      Datum vracanja: {datum2}\n" +              
                 $"      Nacin placanja: {kartica}\n\n" +
-                $"      UKUPNA CIJENA: {cijena} \n\n\n" +
+                $"      UKUPNA CIJENA: {cijena} HRK\n\n\n" +
                 $"      " +
                 $"      Hvala Vam i uzivajte u voznji!" +             
                 $"");
@@ -264,7 +356,7 @@ namespace projekt
 
         private void PodatciOKupcuForm_Load(object sender, EventArgs e)
         {
-            JeLiKartica();
+            JeLiKartica();           
         }
 
         private void imeTextBox_TextChanged(object sender, EventArgs e)
